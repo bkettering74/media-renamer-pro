@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Renamer Pro — Batch rename photos, movies, TV, music and more on Mac, iPad and iPhone</title>
+<meta name="description" content="Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. Preview every change, undo any batch. $4.99 once, no subscription.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/">
+<meta property="og:title" content="Media Renamer Pro">
+<meta property="og:description" content="Batch rename media using what's inside the files. Preview first, undo it all.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6; --accent-ink:#fff;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:14px; --maxw:1000px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+
+  header{padding:52px 0 8px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img{width:60px;height:60px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.14)}
+  .brand h1{font-size:1.35rem;margin:0;letter-spacing:-.01em}
+  .brand p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+
+  .hero{padding:34px 0 12px}
+  .hero h2{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.15;margin:0 0 18px;letter-spacing:-.022em;max-width:19ch}
+  .lede{font-size:1.1rem;color:var(--muted);max-width:60ch;margin:0 0 26px}
+
+  .demo{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin:26px 0 30px;overflow-x:auto}
+  .demo code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    display:block;white-space:nowrap}
+  .demo .before{color:var(--bad)}
+  .demo .after{color:var(--good)}
+  .demo .arrow{color:var(--muted);margin:8px 0;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase}
+
+  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:26px 0 8px}
+  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;
+    padding:13px 24px;border-radius:10px;font-weight:600;font-size:.98rem}
+  .btn:hover{filter:brightness(1.08)}
+  .price{color:var(--muted);font-size:.94rem}
+
+  section{padding:44px 0;border-top:1px solid var(--line);margin-top:44px}
+  h3{font-size:1.45rem;margin:0 0 8px;letter-spacing:-.015em}
+  .sub{color:var(--muted);margin:0 0 26px;max-width:62ch}
+
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .card h4{margin:0 0 6px;font-size:1rem}
+  .card p{margin:0;color:var(--muted);font-size:.92rem}
+
+  ul.plain{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+  ul.plain li{padding-left:26px;position:relative;color:var(--muted)}
+  ul.plain li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;
+    border-radius:50%;background:var(--accent)}
+  ul.plain strong{color:var(--ink)}
+
+  .shots{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px}
+  .shots img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;background:var(--panel)}
+
+  footer{border-top:1px solid var(--line);margin-top:52px;padding:30px 0 60px;color:var(--muted);font-size:.88rem}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="Media Renamer Pro app icon">
+      <div>
+        <h1>Media Renamer Pro</h1>
+        <p>Mac &middot; iPad &middot; iPhone</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Your media files already know what they are.</h2>
+    <p class="lede">Media Renamer Pro reads what is actually inside your files, looks up the real title online when that helps, and builds a rename plan you review before anything moves.</p>
+
+    <div class="demo">
+      <code class="before">The.Last.of.Us.S02E04.1080p.WEB-DL.x265-GRP.mkv</code>
+      <div class="arrow">becomes</div>
+      <code class="after">The Last of Us - S02E04 - Day One.mkv</code>
+    </div>
+
+    <p class="lede">One click. Now do that to a thousand files at once. Nothing is renamed until you say go, and every batch can be undone.</p>
+
+    <div class="cta">
+      <a class="btn" href="https://apps.apple.com/us/app/id6761764615">Get it on the App Store</a>
+      <span class="price">$4.99 once. No subscription, no ads, no account.</span>
+    </div>
+  </div>
+
+  <section>
+    <h3>Six kinds of media</h3>
+    <p class="sub">Most renamers do TV and movies. This one covers the rest of what is actually on your drives.</p>
+    <div class="grid">
+      <div class="card"><h4>TV shows</h4><p>Real episode titles from TVmaze, TMDb and OMDb.</p></div>
+      <div class="card"><h4>Movies</h4><p>Correct title and year, with the scene tags stripped out.</p></div>
+      <div class="card"><h4>Photos and video</h4><p>Date taken, camera, city, and on-device AI scene descriptions.</p></div>
+      <div class="card"><h4>Music</h4><p>Artist, album and track pulled from embedded tags.</p></div>
+      <div class="card"><h4>Audiobooks</h4><p>Author, title and series from Google Books and OpenLibrary.</p></div>
+      <div class="card"><h4>Retro game ROMs</h4><p>Clean titles and region tags from IGDB and RAWG.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Why people keep it</h3>
+    <ul class="plain">
+      <li><strong>Preview first.</strong> Every single change is visible before it happens.</li>
+      <li><strong>Full undo.</strong> One click puts the entire batch back.</li>
+      <li><strong>Conflict detection.</strong> It will not overwrite or clobber a file.</li>
+      <li><strong>Presets per media type.</strong> Set it up once, reuse it forever.</li>
+      <li><strong>Click-to-add naming tokens.</strong> No regex, no scripting.</li>
+      <li><strong>Works on network shares and NAS folders.</strong> Renames stay safe over SMB.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Private by design</h3>
+    <p class="sub">Renaming happens on your device. Photo analysis runs on-device through Apple's Vision framework, so your pictures never leave your Mac or your phone. Turn on Local-Only Mode and the app makes zero network calls of any kind. No account, no tracking, no ads, no telemetry.</p>
+  </section>
+
+  <section>
+    <h3>One purchase, every device</h3>
+    <p class="sub">Universal app for Mac, iPad and iPhone. Buy it once and it runs on all three. On iPhone and iPad you can pick any folder in Files or iCloud Drive and rename right there, including folders on a network share.</p>
+    <div class="shots">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1c/4f/57/1c4f57cd-373c-281f-7290-6c1eb6f0eacd/01_main.png/1200x0w.jpg" alt="Media Renamer Pro main window showing a folder of media files ready to rename" loading="lazy">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/59/9c/4d/599c4dd3-ed0d-8a54-0b7c-9df2c9130337/02_rename_preview.png/1200x0w.jpg" alt="Rename preview showing old and new filenames side by side before applying" loading="lazy">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3e/37/20/3e372042-fa03-53d2-e345-b05642ef021f/03_customize.png/1200x0w.jpg" alt="Customizing the naming pattern with tap-to-add tokens" loading="lazy">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ac/b2/ec/acb2ec26-b426-2025-db37-f74754d94a60/04_settings_general.png/1200x0w.jpg" alt="Settings screen including Local-Only Mode" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h3>Requirements</h3>
+    <ul class="plain">
+      <li><strong>macOS 14.0</strong> or later</li>
+      <li><strong>iOS and iPadOS 17.0</strong> or later</li>
+      <li>Universal purchase across all three</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>
+      <a href="https://apps.apple.com/us/app/id6761764615">App Store</a> &middot;
+      <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">Support</a>
+    </p>
+    <p>&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </footer>
+
+</div>
+</body>
+</html>
