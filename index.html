@@ -67,7 +67,9 @@
 
   .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-  .card h4{margin:0 0 6px;font-size:1rem}
+  .card h4{margin:0 0 6px;font-size:1rem;line-height:1.4}
+  .card h4 a{text-decoration:none}
+  .card h4 a:hover{text-decoration:underline}
   .card p{margin:0;color:var(--muted);font-size:.92rem}
 
   ul.plain{list-style:none;padding:0;margin:0;display:grid;gap:13px}
@@ -157,6 +159,17 @@
   </section>
 
   <section>
+    <h3>Guides</h3>
+    <p class="sub">Things I have had to figure out, written down properly.</p>
+    <div class="grid">
+      <div class="card">
+        <h4><a href="naming-guide.html">How to name TV and movie files so Plex and Jellyfin actually match them</a></h4>
+        <p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h3>Requirements</h3>
     <ul class="plain">
       <li><strong>macOS 14.0</strong> or later</li>
@@ -168,6 +181,7 @@
   <footer>
     <p>
       <a href="https://apps.apple.com/us/app/id6761764615">App Store</a> &middot;
+      <a href="naming-guide.html">Naming guide</a> &middot;
       <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">Support</a>
     </p>
     <p>&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
