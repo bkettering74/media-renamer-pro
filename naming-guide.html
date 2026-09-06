@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to name TV and movie files so Plex and Jellyfin actually match them</title>
+<meta name="description" content="A practical guide to naming TV, movie and anime files so Plex, Jellyfin and Emby match them correctly. Covers absolute vs aired episode ordering, NFO sidecars, subtitles, and why your library keeps guessing wrong.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/naming-guide.html">
+<meta property="og:title" content="How to name TV and movie files so Plex and Jellyfin actually match them">
+<meta property="og:description" content="Absolute vs aired ordering, NFO sidecars, subtitles, and the naming rules that stop your library guessing wrong.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+
+  <h1>How to name TV and movie files so Plex and Jellyfin actually match them</h1>
+  <p class="standfirst">Most matching failures are not scraper bugs. They are naming problems, and there are only about six of them.</p>
+  <p class="byline">Buck Kettering &middot; September 2026</p>
+
+  <p>Every media server matches on the filename first and asks questions later. Plex, Jellyfin and Emby all parse the name, guess a title, guess a season and episode, then go looking for something online that fits the guess. If the guess is wrong the lookup is wrong, and no amount of refreshing fixes it.</p>
+
+  <p>Here is what actually breaks, in the order it usually bites.</p>
+
+  <h2>1. Give every show a folder and every season a folder</h2>
+
+  <p>Flat folders full of episodes are where most libraries go wrong. The structure every server wants:</p>
+
+<pre><code>TV Shows/
+  The Last of Us/
+    Season 01/
+      The Last of Us - S02E04.mkv
+    Season 02/
+</code></pre>
+
+  <p>Use <code>Season 01</code> with the leading zero, not <code>Season 1</code>. Some scanners cope with both, some sort <code>Season 10</code> before <code>Season 2</code>, and you gain nothing by finding out which yours does.</p>
+
+  <p>Do not put show folders directly at the root of a drive. If you do, your library path has to be the whole volume, which means every scan also walks <code>$RECYCLE.BIN</code>, <code>System Volume Information</code> and anything else that ever lands there. Keep one parent folder per library.</p>
+
+  <h2>2. Use SxxExx, and put the year on the show folder</h2>
+
+  <p>The season and episode numbers must be explicit and machine readable:</p>
+
+<pre><code class="good">The Last of Us - S02E04 - Day One.mkv</code></pre>
+
+  <p>Episode titles are optional and ignored by the matcher. The <code>S02E04</code> is what matters.</p>
+
+  <p>Where a show name is ambiguous, disambiguate on the folder, not the file:</p>
+
+<pre><code class="good">The Office (2005)/
+Shogun (2024)/</code></pre>
+
+  <p>Two shows share a name more often than you would think, and the year is how the scraper tells them apart. If it is still guessing wrong, most servers let you pin the folder to a specific database ID:</p>
+
+<pre><code class="good">Shogun (2024) [tvdbid-390481]/</code></pre>
+
+  <h2>3. Anime: absolute ordering is the whole problem</h2>
+
+  <p>This is the most common unsolvable-looking case, and it is worth understanding because it explains a whole class of failures.</p>
+
+  <p>Long-running anime is numbered two different ways. <strong>Aired order</strong> splits the show into seasons the way it was broadcast. <strong>Absolute order</strong> numbers every episode in one continuous run from episode 1 to episode 1200-something.</p>
+
+  <p>Most anime rips are numbered absolutely:</p>
+
+<pre><code class="bad">Pokemon - 145.mkv</code></pre>
+
+  <p>That means nothing to a season-based matcher. Absolute episode 145 is not season 1 episode 45, and it is not season 4 episode 5 either. There is no arithmetic that recovers it without a mapping table.</p>
+
+  <p>It gets worse when you mix providers. TVDB carries Pokemon as one series with aired-order seasons. MyAnimeList and AniDB do not model it that way at all: they split it into separate series per arc, so Indigo League, Orange Islands and Johto are their own entries rather than seasons 1, 2 and 3 of one show. Point a MAL or AniDB agent at one folder with 26 season subfolders and there is nothing sensible it can hand back.</p>
+
+  <div class="note">
+    <p><strong>The tell:</strong> episode artwork looks right but the titles are wrong. That means your images and your episode data are coming from two providers that disagree about the show's structure.</p>
+  </div>
+
+  <p>Pick one ordering and commit to it. If you want aired-order seasons, rename the files to explicit <code>SxxExx</code> that matches your provider's aired order and turn the other agents off for that series. If your files are genuinely absolute-numbered, flatten the show and use absolute ordering instead. What you cannot do is half of both.</p>
+
+  <h2>4. Movies: strip the scene tags</h2>
+
+  <p>A release name is not a filename:</p>
+
+<pre><code class="bad">Dune.Part.Two.2024.2160p.UHD.BluRay.x265-GROUP.mkv</code></pre>
+<pre><code class="good">Dune Part Two (2024).mkv</code></pre>
+
+  <p>Title and year is all a matcher needs. Everything else is noise that gives it a chance to guess wrong. Resolution and codec are read from the file itself, so putting them in the name buys you nothing.</p>
+
+  <p>Give each movie its own folder if you keep extras or subtitles alongside it.</p>
+
+  <h2>5. Subtitles need the language code</h2>
+
+  <p>Sidecar subtitles are not picked up just because the base name matches. They usually need the language:</p>
+
+<pre><code class="good">Dune Part Two (2024).en.srt</code></pre>
+
+  <p>And check that your library has local media assets enabled. If that is off, the server never looks for sidecar files at all, which is why "the names match exactly and it still does not work" is such a common complaint.</p>
+
+  <h2>6. When the scraper is simply wrong, write an NFO</h2>
+
+  <p>Some things have no online match. Home video, an old wrestling match, a family recording, a talk someone gave. Fighting the scraper on those is a losing game.</p>
+
+  <p>Two clean answers:</p>
+
+  <ul>
+    <li><strong>Put them in a library whose type does not scrape.</strong> Jellyfin's "Home Videos and Photos" type does not go looking for matches at all. This is the low-effort fix and it is usually the right one.</li>
+    <li><strong>Write an NFO sidecar.</strong> A plain XML file next to the video with the same base name and a <code>.nfo</code> extension. Set the library to prefer local metadata and untick the internet providers, and the server uses your data and stops guessing.</li>
+  </ul>
+
+  <p>One thing worth knowing: media servers do not read metadata out of the video container the way a music player reads ID3 out of an MP3. You can set a title inside an MKV with MKVToolNix and Jellyfin will ignore it completely. Library metadata comes from the filename, the online providers, and NFO sidecars. That is the whole list.</p>
+
+  <p>If you do write NFOs, keep them next to the video rather than anywhere central, so they travel with the file when you reorganize.</p>
+
+  <h2>A word on renaming safely</h2>
+
+  <p>Whatever you use to do the renaming, two things will eventually bite you.</p>
+
+  <h3>Collision chains</h3>
+
+  <p>Renaming A to B while something is already called B, or two files resolving to the same destination, are the cases that eat files. Checked one at a time each one looks fine right up until something is overwritten. A safe renamer computes the preview against the final state, not file by file, and ideally moves everything to temporary names first and then to final names, so chained and swapped destinations stop being order-dependent.</p>
+
+  <h3>Network shares behave differently</h3>
+
+  <p>SMB shares and most NAS boxes are case-insensitive but case-preserving. <code>Report.pdf</code> to <code>report.pdf</code> either silently does nothing or throws an error depending on the box. Same-name detection that is perfectly correct on APFS quietly stops being correct over the network. If your library lives on a NAS, test your renaming tool there before you trust it with a thousand files.</p>
+
+  <div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and an undo for the whole batch.</p>
+    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
+  </div>
+
+</div>
+</body>
+</html>
