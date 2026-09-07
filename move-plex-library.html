@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to move a Plex library to another drive without losing watch history</title>
+<meta name="description" content="Watch history, posters and collections belong to the item in the Plex database, not the file on disk. The safe sequence for moving files between drives, and the one action that really does destroy your work.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/move-plex-library.html">
+<meta property="og:title" content="How to move a Plex library to another drive without losing watch history">
+<meta property="og:description" content="Watch history, posters and collections belong to the item in the Plex database, not the file on disk. The safe sequence for moving files between drives, and the one action that really does destroy your work.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to move a Plex library to another drive without losing watch history">
+<meta name="twitter:description" content="Watch history, posters and collections belong to the item in the Plex database, not the file on disk. The safe sequence for moving files between drives, and the one action that really does destroy your work.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to move a Plex library to another drive without losing watch history",
+  "description": "Watch history, posters and collections belong to the item in the Plex database, not the file on disk. The safe sequence for moving files between drives, and the one action that really does destroy your work.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/move-plex-library.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/move-plex-library.html"
+  },
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+<h1>How to move a Plex library to another drive without losing watch history</h1>
+<p class="standfirst">Your watch history is attached to the item in the database, not the file on disk. Once that is clear, the move is straightforward.</p>
+<p class="byline">Buck Kettering · September 2026</p>
+
+<p>The fear is reasonable. You have spent evenings fixing posters, building collections, and hand-matching the awkward titles. Moving files to a bigger drive feels like it puts all of that at risk.</p>
+
+<p>It mostly does not, as long as you understand what your watch history is actually attached to.</p>
+
+<h2>The thing that matters: items, not files</h2>
+
+<p>Plex keeps a database. In it, each movie or episode is an <strong>item</strong>, and the item is what holds your artwork, your collections, your manual match, and every view state and progress marker for every user.</p>
+
+<p>The file is not the item. The file is something the item points at. One item can point at several files, which is exactly what happens when you keep a 1080p and a 4K copy of the same movie, and it is why replacing an x264 rip with an x265 one shows up as an update instead of a second entry in your library.</p>
+
+<p>That behavior is the proof. If watch history lived on the file, swapping the file would lose it.</p>
+
+<p>So the goal of a move is simple: make sure every file re-matches to the <strong>same item</strong> after it lands. If it does, nothing is lost. If Plex creates a new item instead, that new item starts empty, and the old one gets cleaned up along with everything you attached to it.</p>
+
+<h2>What actually destroys your work</h2>
+
+<p>Deleting the library. Not moving files, not editing paths. Removing a library and adding it back throws away every item in it, and with them every manual match, every custom poster, and all the watch history for that library.</p>
+
+<p>Some guides recommend delete-and-recreate because it is simple and it always ends in a clean scan. It also always ends in you redoing the work. You do not need it.</p>
+
+<h2>The safe sequence</h2>
+
+<p>Do this in order. It works whether you are moving to another internal drive, a NAS, or a different folder on the same disk.</p>
+
+<p><strong>1. Back up the database first.</strong> Stop Plex Media Server, copy the entire Plex Media Server data directory somewhere else, start it again. Two minutes, and it is the only true undo you have.</p>
+
+<p><strong>2. Turn off automatic trash emptying.</strong> Settings, Library, and clear "Empty trash automatically after every scan". If this stays on and Plex scans while the files are briefly missing, it will delete items from the database, which is precisely the loss you are trying to avoid.</p>
+
+<p><strong>3. Copy, do not move.</strong> Copy the files to the new location and leave the originals where they are until the whole thing is verified. If a transfer is interrupted, you still have the source.</p>
+
+<p><strong>4. Add the new path to the existing library.</strong> Edit the library you already have and add the new folder as an additional path. Do not create a new library. Do not remove the old path yet.</p>
+
+<p><strong>5. Scan, and let it finish.</strong> Plex sees the same content in two places and matches it to the items that already exist. Wait for the scan to complete fully before touching anything else.</p>
+
+<p><strong>6. Now remove the old path</strong> from that same library, and scan again.</p>
+
+<p><strong>7. Turn trash emptying back on</strong>, empty the trash, and only then delete the original files.</p>
+
+<p>At no point did the library get deleted, so at no point was anything at risk.</p>
+
+<div class="note"><p><strong>Do not leave both paths in the library longer than the move requires.</strong> While both are present Plex sees every title twice, and how it merges or splits duplicates is not something you want to discover on a large library.</p></div>
+
+<h2>Why the folder structure still matters</h2>
+
+<p>Re-matching only works if the files are named and organized well enough for Plex to identify them the second time. If your library only matched correctly the first time because you fixed twenty of them by hand, a move is a good moment to fix the names instead of the matches.</p>
+
+<p>One more thing worth doing while you are reorganizing: <strong>keep one parent folder per library rather than putting show folders directly in the drive root.</strong> If your library path is the whole drive, every scan also walks the recycle bin, system volume metadata, and anything else that ever lands there.</p>
+
+<pre><code class="good">D:\TV Shows\Show Name (2011)\Season 01\Show Name - S01E01.mkv</code></pre>
+
+<pre><code class="bad">D:\Show Name\Season 01\Show Name - S01E01.mkv
+(library path is D:\ and now includes $RECYCLE.BIN)</code></pre>
+
+<h2>If something did go wrong</h2>
+
+<p>If items came back empty, stop scanning. Every additional scan makes it harder to reason about. Restore the database backup you took in step one, put the files back where the database expects them, and start over with the sequence above.</p>
+
+<p>If you skipped the backup and history is gone, it is gone. That is the honest answer, and it is why step one is step one.</p>
+
+<h2>The one-line version</h2>
+
+<p>Watch history belongs to the item in the database, not to the file on disk. Keep the library, change where it points, scan before you remove the old path, and back up the database before you touch anything.</p>
+
+<p>Related: <a href="naming-guide.html">how to name TV and movie files so Plex and Jellyfin actually match them</a> and <a href="batch-rename-safety.html">why batch renaming eats files, and the two-phase fix</a>.</p>
+
+<div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and an undo for the whole batch.</p>
+    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
+  </div>
+
+</div>
+</body>
+</html>
