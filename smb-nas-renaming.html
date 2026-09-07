@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What breaks when you rename files over SMB and NAS shares</title>
+<meta name="description" content="Renames that are safe on a local disk behave differently over SMB. Atomic replace, free space checks, extended attributes and Finder tags, case sensitivity probing, and handling mid-batch failures.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/smb-nas-renaming.html">
+<meta property="og:title" content="What breaks when you rename files over SMB and NAS shares">
+<meta property="og:description" content="Renames that are safe on a local disk behave differently over SMB. Atomic replace, free space checks, extended attributes and Finder tags, case sensitivity probing, and handling mid-batch failures.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="What breaks when you rename files over SMB and NAS shares">
+<meta name="twitter:description" content="Renames that are safe on a local disk behave differently over SMB. Atomic replace, free space checks, extended attributes and Finder tags, case sensitivity probing, and handling mid-batch failures.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "What breaks when you rename files over SMB and NAS shares",
+  "description": "Renames that are safe on a local disk behave differently over SMB. Atomic replace, free space checks, extended attributes and Finder tags, case sensitivity probing, and handling mid-batch failures.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/smb-nas-renaming.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/smb-nas-renaming.html"
+  },
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+<h1>What breaks when you rename files over SMB and NAS shares</h1>
+<p class="standfirst">A rename is a metadata operation on your own disk. Over a network share, almost none of the assumptions behind that sentence still hold.</p>
+<p class="byline">Buck Kettering · September 2026</p>
+
+<p>A rename on your own SSD is a metadata operation. It either happens or it does not, it takes microseconds, and the file contents never move. Almost every assumption in that sentence stops being true over SMB.</p>
+
+<p>Most renaming tools were written against a local disk and never revisited. Here is what actually differs, and what to do about it.</p>
+
+<h2>1. A rename over SMB is not guaranteed to be atomic</h2>
+
+<p>Locally, renaming within the same filesystem is a single directory entry update. Nothing is ever half-renamed.</p>
+
+<p>Over a network share you are sending a request and waiting for an answer. The connection can drop between those two moments. The server may have completed the operation, may have partially completed it, or may have done nothing, and your client cannot always tell which.</p>
+
+<p>This matters most when the operation is a <strong>replace</strong>: writing a new file over an existing name. If that is interrupted, the old file can be gone and the new one incomplete.</p>
+
+<p>The defensive pattern is the same one databases use. Write the new content to a temporary name in the same directory, verify it, then rename it into place. The final rename is the smallest possible window, and on most servers it is the one operation you can still treat as close to atomic.</p>
+
+<div class="note"><p><strong>Same directory matters.</strong> A rename across filesystems, or across shares, is a copy followed by a delete, and the copy is where things go wrong. Keeping the temporary file beside the destination keeps it a real rename.</p></div>
+
+<h2>2. Check free space before you start, not per file</h2>
+
+<p>If your operation writes anything, and the share fills up on file 300 of 900, you now have a half-finished batch on a full volume, which is the worst state to recover from because cleanup itself may need space.</p>
+
+<p>Ask the volume for free space once at the start, compare it against the total you intend to write, and add headroom. A pure rename does not need this. A convert, a repack, or a copy-then-delete absolutely does.</p>
+
+<p>Remember that the free space a share reports can be a quota rather than the physical disk, and that some NAS systems report the pool rather than the share.</p>
+
+<h2>3. Extended attributes and Finder tags do not always survive</h2>
+
+<p>On macOS, colored Finder tags, Finder comments, and the "where from" metadata are all extended attributes hanging off the file. So are quarantine flags.</p>
+
+<p>A rename in place preserves them, because the file never moves. A copy-then-delete usually does not, unless the tool explicitly copies the xattrs too. Many do not, and the loss is silent. If you have spent time tagging a library, you will not notice until you filter by a tag and half the results are missing.</p>
+
+<p>SMB makes this worse, because whether extended attributes are stored at all depends on the server. Some map them to alternate data streams, some store them in AppleDouble files, some discard them.</p>
+
+<p>The practical rule: <strong>prefer a real rename over a copy-and-delete whenever the source and destination are on the same share</strong>, and if you must copy, verify the attributes afterwards rather than assuming.</p>
+
+<h2>4. The case sensitivity question, and the only reliable answer</h2>
+
+<p>You cannot ask a share whether it is case-sensitive and trust the reply. Some NAS firmware answers wrongly. Some shares are case-insensitive on the server but backed by a case-sensitive filesystem, with edge cases when both spellings exist.</p>
+
+<p>Renaming <code>report.pdf</code> to <code>Report.pdf</code> is a no-op, an error, or a real rename depending on which of those you got, and guessing wrong means either a failed batch or a file that quietly did not change.</p>
+
+<p>Test it. Write a probe file with a mixed-case name, stat the lowercase version, delete the probe. One write and one stat, cached per volume for the session. It is milliseconds and it turns a guess into a fact.</p>
+
+<pre><code class="good">write   .probe-CaseTest
+stat    .probe-casetest
+  found     -> case-insensitive
+  not found -> case-sensitive
+delete  .probe-CaseTest</code></pre>
+
+<p>Do it per directory if you have a mount that spans more than one backing volume, which happens more often than you would like.</p>
+
+<h2>5. Latency changes what a good design looks like</h2>
+
+<p>Locally, calling stat a few thousand times is free. Over SMB every one of those is a round trip, and a batch that felt instant on a local disk can take minutes on a share.</p>
+
+<p>Two habits fix most of it. Enumerate a directory once and keep the listing, rather than checking existence file by file. And do collision checking in memory against that listing plus your planned destinations, instead of asking the server about every candidate name.</p>
+
+<p>This is also why the <a href="batch-rename-safety.html">two-phase approach</a> is cheap in practice. It doubles the rename calls but it removes the need to interrogate the server about ordering.</p>
+
+<h2>6. Sleep, drop, and reconnect</h2>
+
+<p>Laptops sleep. Shares unmount. A long batch will meet both. Decide in advance what happens: stop and report, stop and roll back, or continue and summarize. Any of those is defensible. Silently skipping the failures is not, because the batch will report success with a short count and nobody looks at counts.</p>
+
+<p>Keep a record of what completed, in order, so a rollback is possible at all. If your undo cannot survive the app quitting, it is not an undo for a batch that takes twenty minutes.</p>
+
+<h2>The short version</h2>
+
+<p>Rename in place rather than copy and delete. Write to a temporary name in the same directory and rename into position. Check space once, up front. Probe for case sensitivity rather than trusting the mount. Enumerate once instead of asking per file. And decide what a mid-batch failure does before you find out the hard way.</p>
+
+<p>Related: <a href="batch-rename-safety.html">why batch renaming eats files, and the two-phase fix</a> and <a href="naming-guide.html">how to name TV and movie files so Plex and Jellyfin actually match them</a>.</p>
+
+<div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and an undo for the whole batch.</p>
+    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
+  </div>
+
+</div>
+</body>
+</html>
