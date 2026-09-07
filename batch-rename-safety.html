@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why batch renaming eats files, and the two-phase fix</title>
+<meta name="description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html">
+<meta property="og:title" content="Why batch renaming eats files, and the two-phase fix">
+<meta property="og:description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="Why batch renaming eats files, and the two-phase fix">
+<meta name="twitter:description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Why batch renaming eats files, and the two-phase fix",
+  "description": "Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html"
+  },
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+<h1>Why batch renaming eats files, and the two-phase fix</h1>
+<p class="standfirst">Rename a set of files one at a time and you will eventually destroy one. The failure is predictable and so is the fix.</p>
+<p class="byline">Buck Kettering · September 2026</p>
+
+<p>Every batch renamer looks fine on a folder of holiday photos. The failure only shows up when the new names and the old names overlap, and by then a file is already gone.</p>
+
+<p>This is the failure, why it happens, and the fix. It applies to any tool you use, including a five line shell loop.</p>
+
+<h2>1. The chain</h2>
+
+<p>You have three episodes. The numbering was off by one, so every file needs to shift down:</p>
+
+<pre><code class="bad">Show - S01E02.mkv   ->   Show - S01E01.mkv
+Show - S01E03.mkv   ->   Show - S01E02.mkv
+Show - S01E04.mkv   ->   Show - S01E03.mkv</code></pre>
+
+<p>Rename them in order, one at a time. The first operation writes to <code>Show - S01E01.mkv</code>, which is fine. The second writes to <code>Show - S01E02.mkv</code>, which still exists, because it is the file waiting its turn.</p>
+
+<p>On most systems the rename call replaces the destination without asking. The tool reports three successes. You have two files.</p>
+
+<h2>2. The swap</h2>
+
+<p>Worse, and more common than people expect, because two files got mismatched at import:</p>
+
+<pre><code class="bad">Episode A.mkv   ->   Episode B.mkv
+Episode B.mkv   ->   Episode A.mkv</code></pre>
+
+<p>There is no ordering that works. Whichever you move first destroys the other. A tool that only checks each rename against the current state of the disk cannot solve this, so most of them refuse the whole batch and tell you to sort it out yourself.</p>
+
+<h2>3. The fix is two phases</h2>
+
+<p>Do not rename anything to its final name on the first pass. Move every file in the batch to a unique temporary name, then move each one from its temporary name to its destination.</p>
+
+<pre><code class="good">Phase 1
+  Show - S01E02.mkv  ->  .tmp-0001
+  Show - S01E03.mkv  ->  .tmp-0002
+  Show - S01E04.mkv  ->  .tmp-0003
+
+Phase 2
+  .tmp-0001  ->  Show - S01E01.mkv
+  .tmp-0002  ->  Show - S01E02.mkv
+  .tmp-0003  ->  Show - S01E03.mkv</code></pre>
+
+<p>After phase one, none of the destination names are occupied by anything in the batch, because every batch member is sitting under a temporary name. Chains resolve. Swaps resolve. Order stops mattering.</p>
+
+<div class="note"><p><strong>Pick temporary names that cannot collide with real files.</strong> A hidden prefix plus a counter is enough. Do not use the destination name with a suffix, because two different sources can generate the same one.</p></div>
+
+<h2>4. Validate against the final state, not the current one</h2>
+
+<p>The other half of the problem is the preview. Checking "does a file with this name already exist" tells you almost nothing, because it asks about the disk as it is now, not as it will be.</p>
+
+<p>Three things have to be checked before anything moves.</p>
+
+<p>Two files in the batch resolving to the <strong>same destination name</strong>. This is the one that silently eats a file, and it is common when two rips of the same movie differ only in resolution and your template does not include it.</p>
+
+<p>A destination that collides with a file <strong>already in the folder</strong> and not part of the batch.</p>
+
+<p>A destination that is currently <strong>another batch member's source name</strong>. That is the chain. It is safe under two-phase, but you still want it visible.</p>
+
+<h2>5. Case-insensitive filesystems will lie to you</h2>
+
+<p>APFS and NTFS are usually case-insensitive but case-preserving. Renaming <code>report.pdf</code> to <code>Report.pdf</code> is either a no-op, an error, or a real rename, depending on the volume.</p>
+
+<p>You cannot infer this from the platform. A Mac can be running a case-sensitive APFS volume. An SMB share can report one thing and behave another way, and some NAS firmware is simply wrong about it.</p>
+
+<p>The reliable answer is to stop asking and test. Write a probe file with a mixed-case name, stat the lowercase version, delete the probe. One write and one stat per volume, cached for the session. It takes milliseconds and removes an entire class of bug.</p>
+
+<h2>6. Decide what happens when file 22 fails</h2>
+
+<p>Batches fail partway. A file is locked, a share drops, permissions differ on one subfolder. There are only three honest responses.</p>
+
+<p><strong>Stop and report.</strong> Name the file, the reason, and what has already been done.</p>
+
+<p><strong>Stop and roll back.</strong> Undo the completed operations and leave the folder as it was found.</p>
+
+<p><strong>Continue, then report</strong> with a list of what did not happen.</p>
+
+<p>The wrong answer, and the common one, is to skip the failure silently and keep going. The batch reports success, the count is short, and nobody notices until a file cannot be found weeks later.</p>
+
+<h2>7. Undo has to be one unit</h2>
+
+<p>If a batch is one decision for the user, it should be one entry in the undo history. Undoing a hundred renames one hundred times is not an undo feature.</p>
+
+<p>That means recording the mapping, not just the new names. Store source and destination for every operation and reverse them in the opposite order. Under two-phase renaming the reverse is another two-phase pass, for exactly the same reason the forward direction was.</p>
+
+<h2>What it costs</h2>
+
+<p>Two phases means twice as many rename calls. On a local disk that is imperceptible, because a rename is a metadata operation and never touches the file contents. Over SMB it is two round trips instead of one, which is still far cheaper than restoring one file from backup.</p>
+
+<p>The preview is where the real work happens, and it is worth doing every time. A rename you can read before it runs is the whole difference between a tool you trust with four thousand files and one you use on ten at a time.</p>
+
+<p>Related: <a href="smb-nas-renaming.html">what breaks when you rename over SMB and NAS shares</a> and <a href="naming-guide.html">how to name TV and movie files so Plex and Jellyfin actually match them</a>.</p>
+
+<div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and an undo for the whole batch.</p>
+    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
+  </div>
+
+</div>
+</body>
+</html>
