@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>Website Privacy | Media Renamer Pro</title>
+<meta name="description" content="Website analytics and privacy information for the Media Renamer Pro website.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/privacy.html">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{--bg:#fbfbfd;--panel:#fff;--ink:#16161a;--muted:#5f6169;--line:#e4e4ea;--accent:#2b6cf6}
+  @media (prefers-color-scheme:dark){:root{--bg:#0e0e11;--panel:#17171c;--ink:#f2f2f5;--muted:#a2a4ad;--line:#2a2a33;--accent:#5c93ff}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  main{max-width:720px;margin:0 auto;padding:28px 22px 64px}
+  nav{padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:38px}
+  nav a{color:var(--ink);font-weight:600;text-decoration:none}
+  h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;margin:0 0 12px}
+  h2{font-size:1.3rem;margin:38px 0 10px}
+  p,ul{margin:0 0 18px}
+  a{color:var(--accent)}
+  .muted{color:var(--muted)}
+  button{border:1px solid var(--line);border-radius:8px;padding:9px 14px;background:var(--panel);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="./">Media Renamer Pro</a></nav>
+
+  <h1>Website privacy</h1>
+  <p class="muted">Last updated September 9, 2026.</p>
+
+  <h2>The app and the website are separate</h2>
+  <p>Media Renamer Pro itself contains no analytics, advertising SDK, telemetry, or developer account system. Its app privacy details remain available on the <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">Support and Privacy page</a>.</p>
+
+  <h2>Optional website analytics</h2>
+  <p>This website offers optional Google Analytics 4. The analytics script does not load unless you choose <strong>Allow analytics</strong>.</p>
+  <p>If allowed, Google Analytics may record the pages viewed, approximate location, device and browser information, referring website, and clicks on links leading to the App Store. It does not receive your media filenames, app activity, email address, or anything stored inside Media Renamer Pro.</p>
+  <p>Advertising personalization and Google Signals are disabled for this property. Optional account-level data sharing with Google is also disabled.</p>
+  <p>Your choice is saved in your browser's local storage under <code>mrp_analytics_consent</code>. Choosing <strong>No thanks</strong> prevents the Google Analytics tag from loading.</p>
+  <p>Learn more about <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites that use its services</a>.</p>
+
+  <h2>Change your choice</h2>
+  <p><button type="button" onclick="localStorage.removeItem('mrp_analytics_consent');location.reload()">Review analytics choice</button></p>
+
+  <h2>Contact</h2>
+  <p>Questions can be sent to <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a>.</p>
+</main>
+</body>
+</html>
