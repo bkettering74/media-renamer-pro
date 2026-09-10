@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script defer src="analytics.js"></script>
-<title>Media Renamer Pro — Batch rename photos, movies, TV, music and more on Mac, iPad and iPhone</title>
-<meta name="description" content="Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. Preview every change, undo any batch. $4.99 once, no subscription.">
+<title>Media Renamer Pro - Batch rename photos, movies, TV, music and more on Mac, iPad and iPhone</title>
+<meta name="description" content="Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. Preview every change before renaming. $4.99 once, no subscription.">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/">
 <meta property="og:title" content="Media Renamer Pro">
-<meta property="og:description" content="Batch rename media using what's inside the files. Preview first, undo it all.">
+<meta property="og:description" content="Batch rename media using what's inside the files. Review the plan before changing your files.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
 <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
@@ -82,6 +82,10 @@
   .shots{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px}
   .shots img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;background:var(--panel)}
 
+  .video-wrap{margin-top:20px;background:#07090d;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+  .video-wrap video{width:100%;height:auto;display:block}
+  .video-note{margin-top:12px;color:var(--muted);font-size:.9rem}
+
   footer{border-top:1px solid var(--line);margin-top:52px;padding:30px 0 60px;color:var(--muted);font-size:.88rem}
   footer a{color:var(--muted)}
 </style>
@@ -93,7 +97,7 @@
 <meta name="twitter:site" content="@MediaRenamerPro">
 <meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="Media Renamer Pro">
-<meta name="twitter:description" content="Batch rename photos, movies, TV, music, audiobooks and game ROMs from the metadata inside your files. Preview every change, undo any batch. $4.99 once.">
+<meta name="twitter:description" content="Batch rename photos, movies, TV, music, audiobooks and game ROMs from the metadata inside your files. Preview every change before renaming. $4.99 once.">
 <meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg">
 
 <script type="application/ld+json">
@@ -110,14 +114,14 @@
   "installUrl": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615",
   "softwareVersion": "1.3.1",
   "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-  "description": "Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. It reads EXIF and container tags, looks up real titles online, and builds a rename plan you preview before anything moves. Every batch can be undone in one click.",
+  "description": "Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. It reads EXIF and container tags, looks up real titles online, and builds a rename plan you preview before anything moves. Undo the last saved rename session.",
   "featureList": [
     "Batch rename TV, movies, photos and video, music, audiobooks and retro game ROMs",
     "Reads metadata already inside the file",
     "Online title lookup via TVmaze, TMDb, OMDb, Google Books, OpenLibrary, IGDB and RAWG",
     "On-device photo analysis with Apple Vision, plus optional local or bring-your-own-key AI engines",
     "Full rename preview with confidence scores and sources before anything moves",
-    "One-click undo for an entire batch",
+    "Undo for the last saved rename session",
     "Collision detection instead of overwriting",
     "Works over SMB and NAS shares",
     "Local Only Mode blocks all network calls"
@@ -159,13 +163,25 @@
       <code class="after">The Last of Us - S02E04 - Day One.mkv</code>
     </div>
 
-    <p class="lede">One click. Now do that to a thousand files at once. Nothing is renamed until you say go, and every batch can be undone.</p>
+    <p class="lede">Review a whole folder at once. Nothing is renamed until you say go. Undo is available for the last saved rename session.</p>
 
     <div class="cta">
-      <a class="btn" href="https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615">Get it on the App Store</a>
-      <span class="price">$4.99 once. No subscription, no ads, no account.</span>
+      <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+      <span class="price">US $4.99 once. No subscription, no ads, no account.</span>
     </div>
   </div>
+
+  <section aria-labelledby="demo-heading">
+    <h3 id="demo-heading">See the safety flow</h3>
+    <p class="sub">The full flow starts with folder access, then previews five TV filenames before the rename. One duplicate gets a safe <code>_1</code> suffix instead of overwriting a file.</p>
+    <div class="video-wrap">
+      <video controls playsinline preload="metadata" poster="media/media-renamer-pro-tv-demo-poster.jpg" aria-label="Media Renamer Pro folder access, rename preview, duplicate protection, confirmation, and successful batch demonstration">
+        <source src="media/media-renamer-pro-tv-demo.mp4" type="video/mp4">
+        Your browser does not support embedded video. <a href="media/media-renamer-pro-tv-demo.mp4">Open the demo video</a>.
+      </video>
+    </div>
+    <p class="video-note">Recorded in Media Renamer Pro 1.3.1 using copied filename fixtures. No media contents were changed.</p>
+  </section>
 
   <section>
     <h3>Six kinds of media</h3>
@@ -175,7 +191,7 @@
       <div class="card"><h4>Movies</h4><p>Correct title and year, with the scene tags stripped out.</p></div>
       <div class="card"><h4>Photos and video</h4><p>Date taken, camera, city, and on-device AI scene descriptions.</p></div>
       <div class="card"><h4>Music</h4><p>Artist, album and track pulled from embedded tags.</p></div>
-      <div class="card"><h4>Audiobooks</h4><p>Author, title and series from Google Books and OpenLibrary.</p></div>
+      <div class="card"><h4>Audiobooks</h4><p>Author and title lookups from Google Books and OpenLibrary, with a chapters mode for multipart books.</p></div>
       <div class="card"><h4>Retro game ROMs</h4><p>Clean titles and region tags from IGDB and RAWG.</p></div>
     </div>
   </section>
@@ -184,17 +200,17 @@
     <h3>Why people keep it</h3>
     <ul class="plain">
       <li><strong>Preview first.</strong> Every single change is visible before it happens.</li>
-      <li><strong>Full undo.</strong> One click puts the entire batch back.</li>
+      <li><strong>Undo the last session.</strong> Revert the successful renames recorded in its saved undo log.</li>
       <li><strong>Conflict detection.</strong> It will not overwrite or clobber a file.</li>
       <li><strong>Presets per media type.</strong> Set it up once, reuse it forever.</li>
       <li><strong>Click-to-add naming tokens.</strong> No regex, no scripting.</li>
-      <li><strong>Works on network shares and NAS folders.</strong> Renames stay safe over SMB.</li>
+      <li><strong>Works on network shares and NAS folders.</strong> Preview changes on a mounted SMB share before applying them.</li>
     </ul>
   </section>
 
   <section>
     <h3>Private by design</h3>
-    <p class="sub">Renaming happens on your device. Photo analysis runs on-device through Apple's Vision framework, so your pictures never leave your Mac or your phone. Turn on Local-Only Mode and the app makes zero network calls of any kind. The app has no account, tracking, ads, or telemetry. This website offers optional analytics that stays off unless you allow it. See <a href="privacy.html">Website Privacy</a>.</p>
+    <p class="sub">Renaming happens on your device. Apple Vision is the default photo analysis engine and processes photos on-device. Optional cloud engines (OpenAI, Gemini and Anthropic) send photos to the selected provider when you configure your own key and use that engine. Online title lookups and location lookups also need a connection. Turn on Local-Only Mode to block network requests. The app has no account, tracking, ads, or telemetry. This website offers optional analytics that stays off unless you allow it. See <a href="privacy.html">Website Privacy</a>.</p>
   </section>
 
   <section>
@@ -206,6 +222,19 @@
       <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/3e/37/20/3e372042-fa03-53d2-e345-b05642ef021f/03_customize.png/1200x0w.jpg" alt="Customizing the naming pattern with tap-to-add tokens" loading="lazy">
       <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ac/b2/ec/acb2ec26-b426-2025-db37-f74754d94a60/04_settings_general.png/1200x0w.jpg" alt="Settings screen including Local-Only Mode" loading="lazy">
     </div>
+  </section>
+
+  <section id="first-rename">
+    <h3>Your first rename</h3>
+    <p class="sub">Start with a copied folder of a few files. Choose the media type, review the proposed names, then apply the changes.</p>
+    <ol>
+      <li><strong>Choose your folder.</strong> On Mac, if Grant Access appears, go up one level in the picker, select the target folder itself, then click Grant Access.</li>
+      <li><strong>Preview.</strong> Check the old and new filenames. Enable Include subfolders only if you want to scan inside nested folders.</li>
+      <li><strong>Rename, then check the result.</strong> Keep the app open and your drive connected until the batch finishes. Undo reverts the last saved session while its files are still accessible.</li>
+    </ol>
+    <h3>Before a large batch</h3>
+    <p>Keep a backup. Undo history is saved after a batch finishes; it is not crash recovery. A force quit, power loss or lost network connection can leave temporary filenames or changes that need manual recovery.</p>
+    <p>Version 1.3.1 does not carry companion subtitles or artwork along with a renamed video, and it does not preserve Live Photo pairing. An audiobook series naming token is not available yet.</p>
   </section>
 
   <section>
@@ -242,7 +271,7 @@
 
   <footer>
     <p>
-      <a href="https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615">App Store</a> &middot;
+      <a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a> &middot;
       <a href="naming-guide.html">Naming guide</a> &middot;
       <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App Support &amp; Privacy</a> &middot;
       <a href="privacy.html">Website Privacy</a> &middot; <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a>
