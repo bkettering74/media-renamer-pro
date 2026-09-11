@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>How to name ROMs without breaking your verification set</title>
+<meta name="description" content="No-Intro and Redump names look ugly on purpose. Why renaming them loses the thing they were for, how region and revision codes work, and why metadata lookups match retro games to the wrong game.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/rom-naming.html">
+<meta property="og:title" content="How to name ROMs without breaking your verification set">
+<meta property="og:description" content="No-Intro and Redump names look ugly on purpose. Why renaming them loses the thing they were for, how region and revision codes work, and why metadata lookups match retro games to the wrong game.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to name ROMs without breaking your verification set">
+<meta name="twitter:description" content="No-Intro and Redump names look ugly on purpose. Why renaming them loses the thing they were for, how region and revision codes work, and why metadata lookups match retro games to the wrong game.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to name ROMs without breaking your verification set",
+  "description": "No-Intro and Redump names look ugly on purpose. Why renaming them loses the thing they were for, how region and revision codes work, and why metadata lookups match retro games to the wrong game.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/rom-naming.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/rom-naming.html"
+  },
+  "datePublished": "2026-09-11",
+  "dateModified": "2026-09-11",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+<h1>How to name ROMs without breaking your verification set</h1>
+<p class="standfirst">No-Intro and Redump names look ugly on purpose. Renaming them to something readable is how people lose the one thing those names were for.</p>
+<p class="byline">Buck Kettering · September 2026</p>
+
+<p>A folder of game dumps has two jobs that pull against each other. It has to prove the dumps are correct, and it has to be readable in a frontend. Most people try to make the filename do both, and the filename can only do one.</p>
+
+<p>This is about discs and cartridges you dumped yourself, and about the naming conventions the preservation projects publish for them.</p>
+
+<h2>1. A No-Intro name is an identity, not a label</h2>
+
+<p>Look at a canonical name and the parentheses read like clutter:</p>
+
+<pre><code class="good">Super Mario World (USA).sfc
+Castlevania - Symphony of the Night (USA) (Rev 1).bin</code></pre>
+
+<p>They are not clutter. No-Intro catalogues cartridge-based systems and Redump catalogues disc-based ones, and both publish DAT files. A DAT is a catalogue where every known good dump is listed with its size and its CRC32, MD5 and SHA-1 hashes, paired with exactly one canonical name.</p>
+
+<p>The name is how a verification tool tells you what it found. Rename the file and the checksums still match, but every report you ever run comes back in names that mean nothing to the catalogue. You have quietly turned a verified collection into a pile of files that happen to be correct and can no longer prove it.</p>
+
+<h2>2. Put the readable name where readable names go</h2>
+
+<p>The frontend, not the file. EmulationStation keeps display names in <code>gamelist.xml</code>. LaunchBox and Playnite keep them in their own databases. RetroArch playlists are <code>.lpl</code> files that store a label separately from the path.</p>
+
+<p>So the answer is boring. Leave the file named the way the DAT names it, and let the frontend show <em>Super Mario World</em>. You get verification and readability at the same time, and each one has exactly one source of truth.</p>
+
+<div class="note"><p><strong>If you only take one thing from this page:</strong> the pretty name belongs in the scraper database, not on disk. Every problem below comes from someone trying to make the filename be both.</p></div>
+
+<h2>3. Region and revision codes are data, not decoration</h2>
+
+<p>The common tags are region and status:</p>
+
+<pre><code>(USA)  (Europe)  (Japan)  (World)
+(Rev 1)  (Beta)  (Proto)  (Unl)</code></pre>
+
+<p>Two files that differ only by <code>(Rev 1)</code> are genuinely different dumps. Revisions fix bugs, change behaviour, and sometimes break save compatibility with the earlier revision, which is a miserable thing to discover forty hours in.</p>
+
+<p>A rename template that drops the parentheses turns those two files into the same destination name. That is not a cosmetic problem. A batch rename that produces two identical destinations will destroy one of the two files unless the tool checks for the collision before it moves anything. That failure is <a href="batch-rename-safety.html">the same one that eats files during any batch rename</a>, and it is the single most likely way to lose a dump you cannot easily make again.</p>
+
+<h2>4. Why metadata lookups match retro games to the wrong game</h2>
+
+<p>Point almost any scraper at an old cartridge and it will eventually hand you a modern game. Look up <em>Prince of Persia</em> against a general games database and the 2008 reboot comes back before the 1989 original. The title is an exact match, so a matcher working on title similarity alone takes it and moves on.</p>
+
+<p>The fix is an era gate. Every console has a window during which games were released for it. A Super Nintendo cartridge cannot be a 2008 release. If a candidate's release year falls outside the platform's window, reject it however well the title scores.</p>
+
+<p>That one rule removes most wrong matches on retro platforms, and it costs nothing, because you already know which system the folder is for.</p>
+
+<h2>5. Short titles inflate similarity scores</h2>
+
+<p>The second problem is that game titles are short. Similarity scoring on a two or three word title is noisy, because a single token changes the result a lot. <em>Aero</em> against <em>Aero the Acro-Bat</em> scores far better than it deserves to.</p>
+
+<p>So treat a high score on a short title with suspicion, and require the platform and the era to agree before you accept it. Similarity is a tiebreaker, not a decision.</p>
+
+<p>Numerals are the other trap. <em>Final Fantasy IV</em> and <em>Final Fantasy 4</em> are the same game, and <em>Street Fighter II</em> and <em>Street Fighter 2</em> are the same game, but a plain string comparison says otherwise. Normalise roman numerals to arabic before comparing, or you will both miss correct matches and, worse, land on the wrong installment in a long series.</p>
+
+<h2>6. Archives hide a second name</h2>
+
+<p>Most collections live in <code>.zip</code> or <code>.7z</code> files, and that means every game has two names: the archive, and the ROM inside it.</p>
+
+<p>DAT verification cares about the file inside, because that is what was hashed. Some emulators and scrapers read the inner name, others read the archive name, and nothing warns you when the two disagree.</p>
+
+<p>Renaming the archive does not change the name inside it. If you are going to rename at all, decide which of the two is authoritative and make them agree, or at minimum find out which one the tool you actually use is reading.</p>
+
+<h2>7. Multi-disc sets break in a specific way</h2>
+
+<p>Redump names disc images like this, and RetroArch expects a playlist alongside them:</p>
+
+<pre><code class="good">Game (USA) (Disc 1).cue
+Game (USA) (Disc 2).cue
+Game (USA).m3u</code></pre>
+
+<p>The <code>.m3u</code> refers to its discs by filename. Rename the discs without rewriting the playlist and the game boots perfectly, runs for an hour, and then cannot find disc 2.</p>
+
+<p>A <code>.cue</code> file has the same problem one level down, because it refers to its <code>.bin</code> by name. Rename a <code>.bin</code> and leave the <code>.cue</code> alone and you have a disc image that no longer mounts at all.</p>
+
+<p>Any rename that touches a multi-disc set has to rewrite the companion files in the same operation. If a tool moves the images and leaves the text files pointing at names that no longer exist, it has not finished the job.</p>
+
+<h2>What to actually do</h2>
+
+<ul>
+  <li><strong>Verify before you rename.</strong> Run the set against a current DAT first, so you know what you have while the names still match the catalogue.</li>
+  <li><strong>Keep the canonical name on disk.</strong> It is the only name that means anything to anyone else.</li>
+  <li><strong>Do the readable naming in the frontend</strong>, where it belongs and where it is trivially reversible.</li>
+  <li><strong>If you do rename, read the preview.</strong> Look specifically for two sources landing on one destination, which is how revisions and regions quietly eat each other.</li>
+  <li><strong>Carry the companions.</strong> Cue sheets, m3u playlists, save files and box art named after the ROM all have to move with it or be rewritten.</li>
+</ul>
+
+<p>None of this is exciting, which is rather the point. A verified set that is boring to look at is worth more than a tidy one you can no longer check, because the checking is the part you cannot reconstruct later.</p>
+
+<p>Related: <a href="batch-rename-safety.html">why batch renaming eats files, and the two-phase fix</a> and <a href="smb-nas-renaming.html">what breaks when you rename over SMB and NAS shares</a>.</p>
+
+<div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
+    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
+    <p><a href="privacy.html">Website privacy</a></p>
+  </div>
+
+</div>
+</body>
+</html>
