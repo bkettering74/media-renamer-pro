@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>Media Renamer Pro support</title>
+<meta name="description" content="Support for Media Renamer Pro. Contact, common questions, and fixes for folder access, undo, network shares, subtitles and metadata lookups on Mac, iPad and iPhone.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/support.html">
+<meta property="og:title" content="Media Renamer Pro support">
+<meta property="og:description" content="Support for Media Renamer Pro. Contact, common questions, and fixes for folder access, undo, network shares, subtitles and metadata lookups on Mac, iPad and iPhone.">
+<meta property="og:type" content="website">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="Media Renamer Pro support">
+<meta name="twitter:description" content="Support for Media Renamer Pro. Contact, common questions, and fixes for folder access, undo, network shares, subtitles and metadata lookups on Mac, iPad and iPhone.">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I contact support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email mediarenamerpro@gmail.com. Include your device, your macOS or iOS version, the app version from the App Store, and a few example filenames before and after. Most replies go out within two business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Nothing happens after I add files.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renaming never starts on its own. Add your files, pick the media type tab, then press Preview. The app builds a plan and shows you every old and new name. Nothing on disk changes until you press Rename."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "On Mac it says Grant Access and will not let me continue.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "macOS only gives the app the exact folder you select. In the picker, go up one level, select the target folder itself rather than looking inside it, then click Grant Access. If you hand the app individual files instead of a folder, it can work with those files but cannot see anything else in the folder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I undo a rename?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for the last saved rename session. Press Undo. The undo log is written after a batch finishes, so it is not crash recovery. A force quit, power loss or a dropped network connection during a batch can leave temporary filenames that need fixing by hand. Keep a backup before a large batch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "It renamed my file to something with _1 on the end.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is collision protection, not a bug. Two files in the batch resolved to the same final name, so the second one was given a suffix instead of overwriting the first. The app never overwrites a file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "It picked the wrong movie or episode.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online lookups match on the text in the filename, and scene releases are often ambiguous. Fix it in the Preview table: the new name is editable, so correct it before pressing Rename. If a whole batch is matching badly, try a different provider in Settings, or turn on Local-Only Mode to use only what is inside the files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an API key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The app works without one. TVmaze, OpenLibrary, MusicBrainz and RAWG need nothing. TMDb, OMDb and IGDB use your own free key if you add one in Settings. Cloud photo descriptions use your own OpenAI, Gemini or Anthropic key. There is no account and nothing to subscribe to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on a NAS or SMB share?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mount the share in Finder and point the app at it. Preview first, and keep the share mounted until the batch finishes. Network renames are slower and a dropped connection mid-batch is the one case that can leave temporary filenames behind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my subtitles follow the video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In version 1.3.2 and later, yes, if you turn on Carry subtitle files with renamed media in Settings under Exclusions. A renamed video takes its matching subtitle files with it and keeps language and forced tags, so Plex and Jellyfin still pair them. Artwork and .nfo sidecars are deliberately left alone, because media centres look those up by exact name and renaming them breaks the library."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I rename from Finder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In version 1.3.2 and later, select files in Finder, right click, and choose Rename with Media Renamer Pro. The app opens with those files already loaded. If you do not see the item, open the app once first, then look under the Services submenu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my photos and face data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renaming happens on your device. Apple Vision is the default photo engine and runs on-device. Face Library profiles are stored on your device and never uploaded. Optional cloud photo descriptions send the photo, never face crops, to the provider whose key you configured. Turn on Local-Only Mode to block all network requests. There is no account, tracking, ads or telemetry. Full details are in the privacy policy linked below."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I want a refund.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Purchases are handled by Apple, so refunds go through Apple rather than through me. Use reportaproblem.apple.com with the Apple Account you bought it with. If something is broken, email me first. I would rather fix it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a bug or request a feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email mediarenamerpro@gmail.com with what you expected, what happened, and example filenames. Feature requests are welcome and genuinely do get built. Several shipped features started as one user's email."
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="./">Media Renamer Pro</a></div>
+
+  <h1>Support</h1>
+  <p class="standfirst">Something not behaving? Start here. If the answer is not below, email me and I will actually reply.</p>
+
+  <div class="note">
+    <p><strong>Email:</strong> <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a><br>
+    Include your device, your macOS or iOS version, the app version, and a couple of example filenames before and after. Most replies go out within two business days.</p>
+  </div>
+
+  <h2>Common questions</h2>
+    <h3>How do I contact support?</h3>
+    <p>Email mediarenamerpro@gmail.com. Include your device, your macOS or iOS version, the app version from the App Store, and a few example filenames before and after. Most replies go out within two business days.</p>
+    <h3>Nothing happens after I add files.</h3>
+    <p>Renaming never starts on its own. Add your files, pick the media type tab, then press Preview. The app builds a plan and shows you every old and new name. Nothing on disk changes until you press Rename.</p>
+    <h3>On Mac it says Grant Access and will not let me continue.</h3>
+    <p>macOS only gives the app the exact folder you select. In the picker, go up one level, select the target folder itself rather than looking inside it, then click Grant Access. If you hand the app individual files instead of a folder, it can work with those files but cannot see anything else in the folder.</p>
+    <h3>Can I undo a rename?</h3>
+    <p>Yes, for the last saved rename session. Press Undo. The undo log is written after a batch finishes, so it is not crash recovery. A force quit, power loss or a dropped network connection during a batch can leave temporary filenames that need fixing by hand. Keep a backup before a large batch.</p>
+    <h3>It renamed my file to something with _1 on the end.</h3>
+    <p>That is collision protection, not a bug. Two files in the batch resolved to the same final name, so the second one was given a suffix instead of overwriting the first. The app never overwrites a file.</p>
+    <h3>It picked the wrong movie or episode.</h3>
+    <p>Online lookups match on the text in the filename, and scene releases are often ambiguous. Fix it in the Preview table: the new name is editable, so correct it before pressing Rename. If a whole batch is matching badly, try a different provider in Settings, or turn on Local-Only Mode to use only what is inside the files.</p>
+    <h3>Do I need an API key?</h3>
+    <p>No. The app works without one. TVmaze, OpenLibrary, MusicBrainz and RAWG need nothing. TMDb, OMDb and IGDB use your own free key if you add one in Settings. Cloud photo descriptions use your own OpenAI, Gemini or Anthropic key. There is no account and nothing to subscribe to.</p>
+    <h3>Does it work on a NAS or SMB share?</h3>
+    <p>Yes. Mount the share in Finder and point the app at it. Preview first, and keep the share mounted until the batch finishes. Network renames are slower and a dropped connection mid-batch is the one case that can leave temporary filenames behind.</p>
+    <h3>Will my subtitles follow the video?</h3>
+    <p>In version 1.3.2 and later, yes, if you turn on Carry subtitle files with renamed media in Settings under Exclusions. A renamed video takes its matching subtitle files with it and keeps language and forced tags, so Plex and Jellyfin still pair them. Artwork and .nfo sidecars are deliberately left alone, because media centres look those up by exact name and renaming them breaks the library.</p>
+    <h3>How do I rename from Finder?</h3>
+    <p>In version 1.3.2 and later, select files in Finder, right click, and choose Rename with Media Renamer Pro. The app opens with those files already loaded. If you do not see the item, open the app once first, then look under the Services submenu.</p>
+    <h3>What happens to my photos and face data?</h3>
+    <p>Renaming happens on your device. Apple Vision is the default photo engine and runs on-device. Face Library profiles are stored on your device and never uploaded. Optional cloud photo descriptions send the photo, never face crops, to the provider whose key you configured. Turn on Local-Only Mode to block all network requests. There is no account, tracking, ads or telemetry. Full details are in the privacy policy linked below.</p>
+    <h3>I want a refund.</h3>
+    <p>Purchases are handled by Apple, so refunds go through Apple rather than through me. Use reportaproblem.apple.com with the Apple Account you bought it with. If something is broken, email me first. I would rather fix it.</p>
+    <h3>How do I report a bug or request a feature?</h3>
+    <p>Email mediarenamerpro@gmail.com with what you expected, what happened, and example filenames. Feature requests are welcome and genuinely do get built. Several shipped features started as one user's email.</p>
+
+  <h2>Before a large batch</h2>
+  <p>Keep a backup. Preview the whole plan first. Undo history is written after a batch finishes, so it covers a completed rename, not a crash. If you are renaming across a network share, keep the share mounted and the Mac awake until it is done.</p>
+
+  <h2>Privacy and data</h2>
+  <p>The app has no account, no tracking, no ads and no telemetry. Renaming and photo analysis happen on your device by default. Read the full <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">app privacy policy</a>, or the <a href="privacy.html">website privacy notice</a>.</p>
+
+  <h2>Guides</h2>
+  <p>Longer write-ups on the things that actually go wrong:</p>
+  <ul>
+    <li><a href="naming-guide.html">Naming conventions that media servers actually read</a></li>
+    <li><a href="batch-rename-safety.html">Why batch renaming eats files, and the two-phase fix</a></li>
+    <li><a href="smb-nas-renaming.html">What breaks when you rename over SMB and NAS shares</a></li>
+    <li><a href="move-plex-library.html">Moving a Plex library without losing your watch history</a></li>
+    <li><a href="rom-naming.html">Naming ROMs without breaking your verification set</a></li>
+  </ul>
+
+  <div class="end">
+    <p>Media Renamer Pro is a one-person app. Support emails come to me, not a queue.</p>
+    <p><a href="./">Back to Media Renamer Pro</a> &middot; <a href="privacy.html">Website privacy</a></p>
+  </div>
+</div>
+</body>
+</html>

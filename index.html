@@ -112,7 +112,7 @@
   "url": "https://bkettering74.github.io/media-renamer-pro/",
   "downloadUrl": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615",
   "installUrl": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615",
-  "softwareVersion": "1.3.1",
+  "softwareVersion": "1.3.2",
   "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
   "description": "Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. It reads EXIF and container tags, looks up real titles online, and builds a rename plan you preview before anything moves. Undo the last saved rename session.",
   "featureList": [
@@ -123,6 +123,8 @@
     "Full rename preview with confidence scores and sources before anything moves",
     "Undo for the last saved rename session",
     "Collision detection instead of overwriting",
+    "Rename straight from Finder with a right click",
+    "Optionally carry subtitle files along with a renamed video",
     "Works over SMB and NAS shares",
     "Local Only Mode blocks all network calls"
   ],
@@ -180,7 +182,7 @@
         Your browser does not support embedded video. <a href="media/media-renamer-pro-tv-demo.mp4">Open the demo video</a>.
       </video>
     </div>
-    <p class="video-note">Recorded in Media Renamer Pro 1.3.1 using copied filename fixtures. No media contents were changed.</p>
+    <p class="video-note">Recorded in Media Renamer Pro using copied filename fixtures. No media contents were changed.</p>
   </section>
 
   <section>
@@ -204,6 +206,8 @@
       <li><strong>Conflict detection.</strong> It will not overwrite or clobber a file.</li>
       <li><strong>Presets per media type.</strong> Set it up once, reuse it forever.</li>
       <li><strong>Click-to-add naming tokens.</strong> No regex, no scripting.</li>
+      <li><strong>Start from Finder.</strong> Select files, right click, and choose Rename with Media Renamer Pro. The app opens with them loaded.</li>
+      <li><strong>Subtitles follow the video.</strong> Turn it on and a renamed video takes its matching subtitle files with it, language and forced tags intact, so Plex and Jellyfin keep pairing them.</li>
       <li><strong>Works on network shares and NAS folders.</strong> Preview changes on a mounted SMB share before applying them.</li>
     </ul>
   </section>
@@ -234,7 +238,7 @@
     </ol>
     <h3>Before a large batch</h3>
     <p>Keep a backup. Undo history is saved after a batch finishes; it is not crash recovery. A force quit, power loss or lost network connection can leave temporary filenames or changes that need manual recovery.</p>
-    <p>Version 1.3.1 does not carry companion subtitles or artwork along with a renamed video, and it does not preserve Live Photo pairing. An audiobook series naming token is not available yet.</p>
+    <p>Version 1.3.2 can carry companion subtitle files along with a renamed video once you turn that on in Settings. It deliberately leaves artwork and .nfo sidecars alone, because media centres look those up by exact name. It does not preserve Live Photo pairing, and an audiobook series naming token is not available yet.</p>
   </section>
 
   <section>
@@ -277,7 +281,8 @@
     <p>
       <a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a> &middot;
       <a href="naming-guide.html">Naming guide</a> &middot;
-      <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App Support &amp; Privacy</a> &middot;
+      <a href="support.html">Support</a> &middot;
+      <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App Privacy</a> &middot;
       <a href="privacy.html">Website Privacy</a> &middot; <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a>
     </p>
     <p>&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
