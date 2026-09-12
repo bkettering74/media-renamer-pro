@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>Why your subtitles do not show up in Plex or Jellyfin</title>
+<meta name="description" content="Sidecar subtitle naming for Plex, Jellyfin and Emby. Language codes, forced and SDH flags, the base name rule, why local media assets matters, and what happens to .srt files when you rename the video.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/subtitle-naming.html">
+<meta property="og:title" content="Why your subtitles do not show up in Plex or Jellyfin">
+<meta property="og:description" content="Language codes, forced and SDH flags, the base name rule, and why renaming the video breaks the subtitle.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="Why your subtitles do not show up in Plex or Jellyfin">
+<meta name="twitter:description" content="Language codes, forced and SDH flags, the base name rule, and why renaming the video breaks the subtitle.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Why your subtitles do not show up in Plex or Jellyfin",
+  "description": "A practical guide to naming sidecar subtitle files so Plex, Jellyfin and Emby pick them up, including language codes, forced and SDH flags, and keeping subtitles attached when you rename media.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/subtitle-naming.html",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/subtitle-naming.html" },
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "Buck Kettering" },
+  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "about": [
+    { "@type": "Thing", "name": "Subtitles" },
+    { "@type": "Thing", "name": "Plex" },
+    { "@type": "Thing", "name": "Jellyfin" },
+    { "@type": "Thing", "name": "Media file naming" }
+  ],
+  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+
+  <h1>Why your subtitles do not show up in Plex or Jellyfin</h1>
+  <p class="standfirst">Nine times out of ten the file is fine and the name is wrong. There are four rules and one setting.</p>
+  <p class="byline">Buck Kettering &middot; September 2026</p>
+
+
+  <p>Sidecar subtitles are the ones that live next to the video as their own file, usually <code>.srt</code>. Every media server supports them and every media server is quietly picky about the name. When they do not appear, the cause is almost always one of the items below.</p>
+
+  <h2>1. The base name has to match exactly</h2>
+
+  <p>The subtitle is matched to the video by the part of the name before the extension. It has to be identical, character for character:</p>
+
+<pre><code class="good">Dune Part Two (2024).mkv
+Dune Part Two (2024).en.srt</code></pre>
+
+<pre><code class="bad">Dune Part Two (2024).mkv
+Dune.Part.Two.2024.1080p.WEB-DL.srt</code></pre>
+
+  <p>The second one is the usual case. You downloaded the subtitle separately and it came with the release name from wherever it was ripped. Nothing about it is broken. It just does not belong to any video your server can see.</p>
+
+  <p>Spaces, punctuation, capitalisation and the year in brackets all count. On a Mac or a NAS the capitalisation will often be forgiven, because those filesystems are case-insensitive. On a Linux server it will not be.</p>
+
+  <h2>2. Put the language code on</h2>
+
+  <p>A bare <code>.srt</code> with a matching base name usually does get picked up, but it shows in the player as "Unknown" and it will not be selected automatically by your language preference. Add a two-letter ISO 639-1 code:</p>
+
+<pre><code class="good">Dune Part Two (2024).en.srt
+Dune Part Two (2024).es.srt
+Dune Part Two (2024).ja.srt</code></pre>
+
+  <p>Three-letter codes (<code>eng</code>, <code>spa</code>) also work in Plex, Jellyfin and Emby. Two letters is the safer habit because it is what every one of them documents.</p>
+
+  <p>The code goes between the base name and the extension, as its own dot-separated part. <code>Dune Part Two (2024) en.srt</code> is not a language code, it is a different base name.</p>
+
+  <h2>3. Forced and SDH are flags, not part of the title</h2>
+
+  <p>Two extra labels are understood, and they go after the language code:</p>
+
+<pre><code class="good">Dune Part Two (2024).en.forced.srt
+Dune Part Two (2024).en.sdh.srt</code></pre>
+
+  <p><strong>Forced</strong> means subtitles for the foreign-language dialogue only, the ones you want burned on even when you are watching in your own language. <strong>SDH</strong> means subtitles for the deaf and hard of hearing, which include sound descriptions. Servers surface these as separate selectable tracks rather than as extra files.</p>
+
+  <p>Anything else you put in there, including a group name or the word <code>subtitles</code>, is read as part of the filename and quietly ruins the match.</p>
+
+  <div class="note">
+    <p><strong>Naming multiple tracks in one language:</strong> if you have two English files and neither is forced or SDH, most servers will show both but label them identically. Give the second one a title part after the code if your server supports it, or pick one and delete the other. There is no standard here worth relying on.</p>
+  </div>
+
+  <h2>4. Where the file sits</h2>
+
+  <p>Next to the video is correct for all three servers. A <code>Subs</code> subfolder is recognised by Plex and Emby but is not universally handled, and it stops working as soon as you move the video without moving the folder. Keep them beside the file.</p>
+
+<pre><code>Movies/
+  Dune Part Two (2024)/
+    Dune Part Two (2024).mkv
+    Dune Part Two (2024).en.srt
+    Dune Part Two (2024).en.forced.srt
+</code></pre>
+
+  <p>For TV, the same rule with the episode name:</p>
+
+<pre><code class="good">The Last of Us - S02E04.mkv
+The Last of Us - S02E04.en.srt</code></pre>
+
+  <h2>5. The setting people miss</h2>
+
+  <p>If the names are right and nothing appears, check that the library has local media assets enabled.</p>
+
+  <ul>
+    <li><strong>Plex:</strong> Settings, Library, tick "Use local assets" on the library, or per-library Advanced, "Use local assets". With this off Plex never looks at sidecar files at all.</li>
+    <li><strong>Jellyfin:</strong> the library's "Enable external subtitles" and the metadata savers section. Also check that the subtitle language is in your user profile's preferred languages, or the track exists but is never auto-selected.</li>
+    <li><strong>Emby:</strong> Library, Advanced, subtitle downloads and local subtitle options are separate switches. Turning off automatic downloading does not turn off local pickup, but people often turn off both.</li>
+  </ul>
+
+  <p>After changing any of those, run a full library scan with metadata refresh. A normal scan looks for new video files and will happily skip a folder where only the subtitle changed.</p>
+
+  <h2>6. What renaming does to all of this</h2>
+
+  <p>This is the part that bites after you finally get the names right.</p>
+
+  <p>The pairing between a video and its subtitles is nothing but the shared base name. There is no link, no database entry, no reference inside either file. So the moment you rename the video and not the subtitle, the pairing is gone, and the subtitle becomes an orphan sitting in the folder doing nothing.</p>
+
+<pre><code class="bad">Before:  Dune.Part.Two.2024.mkv  +  Dune.Part.Two.2024.en.srt
+Rename the video only:
+After:   Dune Part Two (2024).mkv  +  Dune.Part.Two.2024.en.srt  &lt;- orphaned</code></pre>
+
+  <p>Most bulk renaming tools rename what you selected and nothing else, which is technically correct and practically wrong. Two ways out:</p>
+
+  <ul>
+    <li><strong>Select the subtitles too and apply the same rule.</strong> Works if your rule is deterministic enough that the video and the subtitle land on the same base name, which is often not the case when the rule uses metadata read out of the video.</li>
+    <li><strong>Use a tool that carries companion files.</strong> The renamer detects the sidecars that share the old base name, rewrites them to the new base name, and preserves the language and forced parts. Media Renamer Pro does this for <code>srt</code>, <code>sub</code>, <code>idx</code>, <code>vtt</code>, <code>ass</code>, <code>ssa</code>, <code>sup</code>, <code>smi</code>, <code>ttml</code> and <code>dfxp</code> once you switch on "Carry subtitle files with renamed media" in Settings under Exclusions. It is off by default, deliberately, because carrying files is the kind of thing you should opt into.</li>
+  </ul>
+
+  <div class="note">
+    <p><strong>Why artwork and .nfo are treated differently:</strong> Media servers look up <code>poster.jpg</code>, <code>fanart.jpg</code> and <code>movie.nfo</code> by exact fixed name, not by matching the video's base name. Renaming those to match the video actively breaks them. A renamer that carries subtitles should leave those alone, and it is worth checking that yours does.</p>
+  </div>
+
+  <h2>Quick checklist</h2>
+
+  <ul>
+    <li>Base name identical to the video, including the year and brackets</li>
+    <li>Two-letter language code as its own part: <code>.en.srt</code></li>
+    <li><code>.forced</code> or <code>.sdh</code> after the language code if applicable</li>
+    <li>File sits beside the video, not in a <code>Subs</code> folder</li>
+    <li>Local assets or external subtitles enabled on the library</li>
+    <li>Full scan with metadata refresh after any of the above</li>
+    <li>When you rename the video, rename or carry the subtitle in the same pass</li>
+  </ul>
+
+  <div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
+    <p>None of the above requires it. The rules are the rules whatever you use.</p>
+    <p>Related: <a href="naming-guide.html">naming TV and movie files</a> &middot; <a href="emby-naming.html">Emby naming</a></p>
+    <p><a href="privacy.html">Website privacy</a></p>
+  </div>
+
+</div>
+</body>
+</html>

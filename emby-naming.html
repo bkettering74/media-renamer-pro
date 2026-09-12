@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>Emby file naming: how to get your library matching correctly</title>
+<meta name="description" content="How to name movie, TV, anime, music video and extras files for Emby. Folder structure, multi-version movies, specials, NFO sidecars, and the settings that decide whether Emby reads your names at all.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/emby-naming.html">
+<meta property="og:title" content="Emby file naming: how to get your library matching correctly">
+<meta property="og:description" content="Folder structure, multi-version movies, specials, extras, NFO sidecars, and the settings that decide matching.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="Emby file naming: how to get your library matching correctly">
+<meta name="twitter:description" content="Folder structure, multi-version movies, specials, extras, NFO sidecars, and the settings that decide matching.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Emby file naming: how to get your library matching correctly",
+  "description": "A practical guide to file and folder naming for an Emby media server, covering movies, TV, anime ordering, multi-version files, specials, extras and NFO metadata.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html" },
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "Buck Kettering" },
+  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "about": [
+    { "@type": "Thing", "name": "Emby" },
+    { "@type": "Thing", "name": "Media server" },
+    { "@type": "Thing", "name": "Media file naming" }
+  ],
+  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+
+  <h1>Emby file naming: how to get your library matching correctly</h1>
+  <p class="standfirst">Emby is stricter than Plex in some places and looser in others. These are the places it differs, and the ones where everyone gets caught.</p>
+  <p class="byline">Buck Kettering &middot; September 2026</p>
+
+
+  <p>Emby shares most of its naming conventions with Jellyfin, which forked from it, and overlaps heavily with Plex. If you already have a library that Plex reads correctly, Emby will read most of it. The differences are in a handful of specific places, and those are what this page is about.</p>
+
+  <h2>Folder structure first</h2>
+
+  <p>Emby matches at the folder level for movies and at the folder plus filename level for TV. Give it the structure it expects and most problems never happen:</p>
+
+<pre><code>Movies/
+  Dune Part Two (2024)/
+    Dune Part Two (2024).mkv
+
+TV/
+  The Last of Us (2023)/
+    Season 01/
+      The Last of Us (2023) - S01E03 - Long Long Time.mkv
+</code></pre>
+
+  <p>The year in brackets on the folder is not optional in practice. It is how Emby tells apart two things with the same name, and it turns a fuzzy search into a precise one.</p>
+
+  <p>One folder per movie matters more in Emby than in Plex, because that folder is the unit Emby uses for extras, subtitles, artwork and multiple versions. A flat <code>Movies</code> folder with a hundred loose <code>.mkv</code> files will mostly work and will lock you out of half the features.</p>
+
+  <h2>Pinning to a provider ID</h2>
+
+  <p>When Emby keeps matching the wrong thing, stop fighting the title and pin it:</p>
+
+<pre><code class="good">Dune Part Two (2024) [tmdbid-693134]/
+The Last of Us (2023) [tvdbid-392256]/</code></pre>
+
+  <p>Emby reads <code>tmdbid</code>, <code>tvdbid</code> and <code>imdbid</code> in square brackets on the folder name. This is the single most useful trick in the whole system and almost nobody uses it. It is also the correct answer for anything with a generic name, a remake, or a foreign title that the scraper keeps resolving to the wrong entry.</p>
+
+  <h2>Multiple versions of the same movie</h2>
+
+  <p>This is where Emby is genuinely nicer than the alternatives. Put the versions in the one movie folder and mark each with a dash and a label:</p>
+
+<pre><code class="good">Dune Part Two (2024)/
+  Dune Part Two (2024) - 2160p.mkv
+  Dune Part Two (2024) - 1080p.mkv
+  Dune Part Two (2024) - Directors Cut.mkv</code></pre>
+
+  <p>Emby collapses those into one entry with a version picker rather than three separate movies. The rule is the base name, then space hyphen space, then whatever you want the version called. Get the separator wrong and you get three entries.</p>
+
+  <h2>TV: specials and the numbering that trips people</h2>
+
+  <p>Specials go in <code>Season 00</code>, numbered as episodes of season zero:</p>
+
+<pre><code class="good">The Last of Us (2023)/
+  Season 00/
+    The Last of Us (2023) - S00E01 - Making Of.mkv</code></pre>
+
+  <p>Episodes spanning two files use a range, and Emby handles both common spellings:</p>
+
+<pre><code class="good">Show Name - S01E01-E02.mkv</code></pre>
+
+  <p>Multi-part single episodes, meaning one episode split across two files rather than a double episode, use part suffixes instead:</p>
+
+<pre><code class="good">Show Name - S01E05 - part1.mkv
+Show Name - S01E05 - part2.mkv</code></pre>
+
+  <p>The distinction matters because the first one is two episodes in the database and the second is one episode with two files. Getting it backwards produces a library where watched state behaves strangely and nobody can work out why.</p>
+
+  <h2>Anime</h2>
+
+  <p>Everything on <a href="naming-guide.html">the general naming page</a> about absolute versus aired ordering applies to Emby unchanged. The short version: your files are probably numbered absolutely, TVDB thinks in aired seasons, and there is no arithmetic that converts one to the other.</p>
+
+  <p>Emby's practical path is to rename to explicit <code>SxxExx</code> in your chosen provider's aired order and use a single metadata provider for that series. Mixing TVDB artwork with AniDB episode data is how you end up with correct-looking images over wrong titles.</p>
+
+  <h2>Extras</h2>
+
+  <p>Emby recognises extras by subfolder name inside the movie or show folder:</p>
+
+<pre><code>Dune Part Two (2024)/
+  Dune Part Two (2024).mkv
+  behind the scenes/
+  deleted scenes/
+  interviews/
+  trailers/
+  featurettes/
+</code></pre>
+
+  <p>The names are fixed and lowercase is fine. Files inside are named freely, because the folder is what assigns the type. A trailer can also sit beside the movie as <code>Dune Part Two (2024)-trailer.mkv</code>, with the hyphen suffix and no space.</p>
+
+  <h2>NFO sidecars, and when to reach for them</h2>
+
+  <p>For anything with no online match, home video, a recorded talk, an old match, stop trying to make the scraper cooperate. Two clean answers:</p>
+
+  <ul>
+    <li><strong>Use a library type that does not scrape.</strong> Emby's Home Videos and Photos library type does not go looking for matches. Low effort, usually correct.</li>
+    <li><strong>Write an NFO.</strong> A plain XML file beside the video, same base name, <code>.nfo</code> extension. Then set the library to prefer local metadata and untick the internet providers, and Emby uses your data.</li>
+  </ul>
+
+  <p>Emby also writes NFOs itself if you turn on the NFO metadata saver, which is worth doing purely as a backup: your corrections then live next to the files rather than only in the server database, and they survive a rebuild.</p>
+
+  <div class="note">
+    <p><strong>Emby does not read titles out of the video container.</strong> Setting a title inside an MKV with MKVToolNix does nothing. Library metadata comes from the filename, the online providers, and NFO sidecars. That is the entire list.</p>
+  </div>
+
+  <h2>The settings that decide whether any of this works</h2>
+
+  <ul>
+    <li><strong>Library type.</strong> A Movies library will not parse <code>SxxExx</code> and a TV library will not treat a loose file as a movie. Half of all "Emby is not matching" is a library pointed at the wrong content type.</li>
+    <li><strong>Metadata downloaders.</strong> Per library, per type. If you have unticked everything to stop bad matches, nothing will match at all.</li>
+    <li><strong>Local metadata and images.</strong> Controls whether NFO and sidecar artwork are read. Off means your <code>.nfo</code> is ignored no matter how correct it is.</li>
+    <li><strong>Preferred metadata language and country.</strong> Drives which title comes back, which is why a correctly named foreign film can show up under a title you do not recognise.</li>
+  </ul>
+
+  <p>After a rename or a settings change, run a scan with "Refresh metadata" and "Replace existing metadata" rather than a plain scan. A plain scan looks for new files, and a renamed file often is not treated as new.</p>
+
+  <h2>Renaming an existing Emby library</h2>
+
+  <p>Two things to protect.</p>
+
+  <h3>Watch state lives in the database, not in the file</h3>
+
+  <p>Emby tracks items by its internal ID. Rename files underneath it and, on the next scan, Emby usually sees the old path as gone and the new path as new, which means a new item with no watch history. Scan after renaming, check a few items, and if history has been lost the safe recovery is restoring the database rather than renaming things back.</p>
+
+  <h3>Take the subtitles with you</h3>
+
+  <p>Sidecar subtitles are attached by base name and nothing else, so renaming the video orphans them. Rename them in the same pass, or use a tool that carries them. That whole topic, including language codes and the forced and SDH flags, is on <a href="subtitle-naming.html">the subtitle page</a>.</p>
+
+  <h2>Checklist</h2>
+
+  <ul>
+    <li>One folder per movie, year in brackets on the folder</li>
+    <li><code>[tmdbid-…]</code> or <code>[tvdbid-…]</code> on anything that keeps mismatching</li>
+    <li>Versions in one folder, separated by space hyphen space</li>
+    <li>TV as <code>Season 01</code> with the leading zero, specials in <code>Season 00</code></li>
+    <li>Extras in the fixed subfolder names</li>
+    <li>Library type, downloaders and local metadata all set before blaming the filenames</li>
+    <li>Full refresh scan after renaming, and check watch state on a few items</li>
+  </ul>
+
+  <div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
+    <p>None of the above requires it. The rules are the rules whatever you use.</p>
+    <p>Related: <a href="naming-guide.html">naming TV and movie files</a> &middot; <a href="subtitle-naming.html">subtitle naming</a> &middot; <a href="move-plex-library.html">moving a library</a></p>
+    <p><a href="privacy.html">Website privacy</a></p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>How to rename iPhone photos by the date they were taken, on a Mac</title>
+<meta name="description" content="Rename iPhone and camera photos to the date they were taken using EXIF on a Mac. Why file dates lie, which EXIF field to trust, time zones, Live Photos, HEIC and bursts, and a safe workflow.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html">
+<meta property="og:title" content="How to rename iPhone photos by the date they were taken, on a Mac">
+<meta property="og:description" content="File dates lie. EXIF DateTimeOriginal does not. Time zones, Live Photos, HEIC, bursts, and a safe workflow.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to rename iPhone photos by the date they were taken, on a Mac">
+<meta name="twitter:description" content="File dates lie. EXIF DateTimeOriginal does not. Time zones, Live Photos, HEIC, bursts, and a safe workflow.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to rename iPhone photos by the date they were taken, on a Mac",
+  "description": "A practical guide to renaming iPhone and camera photos by their capture date on macOS using EXIF metadata, covering which date field to trust, time zone handling, Live Photos, HEIC and burst sequences.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html" },
+  "datePublished": "2026-09-12",
+  "dateModified": "2026-09-12",
+  "inLanguage": "en",
+  "author": { "@type": "Person", "name": "Buck Kettering" },
+  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "about": [
+    { "@type": "Thing", "name": "EXIF" },
+    { "@type": "Thing", "name": "Photography" },
+    { "@type": "Thing", "name": "macOS" },
+    { "@type": "Thing", "name": "File renaming" }
+  ],
+  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+
+  <h1>How to rename iPhone photos by the date they were taken, on a Mac</h1>
+  <p class="standfirst">The date on the file is not the date of the photo. The right one is inside the file, and it survives everything the wrong one does not.</p>
+  <p class="byline">Buck Kettering &middot; September 2026</p>
+
+
+  <p>You have three thousand files called <code>IMG_6763.HEIC</code> and no idea which is which. The fix is to put the capture date in the name. The trap is that macOS shows you at least three different dates for every photo and only one of them is the one you want.</p>
+
+  <h2>The dates, and which one is real</h2>
+
+  <p>A photo on your Mac carries several timestamps:</p>
+
+  <ul>
+    <li><strong>Date Modified</strong> (filesystem). Changes when anything touches the bytes. Copying, editing, some sync clients, some backup restores.</li>
+    <li><strong>Date Created</strong> (filesystem). Looks trustworthy and is not. On a copy to another volume, in AirDrop, and in most cloud round trips, this becomes the date of the copy, not the date of the photo.</li>
+    <li><strong>EXIF DateTimeOriginal</strong> (inside the file). Written by the camera at the moment the shutter fired. It is the only one that means what you want it to mean.</li>
+  </ul>
+
+  <p>There are two near-neighbours that are not the same thing. <code>DateTimeDigitized</code> (sometimes shown as CreateDate) is when the image was digitised, which for a digital camera equals the original but for a scan is the scan date. <code>DateTime</code> (ModifyDate) is when the file was last written by software, so an edit in Photos moves it. Use <code>DateTimeOriginal</code>, and fall back to <code>DateTimeDigitized</code> only when it is missing.</p>
+
+  <div class="note">
+    <p><strong>Screenshots and downloads have no EXIF date.</strong> A screenshot, a WhatsApp save, a Facebook download and most social images arrive stripped. If a batch produces a handful of files that will not rename, check whether those files simply have no <code>DateTimeOriginal</code> to read. A good tool skips them and tells you rather than falling back to the file date silently.</p>
+  </div>
+
+  <h2>Checking a file before you trust a batch</h2>
+
+  <p>You do not need to install anything to look. In Preview, open the image, then Tools, Show Inspector, and the EXIF tab. The field is listed there.</p>
+
+  <p>If you have <code>exiftool</code> installed, one file at a time in Terminal:</p>
+
+<pre><code>exiftool -DateTimeOriginal -CreateDate -ModifyDate IMG_6763.HEIC</code></pre>
+
+  <p>Do this on two or three files from each source (phone, DSLR, scans, downloads) before running anything across the whole folder. Sources differ and they differ in exactly the ways that ruin a batch.</p>
+
+  <h2>Pick a name format that sorts</h2>
+
+  <p>The only format worth using starts with the year and goes down in size:</p>
+
+<pre><code class="good">2026-09-12 14-33-08.heic
+2026-09-12 14-33-08 IMG_6763.heic</code></pre>
+
+<pre><code class="bad">09-12-2026 2.33pm.heic</code></pre>
+
+  <p>Reasons, in order of how much they will matter to you later:</p>
+
+  <ul>
+    <li><strong>It sorts chronologically as text.</strong> Every file browser, every NAS, every script, forever, with no sort-by-date setting to get wrong.</li>
+    <li><strong>It is unambiguous.</strong> <code>09-12</code> is September the twelfth to an American and the ninth of December to everyone else. <code>2026-09-12</code> is one thing.</li>
+    <li><strong>Colons are illegal in filenames</strong> on macOS and Windows both, so times use hyphens or dots. <code>14-33-08</code>, not <code>14:33:08</code>.</li>
+  </ul>
+
+  <p>Keeping the original camera name on the end, as in the second example, is worth doing. It gives you a tiebreak for photos taken in the same second, and it keeps a thread back to the original if you ever need to match against a backup.</p>
+
+  <h2>Time zones, which is where this gets annoying</h2>
+
+  <p>Classic EXIF <code>DateTimeOriginal</code> has no time zone in it. It is a wall clock reading: the time the camera thought it was. Two consequences:</p>
+
+  <ul>
+    <li><strong>Photos taken abroad get local time, not your time.</strong> An iPhone updates its clock as you travel, so a photo taken at 9am in Tokyo says 09:00, and it will sort before a photo taken at 10am the same day back home even though it happened first.</li>
+    <li><strong>A camera with the wrong clock is wrong forever.</strong> If you shot a whole trip with the date unset, every file in it carries the wrong date and no renaming tool can rescue that. Shift them with <code>exiftool</code> first, then rename.</li>
+  </ul>
+
+  <p>Modern iPhones do write <code>OffsetTimeOriginal</code> alongside, which records the UTC offset. Good tools read it. If exact ordering across time zones matters to you, check that yours does before you commit a trip's worth of files.</p>
+
+  <p>For almost everyone the wall clock is what you actually want. The photo of dinner in Tokyo taken at 8pm should say 8pm.</p>
+
+  <h2>Live Photos, HEIC and bursts</h2>
+
+  <p><strong>Live Photos</strong> are two files, a <code>.HEIC</code> and a <code>.MOV</code>, paired by an identifier inside them rather than by the filename. Renaming both to the same base name does not recreate the pairing, and renaming one does not break the pair inside the Photos library, because the library tracks them separately. What it does break is any app that pairs them by name on disk. If you care about keeping Live Photos live, export them from Photos as Live Photos and leave them alone rather than renaming exported pairs.</p>
+
+  <p><strong>HEIC</strong> is fine to rename. It carries EXIF exactly like JPEG does. The only thing to watch is that some older tools read the container but not the EXIF block and report no date at all, which is a tool problem, not a file problem.</p>
+
+  <p><strong>Bursts</strong> are the case that exposes a weak renamer. Ten frames can share the same second, so a name built from date and time alone collides ten ways. Either include the original filename, or use a tool that appends a sequence number when a destination is already taken. Collision handling is the single most important thing to check, because the failure mode is files overwriting each other rather than an error message.</p>
+
+  <div class="note">
+    <p><strong>Do not work inside the Photos library.</strong> <code>Photos Library.photoslibrary</code> is a package with its own database, and renaming files inside it corrupts the library. Export first, rename the exported copies, and keep the library out of it.</p>
+  </div>
+
+  <h2>A workflow that does not lose anything</h2>
+
+  <ol>
+    <li><strong>Work on a copy for the first run.</strong> Duplicate a folder of a hundred photos and rename those. You will find out what your sources actually contain in about two minutes.</li>
+    <li><strong>Preview the full result before anything moves.</strong> Not a sample, the whole list, with old and new name side by side. Scan it for blanks, for duplicates and for anything dated 1970 or 2001, which is what a missing date looks like when a tool falls back to something else.</li>
+    <li><strong>Handle collisions explicitly.</strong> Decide up front whether same-second files get a sequence suffix or keep their original name, rather than finding out mid-batch.</li>
+    <li><strong>Check the skips.</strong> Files with no EXIF date should be listed and left alone, not quietly renamed from the filesystem date.</li>
+    <li><strong>Then run it on the real folder,</strong> with undo available for the batch.</li>
+  </ol>
+
+  <h2>Doing it with Media Renamer Pro</h2>
+
+  <p>This is the case the app was built for. It reads <code>DateTimeOriginal</code> out of the image with ImageIO, so HEIC, JPEG and raw all work the same way, and it builds the name from a template you set once. The preview is the whole batch before anything moves, collisions are computed against the final state rather than file by file, and the last saved session can be undone.</p>
+
+  <p>It runs on the Mac and on the iPhone and iPad, which matters more than it sounds: renaming the photos on the phone before they ever reach the Mac means the Mac side is already clean.</p>
+
+  <p>None of that is required to follow the rest of this page. Read <code>DateTimeOriginal</code>, sort-friendly format, keep the original name as a tiebreak, preview before you commit.</p>
+
+  <div class="end">
+    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
+    <p>None of the above requires it. The rules are the rules whatever you use.</p>
+    <p>Related: <a href="batch-rename-safety.html">batch renaming safely</a> &middot; <a href="smb-nas-renaming.html">renaming over SMB and NAS</a></p>
+    <p><a href="privacy.html">Website privacy</a></p>
+  </div>
+
+</div>
+</body>
+</html>
