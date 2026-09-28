@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="analytics.js"></script>
+<title>How to set up your folders and filenames so renaming just works</title>
+<meta name="description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, the most common edge cases, template tricks to add text to every filename, and an FAQ.">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html">
+<meta property="og:title" content="How to set up your folders and filenames so renaming just works">
+<meta property="og:description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.">
+<meta property="og:type" content="article">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
+    --line:#e4e4ea; --accent:#2b6cf6;
+    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
+    --radius:12px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+      --bad:#ff8a8f; --good:#5fd196;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
+    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
+    --bad:#ff8a8f; --good:#5fd196;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  a{color:var(--accent)}
+  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
+  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
+  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
+  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
+  h3{font-size:1.05rem;margin:28px 0 8px}
+  p{margin:0 0 18px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
+  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
+  .bad{color:var(--bad)}
+  .good{color:var(--good)}
+  ul{margin:0 0 20px;padding-left:22px}
+  li{margin-bottom:9px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
+  .note p{margin:0}
+  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
+  .end a{font-weight:600}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to set up your folders and filenames so renaming just works">
+<meta name="twitter:description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"How to set up your folders and filenames so renaming just works","description":"Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.","url":"https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html"},"datePublished":"2026-09-28","dateModified":"2026-09-28","inLanguage":"en","author":{"@type":"Person","name":"Buck Kettering"},"publisher":{"@type":"Person","name":"Buck Kettering"},"isPartOf":{"@type":"WebSite","name":"Media Renamer Pro","url":"https://bkettering74.github.io/media-renamer-pro/"}}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
+
+  <h1>How to set up your folders and filenames so renaming just works</h1>
+  <p class="standfirst">The folder a file sits in tells the app almost as much as the filename does. Here is the layout that gets the best results for every kind of media, plus the template tricks most people never find.</p>
+  <p class="byline">Buck Kettering &middot; September 2026</p>
+
+  <p>Media Renamer Pro reads three things for every file: the filename, the metadata inside the file, and the names of the folders around it. When the filename is thin, the folders fill the gap. So a tidy folder layout is the single biggest thing you can do to get clean names on the first pass.</p>
+
+  <p>None of this is required. The app will try its best with whatever you give it, and you can edit any row in the preview before anything moves. This is just the layout that needs the fewest edits.</p>
+
+  <h2 id="the-one-rule-that-covers-everything">The one rule that covers everything</h2>
+
+  <p>Name the <strong>top folder</strong> for the thing itself, with the year in brackets:</p>
+
+<pre><code class="good">Crusade (1999)/
+Dune Part Two (2024)/
+Stephen King - Hearts in Atlantis (1999)/</code></pre>
+
+  <p>That folder name is what the app falls back on when a file inside it does not say what it belongs to. It is also exactly what Plex, Jellyfin, Emby and Audiobookshelf want, so you are not doing extra work for one tool.</p>
+
+  <h2 id="tv-shows">TV shows</h2>
+
+<pre><code class="good">TV/
+  Babylon 5 (1993)/
+    Season 01/
+      Babylon 5 S01E01 Midnight on the Firing Line (1993).mp4</code></pre>
+
+  <ul>
+    <li><strong>Show folder:</strong> show name and year, <code>Babylon 5 (1993)</code>.</li>
+    <li><strong>Season folders:</strong> <code>Season 01</code> is the standard. The app also recognises <code>Season 1</code>, <code>Series 2</code>, <code>Specials</code>, and short forms like <code>B5 S01</code>.</li>
+    <li><strong>Filename:</strong> the one thing a TV file must have is the episode code, <code>S01E01</code>. Everything else can be looked up.</li>
+  </ul>
+
+  <h3 id="files-that-start-with-the-episode-code">Files that start with the episode code</h3>
+
+  <p>A lot of rips and downloads come named like this, with no show name at all:</p>
+
+<pre><code>Crusade (1999)/
+  S01E01_War_Zone.mp4
+  S01E02_The_Long_Road.mp4</code></pre>
+
+  <p>From version 1.3.7, the app reads the code at the start of the name and takes the show and year from the folder. So these come out as <code>Crusade S01E01 War Zone (1999).mp4</code> with no changes on your side. If the files sit inside a season folder, it looks one level up for the show folder.</p>
+
+  <div class="note"><p><strong>On an older version?</strong> Put the show name in front of one filename, like <code>Crusade S01E01_War_Zone.mp4</code>, and preview again. Or use the template trick below to add the show name to every file at once.</p></div>
+
+  <h2 id="movies">Movies</h2>
+
+<pre><code class="good">Movies/
+  Dune Part Two (2024)/
+    Dune Part Two (2024).mkv</code></pre>
+
+  <ul>
+    <li>One folder per movie, named <code>Title (Year)</code>.</li>
+    <li>Release tags like <code>1080p.WEB-DL.x265</code> in the filename are fine. The app strips them from the title and reads the resolution from them.</li>
+    <li>Keeping two copies of the same movie? Add <code>{resolution}</code> or <code>{edition}</code> to the movie template so each gets its own name, for example <code>{title} ({year}) - {resolution}</code> gives <code>Dune Part Two (2024) - 4K.mkv</code>. From 1.3.7, resolution is read from the video itself when the filename does not say.</li>
+  </ul>
+
+  <h2 id="music">Music</h2>
+
+<pre><code class="good">Music/
+  Taylor Swift - Midnights/
+    03 - Taylor Swift - Anti-Hero.m4a</code></pre>
+
+  <ul>
+    <li>Music is named from the tags inside the file first, so good tags matter more than good filenames.</li>
+    <li>Name album folders <code>Artist - Album</code>. When a track is missing its album tag, the app takes the album from that folder.</li>
+    <li>Multi-disc albums: keep the disc number in the tags, not in a separate folder per disc, where you can.</li>
+  </ul>
+
+  <h2 id="audiobooks">Audiobooks</h2>
+
+<pre><code class="good">Audiobooks/
+  Stephen King - Hearts in Atlantis (1999)/
+    01 - Stephen King - Hearts in Atlantis (1999).mp3
+    02 - Stephen King - Hearts in Atlantis (1999).mp3</code></pre>
+
+  <ul>
+    <li>One folder per book, named <code>Author - Title (Year)</code>. This is the folder the app trusts for author, title and year when the chapter files are just <code>01</code>, <code>Chapter 12</code> or <code>Track 07</code>.</li>
+    <li>Leave the track numbers in the chapter filenames. They are how the order survives the rename.</li>
+    <li>Cover art: a single image in the book folder is renamed to <code>cover</code>, which Audiobookshelf, Plex and Emby all pick up.</li>
+  </ul>
+
+  <h2 id="game-roms">Game ROMs</h2>
+
+<pre><code class="good">Games/
+  SNES/
+    Chrono Trigger (1995) (USA).sfc</code></pre>
+
+  <ul>
+    <li>Keep one folder per system. It keeps collections apart and matches how emulator frontends expect them.</li>
+    <li>Region, revision and disc tags like <code>(USA)</code>, <code>(Rev 1)</code> and <code>Disc 2</code> are kept as their own tokens, so different dumps of the same game never collapse into one name.</li>
+    <li>More on why ROM names matter in <a href="rom-naming.html">the ROM naming guide</a>.</li>
+  </ul>
+
+  <h2 id="photos">Photos</h2>
+
+<pre><code class="good">2024-08-15 iPhone 15 Pro Sarah beach sunset Paris.heic</code></pre>
+
+  <ul>
+    <li>Photos are named from what is inside them, the date taken, camera, place and what is in the picture, so the folder does not matter much.</li>
+    <li>The folder template <code>{year}/{month}</code> sorts them into dated folders if you use Folders mode.</li>
+    <li>HEIC, JPEG, PNG and RAW formats like DNG, CR3, ARW and NEF all work.</li>
+  </ul>
+
+  <h2 id="template-tricks-most-people-miss">Template tricks most people miss</h2>
+
+  <p>Every media type has a file template and a folder template in Settings. Tokens in curly braces are filled in per file. <strong>Anything you type that is not a token is added to every file exactly as you typed it.</strong> That makes the template the fastest way to fix a whole batch at once.</p>
+
+  <h3 id="add-a-show-name-to-every-file">Add a show name to every file</h3>
+
+  <p>If a batch of files is missing the show name and the folder does not have it either, type it straight into the TV template for that batch:</p>
+
+<pre><code class="good">Crusade {seasonEpisode} {episodeTitle} (1999)</code></pre>
+
+  <p>Every file gets <code>Crusade</code> and <code>(1999)</code>, and the episode code and title still fill in per file. Put the template back when you are done, or save it as a preset.</p>
+
+  <h3 id="add-a-label-to-everything-in-a-batch">Add a label to everything in a batch</h3>
+
+<pre><code class="good">{title} ({year}) - Kids
+{show} {seasonEpisode} {episodeTitle} [Remastered]
+{date_taken} Vacation {city}</code></pre>
+
+  <h3 id="keep-what-was-already-there">Keep what was already there</h3>
+
+  <p><code>{original}</code> drops in the old filename. Use it when you want to add clean titles without throwing away release group or quality tags:</p>
+
+<pre><code class="good">{title} ({year}) {original}</code></pre>
+
+  <h3 id="tokens-that-come-up-empty-just-disappear">Tokens that come up empty just disappear</h3>
+
+  <p>If a file has no year, <code>({year})</code> is dropped cleanly rather than leaving empty brackets behind, so one template works across a mixed batch.</p>
+
+  <h3 id="save-it-for-next-time">Save it for next time</h3>
+
+  <p>Use <strong>Save Preset</strong> on the main screen to keep a media type, templates and options together, then pick it from <strong>Saved Setups</strong> next time.</p>
+
+  <h2 id="common-edge-cases-and-what-to-do">Common edge cases and what to do</h2>
+
+  <h3 id="shows-and-movies-with-numbers-in-the-title">Shows and movies with numbers in the title</h3>
+  <p><code>Babylon 5</code>, <code>9-1-1</code>, <code>2012</code>, <code>Blade Runner 2049</code>. Numbers in a title can look like a year or an episode. Put the real year in brackets on the folder and in the filename, <code>2012 (2009)</code>, and the title number stops being ambiguous.</p>
+
+  <h3 id="remakes-and-shows-that-share-a-name">Remakes and shows that share a name</h3>
+  <p><code>Battlestar Galactica (1978)</code> and <code>Battlestar Galactica (2004)</code> are different shows. The year on the folder is what tells the lookup which one you mean. If it still picks the wrong one, edit that row in the preview.</p>
+
+  <h3 id="specials-and-season-zero">Specials and season zero</h3>
+  <p>Name specials as season 00, <code>S00E01</code>, and keep them in a <code>Specials</code> or <code>Season 00</code> folder. Every major media server expects that.</p>
+
+  <h3 id="anime-and-absolute-numbering">Anime and absolute numbering</h3>
+  <p>Files numbered <code>Episode 137</code> with no season need a decision about aired versus absolute order before any renamer can help. The <a href="naming-guide.html">naming guide</a> walks through it.</p>
+
+  <h3 id="extras-samples-and-featurettes">Extras, samples and featurettes</h3>
+  <p>In TV mode, files with no episode code are skipped rather than guessed at, so behind-the-scenes clips and samples are left alone. Move them into an <code>Extras</code> folder so your media server treats them right too.</p>
+
+  <h3 id="two-files-that-would-get-the-same-name">Two files that would get the same name</h3>
+  <p>The first keeps the clean name and the rest get <code>_1</code>, <code>_2</code>, shown in the preview before anything moves. If they are really different versions, use <code>{resolution}</code> or <code>{edition}</code> in the template instead so each gets a meaningful name.</p>
+
+  <h3 id="finder-copy-names-like-1">Finder copy names like (1)</h3>
+  <p>A <code>Movie (2010) (1).mkv</code> left over from a copy is treated as the same title. The <code>(1)</code> is not carried into the new name.</p>
+
+  <h3 id="colons-slashes-and-other-characters">Colons, slashes and other characters</h3>
+  <p>Titles like <code>Band of Brothers: Legacy</code> contain characters that break on some systems. The app swaps them for safe look-alikes so the name works on a Mac, on Windows and on a NAS.</p>
+
+  <h3 id="subtitles-next-to-the-video">Subtitles next to the video</h3>
+  <p>Subtitle files only attach when they share the video's base name. Turn on subtitle carrying in Settings, under Exclusions, and <code>.srt</code> and similar files are renamed with their video, language tags kept. More on <a href="subtitle-naming.html">the subtitle page</a>.</p>
+
+  <h3 id="photos-taken-in-the-same-second">Photos taken in the same second</h3>
+  <p>Burst shots and multiple cameras can share a timestamp. They get <code>_1</code>, <code>_2</code> rather than overwriting each other. Add <code>{camera_model}</code> to the template to tell cameras apart.</p>
+
+  <h3 id="multi-disc-games-and-cue-files">Multi-disc games and cue files</h3>
+  <p>Disc tags are kept, but <code>.cue</code> and <code>.m3u</code> files point at the old names inside them. Check those after renaming. The <a href="rom-naming.html">ROM guide</a> covers it.</p>
+
+  <h3 id="changing-only-the-capitalisation">Changing only the capitalisation</h3>
+  <p>Renaming <code>the office.mkv</code> to <code>The Office.mkv</code> is harder than it looks on some drives and shares. The app handles it in two steps so nothing is lost. The details are in <a href="batch-rename-safety.html">batch rename safety</a>.</p>
+
+  <h2 id="general-habits-that-save-the-most-time">General habits that save the most time</h2>
+
+  <ul>
+    <li><strong>Preview first, always.</strong> Nothing moves until you press Rename, and you can edit any single row.</li>
+    <li><strong>Start with one folder.</strong> Get one show or one album right, save the template, then do the rest.</li>
+    <li><strong>Pick the right media type.</strong> TV files previewed as Movies will not find their episode codes.</li>
+    <li><strong>Files or Folders mode.</strong> Files renames the files inside. Folders renames the folders themselves.</li>
+    <li><strong>Include subfolders</strong> when your files sit inside season or disc folders.</li>
+    <li><strong>Undo</strong> reverses the whole last batch if something is not what you wanted.</li>
+  </ul>
+
+  <h2 id="faq">FAQ</h2>
+
+  <h3 id="my-tv-files-show-no-season-episode-code-and-get-skipped-why">My TV files show "No season/episode code" and get skipped. Why?</h3>
+  <p>The filename needs an episode code like <code>S01E01</code>, <code>1x01</code> or <code>Season 1 Episode 1</code>. If it has one and still skips, check that TV Shows is selected, and on versions before 1.3.7, that the code is not the very first thing in the name. See <a href="#files-that-start-with-the-episode-code">files that start with the episode code</a>.</p>
+
+  <h3 id="do-i-have-to-rename-my-folders-first">Do I have to rename my folders first?</h3>
+  <p>No. But a top folder named <code>Title (Year)</code> gives the app a reliable fallback, and your media server wants that anyway, so it is worth doing once.</p>
+
+  <h3 id="how-do-i-add-the-same-word-to-every-filename">How do I add the same word to every filename?</h3>
+  <p>Type it into the template around the tokens. Anything outside curly braces is added to every file as written. See <a href="#template-tricks-most-people-miss">template tricks</a>.</p>
+
+  <h3 id="the-show-or-movie-matched-the-wrong-title-what-now">The show or movie matched the wrong title. What now?</h3>
+  <p>Edit that row in the preview, or add the year to the folder name and preview again. The year is usually what separates a show from its remake. You can also switch the provider in Settings, for TV between TVmaze and TMDb.</p>
+
+  <h3 id="can-i-undo-a-rename">Can I undo a rename?</h3>
+  <p>Yes. Undo reverses the whole last batch as one unit.</p>
+
+  <h3 id="does-it-work-on-files-on-my-nas">Does it work on files on my NAS?</h3>
+  <p>Yes. Point it at a mounted SMB share on the Mac, or at the share through the Files app on iPhone and iPad. More in <a href="smb-nas-renaming.html">renaming over SMB and NAS shares</a>.</p>
+
+  <h3 id="where-do-i-send-feedback-or-a-file-it-got-wrong">Where do I send feedback or a file it got wrong?</h3>
+  <p>Email <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a> with a screenshot of the preview and the folder layout. Those are exactly the cases I want to fix.</p>
+
+  <div class="end">
+    <p>I build <a href="./">Media Renamer Pro</a>, a Mac, iPad and iPhone app for batch renaming photos, movies, TV, music, audiobooks and ROMs, with a full preview before anything moves and undo for the whole batch.</p>
+    <p>Related: <a href="naming-guide.html">naming TV and movie files</a> &middot; <a href="emby-naming.html">Emby naming</a> &middot; <a href="rom-naming.html">ROM naming</a> &middot; <a href="support.html">Support</a></p>
+    <p><a href="privacy.html">Website privacy</a></p>
+  </div>
+
+</div>
+</body>
+</html>
