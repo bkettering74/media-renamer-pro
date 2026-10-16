@@ -3,67 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
 <title>How to rename iPhone photos by the date they were taken, on a Mac</title>
 <meta name="description" content="Rename iPhone and camera photos to the date they were taken using EXIF on a Mac. Why file dates lie, which EXIF field to trust, time zones, Live Photos, HEIC and bursts, and a safe workflow.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
 <meta property="og:title" content="How to rename iPhone photos by the date they were taken, on a Mac">
 <meta property="og:description" content="File dates lie. EXIF DateTimeOriginal does not. Time zones, Live Photos, HEIC, bursts, and a safe workflow.">
 <meta property="og:type" content="article">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:12px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
-  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
-  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
-  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
-  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
-  h3{font-size:1.05rem;margin:28px 0 8px}
-  p{margin:0 0 18px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
-    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
-  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
-  .bad{color:var(--bad)}
-  .good{color:var(--good)}
-  ul{margin:0 0 20px;padding-left:22px}
-  li{margin-bottom:9px}
-  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
-  .note p{margin:0}
-  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
-  .end a{font-weight:600}
-</style>
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="How to rename iPhone photos by the date they were taken, on a Mac">
 <meta name="twitter:description" content="File dates lie. EXIF DateTimeOriginal does not. Time zones, Live Photos, HEIC, bursts, and a safe workflow.">
-
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,35 +37,110 @@
   "headline": "How to rename iPhone photos by the date they were taken, on a Mac",
   "description": "A practical guide to renaming iPhone and camera photos by their capture date on macOS using EXIF metadata, covering which date field to trust, time zone handling, Live Photos, HEIC and burst sequences.",
   "url": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html" },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html"
+  },
   "datePublished": "2026-09-12",
   "dateModified": "2026-09-12",
   "inLanguage": "en",
-  "author": { "@type": "Person", "name": "Buck Kettering" },
-  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
   "about": [
-    { "@type": "Thing", "name": "EXIF" },
-    { "@type": "Thing", "name": "Photography" },
-    { "@type": "Thing", "name": "macOS" },
-    { "@type": "Thing", "name": "File renaming" }
+    {
+      "@type": "Thing",
+      "name": "EXIF"
+    },
+    {
+      "@type": "Thing",
+      "name": "Photography"
+    },
+    {
+      "@type": "Thing",
+      "name": "macOS"
+    },
+    {
+      "@type": "Thing",
+      "name": "File renaming"
+    }
   ],
-  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1218
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to rename iPhone photos by the date they were taken, on a Mac",
+      "item": "https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-12">
+<meta property="article:modified_time" content="2026-09-12">
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to rename iPhone photos by the date they were taken, on a Mac</li></ol></nav>
+      <h1>How to rename iPhone photos by the date they were taken, on a Mac</h1>
+      <p class="standfirst">The date on the file is not the date of the photo. The right one is inside the file, and it survives everything the wrong one does not.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; September 12, 2026</span><span>&middot; 5 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#the-dates-and-which-one-is-real">The dates, and which one is real</a></li><li><a href="#checking-a-file-before-you-trust-a-batch">Checking a file before you trust a batch</a></li><li><a href="#pick-a-name-format-that-sorts">Pick a name format that sorts</a></li><li><a href="#time-zones-which-is-where-this-gets-annoying">Time zones, which is where this gets annoying</a></li><li><a href="#live-photos-heic-and-bursts">Live Photos, HEIC and bursts</a></li><li><a href="#a-workflow-that-does-not-lose-anything">A workflow that does not lose anything</a></li><li><a href="#doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</a></li></ol></nav>
+    <div class="prose">
+<p>You have three thousand files called <code>IMG_6763.HEIC</code> and no idea which is which. The fix is to put the capture date in the name. The trap is that macOS shows you at least three different dates for every photo and only one of them is the one you want.</p>
 
-  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
-
-  <h1>How to rename iPhone photos by the date they were taken, on a Mac</h1>
-  <p class="standfirst">The date on the file is not the date of the photo. The right one is inside the file, and it survives everything the wrong one does not.</p>
-  <p class="byline">Buck Kettering &middot; September 2026</p>
-
-
-  <p>You have three thousand files called <code>IMG_6763.HEIC</code> and no idea which is which. The fix is to put the capture date in the name. The trap is that macOS shows you at least three different dates for every photo and only one of them is the one you want.</p>
-
-  <h2>The dates, and which one is real</h2>
+  <h2 id="the-dates-and-which-one-is-real">The dates, and which one is real</h2>
 
   <p>A photo on your Mac carries several timestamps:</p>
 
@@ -115,7 +156,7 @@
     <p><strong>Screenshots and downloads have no EXIF date.</strong> A screenshot, a WhatsApp save, a Facebook download and most social images arrive stripped. If a batch produces a handful of files that will not rename, check whether those files simply have no <code>DateTimeOriginal</code> to read. A good tool skips them and tells you rather than falling back to the file date silently.</p>
   </div>
 
-  <h2>Checking a file before you trust a batch</h2>
+  <h2 id="checking-a-file-before-you-trust-a-batch">Checking a file before you trust a batch</h2>
 
   <p>You do not need to install anything to look. In Preview, open the image, then Tools, Show Inspector, and the EXIF tab. The field is listed there.</p>
 
@@ -125,7 +166,7 @@
 
   <p>Do this on two or three files from each source (phone, DSLR, scans, downloads) before running anything across the whole folder. Sources differ and they differ in exactly the ways that ruin a batch.</p>
 
-  <h2>Pick a name format that sorts</h2>
+  <h2 id="pick-a-name-format-that-sorts">Pick a name format that sorts</h2>
 
   <p>The only format worth using starts with the year and goes down in size:</p>
 
@@ -144,7 +185,7 @@
 
   <p>Keeping the original camera name on the end, as in the second example, is worth doing. It gives you a tiebreak for photos taken in the same second, and it keeps a thread back to the original if you ever need to match against a backup.</p>
 
-  <h2>Time zones, which is where this gets annoying</h2>
+  <h2 id="time-zones-which-is-where-this-gets-annoying">Time zones, which is where this gets annoying</h2>
 
   <p>Classic EXIF <code>DateTimeOriginal</code> has no time zone in it. It is a wall clock reading: the time the camera thought it was. Two consequences:</p>
 
@@ -157,7 +198,7 @@
 
   <p>For almost everyone the wall clock is what you actually want. The photo of dinner in Tokyo taken at 8pm should say 8pm.</p>
 
-  <h2>Live Photos, HEIC and bursts</h2>
+  <h2 id="live-photos-heic-and-bursts">Live Photos, HEIC and bursts</h2>
 
   <p><strong>Live Photos</strong> are two files, a <code>.HEIC</code> and a <code>.MOV</code>, paired by an identifier inside them rather than by the filename. Renaming both to the same base name does not recreate the pairing, and renaming one does not break the pair inside the Photos library, because the library tracks them separately. What it does break is any app that pairs them by name on disk. If you care about keeping Live Photos live, export them from Photos as Live Photos and leave them alone rather than renaming exported pairs.</p>
 
@@ -169,7 +210,7 @@
     <p><strong>Do not work inside the Photos library.</strong> <code>Photos Library.photoslibrary</code> is a package with its own database, and renaming files inside it corrupts the library. Export first, rename the exported copies, and keep the library out of it.</p>
   </div>
 
-  <h2>A workflow that does not lose anything</h2>
+  <h2 id="a-workflow-that-does-not-lose-anything">A workflow that does not lose anything</h2>
 
   <ol>
     <li><strong>Work on a copy for the first run.</strong> Duplicate a folder of a hundred photos and rename those. You will find out what your sources actually contain in about two minutes.</li>
@@ -179,21 +220,57 @@
     <li><strong>Then run it on the real folder,</strong> with undo available for the batch.</li>
   </ol>
 
-  <h2>Doing it with Media Renamer Pro</h2>
+  <h2 id="doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</h2>
 
   <p>This is the case the app was built for. It reads <code>DateTimeOriginal</code> out of the image with ImageIO, so HEIC, JPEG and raw all work the same way, and it builds the name from a template you set once. The preview is the whole batch before anything moves, collisions are computed against the final state rather than file by file, and the last saved session can be undone.</p>
 
   <p>It runs on the Mac and on the iPhone and iPad, which matters more than it sounds: renaming the photos on the phone before they ever reach the Mac means the Mac side is already clean.</p>
 
   <p>None of that is required to follow the rest of this page. Read <code>DateTimeOriginal</code>, sort-friendly format, keep the original name as a tiebreak, preview before you commit.</p>
-
-  <div class="end">
-    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
-    <p>None of the above requires it. The rules are the rules whatever you use.</p>
-    <p>Related: <a href="batch-rename-safety.html">batch renaming safely</a> &middot; <a href="smb-nas-renaming.html">renaming over SMB and NAS</a></p>
-    <p><a href="privacy.html">Website privacy</a></p>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p><p>None of the above requires it. The rules are the rules whatever you use.</p></div>
   </div>
-
-</div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="rom-naming.html"><h3>How to name ROMs without breaking your verification set</h3><p>No-Intro and Redump names are identities, not labels. Region and revision codes, the era gate, archives, and multi-disc cue and m3u files.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="rename-new-files-only.html"><h3>How to rename only the new files in a folder</h3><p>Rename what just arrived and leave the rest alone. Inbox folders, what counts as done, NAS drives that go missing, and Watched Folders.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="folder-and-file-naming.html"><h3>How to set up your folders and filenames so renaming just works</h3><p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

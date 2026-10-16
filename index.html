@@ -3,103 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
-<title>Media Renamer Pro - Batch rename photos, movies, TV, music and more on Mac, iPad and iPhone</title>
-<meta name="description" content="Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. Preview every change before renaming. $4.99 once, no subscription.">
+<title>Media Renamer Pro: Batch File Renamer for Mac, iPhone and iPad</title>
+<meta name="description" content="Batch rename movies, TV shows, photos, music, audiobooks and game ROMs from the metadata inside your files. Preview every change, undo the last batch. Mac, iPad and iPhone. $4.99 once.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/">
-<meta property="og:title" content="Media Renamer Pro">
-<meta property="og:description" content="Batch rename media using what's inside the files. Review the plan before changing your files.">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
+<meta property="og:title" content="Media Renamer Pro: batch rename your media on Mac, iPad and iPhone">
+<meta property="og:description" content="Messy names in, clean library out. Real titles from real databases, a full preview before anything moves, and Watched Folders in 1.4.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/mac-before-after.jpg">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6; --accent-ink:#fff;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:14px; --maxw:1000px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-
-  header{padding:52px 0 8px}
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand img{width:60px;height:60px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.14)}
-  .brand h1{font-size:1.35rem;margin:0;letter-spacing:-.01em}
-  .brand p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
-
-  .hero{padding:34px 0 12px}
-  .hero h2{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.15;margin:0 0 18px;letter-spacing:-.022em;max-width:19ch}
-  .lede{font-size:1.1rem;color:var(--muted);max-width:60ch;margin:0 0 26px}
-
-  .demo{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    padding:20px;margin:26px 0 30px;overflow-x:auto}
-  .demo code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    display:block;white-space:nowrap}
-  .demo .before{color:var(--bad)}
-  .demo .after{color:var(--good)}
-  .demo .arrow{color:var(--muted);margin:8px 0;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase}
-
-  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:26px 0 8px}
-  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;
-    padding:13px 24px;border-radius:10px;font-weight:600;font-size:.98rem}
-  .btn:hover{filter:brightness(1.08)}
-  .price{color:var(--muted);font-size:.94rem}
-
-  section{padding:44px 0;border-top:1px solid var(--line);margin-top:44px}
-  h3{font-size:1.45rem;margin:0 0 8px;letter-spacing:-.015em}
-  .sub{color:var(--muted);margin:0 0 26px;max-width:62ch}
-
-  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
-  .card h4{margin:0 0 6px;font-size:1rem;line-height:1.4}
-  .card h4 a{text-decoration:none}
-  .card h4 a:hover{text-decoration:underline}
-  .card p{margin:0;color:var(--muted);font-size:.92rem}
-
-  ul.plain{list-style:none;padding:0;margin:0;display:grid;gap:13px}
-  ul.plain li{padding-left:26px;position:relative;color:var(--muted)}
-  ul.plain li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;
-    border-radius:50%;background:var(--accent)}
-  ul.plain strong{color:var(--ink)}
-
-  .shots{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px}
-  .shots img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;background:var(--panel)}
-
-  .video-wrap{margin-top:20px;background:#07090d;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.28)}
-  .video-wrap video{width:100%;height:auto;display:block}
-  .video-note{margin-top:12px;color:var(--muted);font-size:.9rem}
-
-  footer{border-top:1px solid var(--line);margin-top:52px;padding:30px 0 60px;color:var(--muted);font-size:.88rem}
-  footer a{color:var(--muted)}
-</style>
-
-<!-- Google Search Console verification (mediarenamerpro@gmail.com). Do not remove. -->
-<meta name="google-site-verification" content="ulR37u_f4nZ5k9N9tT_UZomqueEBUohwlHCmilRzzHg" />
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
 <meta name="twitter:creator" content="@MediaRenamerPro">
-<meta name="twitter:title" content="Media Renamer Pro">
-<meta name="twitter:description" content="Batch rename photos, movies, TV, music, audiobooks and game ROMs from the metadata inside your files. Preview every change before renaming. $4.99 once.">
-<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/mac-before-after.jpg">
-
+<meta name="twitter:title" content="Media Renamer Pro: batch rename your media on Mac, iPad and iPhone">
+<meta name="twitter:description" content="Messy names in, clean library out. Real titles from real databases, a full preview before anything moves, and Watched Folders in 1.4.">
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
+<!-- Google Search Console verification (mediarenamerpro@gmail.com). Do not remove. -->
+<meta name="google-site-verification" content="ulR37u_f4nZ5k9N9tT_UZomqueEBUohwlHCmilRzzHg" />
+<link rel="preload" as="image" href="media/v14/app-window-1400.jpg" imagesrcset="media/v14/app-window-800.jpg 800w, media/v14/app-window-1400.jpg 1400w" imagesizes="(max-width:900px) 100vw, 600px">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -112,21 +45,30 @@
   "url": "https://bkettering74.github.io/media-renamer-pro/",
   "downloadUrl": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615",
   "installUrl": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615",
-  "softwareVersion": "1.3.5",
+  "softwareVersion": "1.4",
   "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+  "screenshot": [
+    "https://bkettering74.github.io/media-renamer-pro/media/v14/app-window-1400.jpg",
+    "https://bkettering74.github.io/media-renamer-pro/media/v14/f-watched.jpg",
+    "https://bkettering74.github.io/media-renamer-pro/media/v14/iphone-01.jpg"
+  ],
   "description": "Media Renamer Pro batch renames photos, movies, TV shows, music, audiobooks and retro game ROMs using the metadata inside your files. It reads EXIF and container tags, looks up real titles online, and builds a rename plan you preview before anything moves. Undo the last saved rename session.",
+  "releaseNotes": "https://bkettering74.github.io/media-renamer-pro/#whats-new",
   "featureList": [
     "Batch rename TV, movies, photos and video, music, audiobooks and retro game ROMs",
     "Reads metadata already inside the file",
     "Online title lookup via TVmaze, TMDb, OMDb, Google Books, OpenLibrary, IGDB and RAWG",
-    "On-device photo analysis with Apple Vision, plus optional local or bring-your-own-key AI engines",
     "Full rename preview with confidence scores and sources before anything moves",
+    "Watched Folders: load only new files from saved folders, including NAS shares",
+    "Add and remove files from the list without starting over",
+    "Guided and Experienced layouts",
+    "Settings that save automatically",
     "Undo for the last saved rename session",
     "Collision detection instead of overwriting",
     "Rename straight from Finder with a right click",
     "Optionally carry subtitle files along with a renamed video",
-    "Works over SMB and NAS shares",
-    "Local Only Mode blocks all network calls"
+    "On-device photo analysis with Apple Vision, plus optional bring-your-own-key AI engines",
+    "Local-Only Mode blocks all network calls"
   ],
   "offers": {
     "@type": "Offer",
@@ -135,174 +77,246 @@
     "availability": "https://schema.org/InStock",
     "url": "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615"
   },
-  "author": { "@type": "Person", "name": "Buck Kettering" },
-  "publisher": { "@type": "Person", "name": "Buck Kettering", "email": "mediarenamerpro@gmail.com" },
-  "sameAs": [ "https://x.com/MediaRenamerPro", "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615" ]
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "email": "mediarenamerpro@gmail.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
+  "sameAs": [
+    "https://x.com/MediaRenamerPro",
+    "https://www.facebook.com/MediaRenamerPro",
+    "https://apps.apple.com/us/app/media-renamer-pro-batch-file/id6761764615"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Media Renamer Pro",
+  "url": "https://bkettering74.github.io/media-renamer-pro/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  }
 }
 </script>
 </head>
 <body>
-
-<div class="wrap">
-
-  <header>
-    <div class="brand">
-      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" alt="Media Renamer Pro app icon">
-      <div>
-        <h1>Media Renamer Pro</h1>
-        <p>Mac &middot; iPad &middot; iPhone</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Version 1.4: the workflow update</p>
+      <h1>Batch rename your media. <span class="grad">See every change first.</span></h1>
+      <p class="lede">Media Renamer Pro reads what is inside your movies, TV episodes, photos, music, audiobooks and game ROMs, looks up the real title when that helps, and shows you the whole rename plan before anything moves.</p>
+      <div class="demo" aria-label="Example rename">
+        <code class="before">The.Last.of.Us.S02E04.1080p.WEB-DL.x265-GRP.mkv</code>
+        <div class="arrow">becomes</div>
+        <code class="after">The Last of Us S02E04 Day One.mkv</code>
       </div>
+      <div class="cta">
+        <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>Get it on the App Store</a>
+        <a class="btn btn-ghost" href="#whats-new">What's new in 1.4</a>
+      </div>
+      <p class="fine">US $4.99 once. Mac, iPad and iPhone. No subscription, no ads, no account.</p>
     </div>
-  </header>
-
-  <div class="hero">
-    <h2>Your media files already know what they are.</h2>
-    <p class="lede">Media Renamer Pro reads what is actually inside your files, looks up the real title online when that helps, and builds a rename plan you review before anything moves.</p>
-
-    <div class="demo">
-      <code class="before">The.Last.of.Us.S02E04.1080p.WEB-DL.x265-GRP.mkv</code>
-      <div class="arrow">becomes</div>
-      <code class="after">The Last of Us - S02E04 - Day One.mkv</code>
-    </div>
-
-    <p class="lede">Review a whole folder at once. Nothing is renamed until you say go. Undo is available for the last saved rename session.</p>
-
-    <div class="cta">
-      <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
-      <span class="price">US $4.99 once. No subscription, no ads, no account.</span>
+    <div>
+      <img class="hero-shot" src="media/v14/app-window-1400.jpg" srcset="media/v14/app-window-800.jpg 800w, media/v14/app-window-1400.jpg 1400w" sizes="(max-width:900px) 100vw, 600px" width="1400" height="936" alt="Media Renamer Pro on Mac previewing ten TV episode renames with titles found on TVmaze" fetchpriority="high">
     </div>
   </div>
+</section>
 
-  <section aria-labelledby="demo-heading">
-    <h3 id="demo-heading">See the safety flow</h3>
-    <p class="sub">Ten messy TV filenames go in. The app looks up the real episode titles online, shows every proposed name side by side, and renames all ten in one click. Nothing changes until you say so, and Undo puts it all back.</p>
+<section class="section" id="whats-new">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">New in 1.4</p>
+      <h2>Build your list on the fly, keep your folders one click away</h2>
+      <p>The workflow update. Thanks to the customer who mocked up these ideas.</p>
+    </div>
+    <div class="grid-2"><article class="feature"><img src="media/v14/f-list.jpg" width="1200" height="750" alt="Build your list on the fly in Media Renamer Pro 1.4 on Mac" loading="lazy"><div class="body"><span class="tag">New in 1.4</span><h3>Build your list on the fly</h3><p>New + and &minus; buttons under your file list. Add more files or folders any time without starting over. &minus; only takes a row off the list, your files are never touched, and the same file is never added twice.</p></div></article><article class="feature"><img src="media/v14/f-watched.jpg" width="1200" height="750" alt="Watched Folders, one click away in Media Renamer Pro 1.4 on Mac" loading="lazy"><div class="body"><span class="tag">New in 1.4</span><h3>Watched Folders, one click away</h3><p>Save the folders you rename most, like a shared Movies or TV folder. The eye button loads them for the type you are renaming. New only skips what you already renamed, and a NAS that is not connected says so instead of failing quietly.</p></div></article><article class="feature"><img src="media/v14/f-layouts.jpg" width="1200" height="750" alt="Two layouts. Pick your pace. in Media Renamer Pro 1.4 on Mac" loading="lazy"><div class="body"><span class="tag">New in 1.4</span><h3>Two layouts. Pick your pace.</h3><p>Guided walks you through every step. Experienced hides the hints, tightens the spacing and moves Preview, Rename and Undo to a bar at the bottom, so more rows fit.</p></div></article><article class="feature"><img src="media/v14/f-settings.jpg" width="1200" height="750" alt="A new Settings that saves itself in Media Renamer Pro 1.4 on Mac" loading="lazy"><div class="body"><span class="tag">New in 1.4</span><h3>A new Settings that saves itself</h3><p>A sidebar instead of rows of tabs, and each page grouped into Naming templates and Data source. Changes save automatically. No more Save button.</p></div></article></div>
+    <p class="small" style="margin-top:22px">Want the full walkthrough? Read <a href="rename-new-files-only.html">how to rename only the new files in a folder</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Six kinds of media</p>
+      <h2>One renamer for everything on your drives</h2>
+      <p>Most renamers stop at TV and movies. This one covers the rest of what is actually on your drives, each with its own naming template and data source.</p>
+    </div>
+    <div class="grid"><div class="card"><div class="icon" aria-hidden="true">📺</div><h3>TV shows</h3><p>Real episode titles from TVmaze, TMDb and OMDb, in the SxxExx format Plex, Jellyfin and Emby expect.</p></div><div class="card"><div class="icon" aria-hidden="true">🎬</div><h3>Movies</h3><p>The correct title and year, with the scene tags stripped out. Folders mode renames whole movie folders.</p></div><div class="card"><div class="icon" aria-hidden="true">📷</div><h3>Photos and video</h3><p>Date taken, camera, city, and on-device AI scene descriptions with Apple Vision.</p></div><div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Music</h3><p>Artist, album and track number from the tags already inside the file.</p></div><div class="card"><div class="icon" aria-hidden="true">🎧</div><h3>Audiobooks</h3><p>Author and title from Google Books and OpenLibrary, with a chapters mode for multipart books.</p></div><div class="card"><div class="icon" aria-hidden="true">🕹️</div><h3>Retro game ROMs</h3><p>Clean titles and region tags from IGDB and RAWG, with a platform-aware era check.</p></div></div>
+  </div>
+</section>
+
+<section class="section dark" id="how-it-works">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">How it works</p>
+      <h2>Nothing moves until you say so</h2>
+      <p>Ten messy TV filenames go in. The app looks up the real episode titles, shows every proposed name side by side, and renames all ten in one click. Undo puts it all back.</p>
+    </div>
     <div class="video-wrap">
-      <video controls playsinline preload="metadata" poster="media/media-renamer-pro-tv-demo-poster.jpg" aria-label="Media Renamer Pro renaming ten TV episode files with real titles found online, then confirming the batch">
+      <video controls playsinline preload="none" poster="media/media-renamer-pro-tv-demo-poster.jpg" aria-label="Media Renamer Pro renaming ten TV episode files with real titles found online, then confirming the batch">
         <source src="media/media-renamer-pro-tv-demo.mp4" type="video/mp4">
-        Your browser does not support embedded video. <a href="media/media-renamer-pro-tv-demo.mp4">Open the demo video</a>.
+        <a href="media/media-renamer-pro-tv-demo.mp4">Open the demo video</a>.
       </video>
     </div>
-    <p class="video-note">Recorded in Media Renamer Pro using copied filename fixtures. No media contents were changed.</p>
-  </section>
+    <p class="small" style="margin-top:12px;color:var(--night-muted)">Recorded in Media Renamer Pro using copied filename fixtures. No media contents were changed.</p>
+  </div>
+</section>
 
-  <section>
-    <h3>Six kinds of media</h3>
-    <p class="sub">Most renamers do TV and movies. This one covers the rest of what is actually on your drives.</p>
-    <div class="grid">
-      <div class="card"><h4>TV shows</h4><p>Real episode titles from TVmaze, TMDb and OMDb.</p></div>
-      <div class="card"><h4>Movies</h4><p>Correct title and year, with the scene tags stripped out.</p></div>
-      <div class="card"><h4>Photos and video</h4><p>Date taken, camera, city, and on-device AI scene descriptions.</p></div>
-      <div class="card"><h4>Music</h4><p>Artist, album and track pulled from embedded tags.</p></div>
-      <div class="card"><h4>Audiobooks</h4><p>Author and title lookups from Google Books and OpenLibrary, with a chapters mode for multipart books.</p></div>
-      <div class="card"><h4>Retro game ROMs</h4><p>Clean titles and region tags from IGDB and RAWG.</p></div>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Your first rename</p>
+      <h2>Three steps, every time</h2>
+      <p>Start with a copied folder of a few files. You will know within a minute whether it names things the way you like.</p>
     </div>
-  </section>
-
-  <section>
-    <h3>Why people keep it</h3>
-    <ul class="plain">
-      <li><strong>Preview first.</strong> Every single change is visible before it happens.</li>
-      <li><strong>Undo the last session.</strong> Revert the successful renames recorded in its saved undo log.</li>
-      <li><strong>Conflict detection.</strong> It will not overwrite or clobber a file.</li>
-      <li><strong>Presets per media type.</strong> Set it up once, reuse it forever.</li>
-      <li><strong>Click-to-add naming tokens.</strong> No regex, no scripting.</li>
-      <li><strong>Start from Finder.</strong> Select files, right click, and choose Rename with Media Renamer Pro. The app opens with them loaded.</li>
-      <li><strong>Subtitles follow the video.</strong> Turn it on and a renamed video takes its matching subtitle files with it, language and forced tags intact, so Plex and Jellyfin keep pairing them.</li>
-      <li><strong>Works on network shares and NAS folders.</strong> Preview changes on a mounted SMB share before applying them.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Private by design</h3>
-    <p class="sub">Renaming happens on your device. Apple Vision is the default photo analysis engine and processes photos on-device. Optional cloud engines (OpenAI, Gemini and Anthropic) send photos to the selected provider when you configure your own key and use that engine. Online title lookups and location lookups also need a connection. Turn on Local-Only Mode to block network requests. The app has no account, tracking, ads, or telemetry. This website offers optional analytics that stays off unless you allow it. See <a href="privacy.html">Website Privacy</a>.</p>
-  </section>
-
-  <section>
-    <h3>One purchase, every device</h3>
-    <p class="sub">Universal app for Mac, iPad and iPhone. Buy it once and it runs on all three. On iPhone and iPad you can pick any folder in Files or iCloud Drive and rename right there, including folders on a network share.</p>
-    <div class="shots">
-      <img src="media/shot-1-new-look.jpg" alt="Media Renamer Pro on iPhone with the new design: messy names in, clean library out" loading="lazy">
-      <img src="media/shot-2-real-results.jpg" alt="Rename preview on iPhone showing real TV episode titles found online" loading="lazy">
-      <img src="media/shot-3-every-library.jpg" alt="Choosing one of seven media types: photos, music, movies, TV shows, audiobooks, games or other" loading="lazy">
-    </div>
-  </section>
-
-  <section id="first-rename">
-    <h3>Your first rename</h3>
-    <p class="sub">Start with a copied folder of a few files. Choose the media type, review the proposed names, then apply the changes.</p>
-    <ol>
-      <li><strong>Choose your folder.</strong> On Mac, if Grant Access appears, go up one level in the picker, select the target folder itself, then click Grant Access.</li>
-      <li><strong>Preview.</strong> Check the old and new filenames. Enable Include subfolders only if you want to scan inside nested folders.</li>
-      <li><strong>Rename, then check the result.</strong> Keep the app open and your drive connected until the batch finishes. Undo reverts the last saved session while its files are still accessible.</li>
+    <ol class="steps">
+      <li><strong>Add files or a folder.</strong> Pick the media type, then add files with + or drop them in. On Mac, if Grant Access appears, select the folder itself and click Grant Access.</li>
+      <li><strong>Preview.</strong> Check the old and new names, the source of each match and its confidence. Any new name can be edited.</li>
+      <li><strong>Rename.</strong> Keep the app open and the drive connected until the batch finishes. Undo reverts the last saved session.</li>
     </ol>
-    <h3>Before a large batch</h3>
-    <p>Keep a backup. Undo history is saved after a batch finishes; it is not crash recovery. A force quit, power loss or lost network connection can leave temporary filenames or changes that need manual recovery.</p>
-    <p>Since version 1.3.2 the app can carry companion subtitle files along with a renamed video once you turn that on in Settings. It deliberately leaves artwork and .nfo sidecars alone, because media centres look those up by exact name. It does not preserve Live Photo pairing, and an audiobook series naming token is not available yet.</p>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h3>Guides</h3>
-    <p class="sub">Things I have had to figure out, written down properly.</p>
-    <div class="grid">
-      <div class="card">
-        <h4><a href="folder-and-file-naming.html">How to set up your folders and filenames so renaming just works</a></h4>
-        <p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Why people keep it</p>
+      <h2>Built so a batch rename cannot eat your files</h2>
+    </div>
+    <ul class="checks">
+      <li><strong>Preview first</strong>Every single change is visible before it happens.</li>
+      <li><strong>Undo the last session</strong>Revert the renames recorded in its saved undo log.</li>
+      <li><strong>Never overwrites</strong>Two files that resolve to the same name get a suffix, not a collision.</li>
+      <li><strong>Only what is new</strong>Watched Folders with New only skip the files you already renamed.</li>
+      <li><strong>Presets per media type</strong>Click-to-add naming tokens. No regex, no scripting.</li>
+      <li><strong>Start from Finder</strong>Select files, right click, Rename with Media Renamer Pro.</li>
+      <li><strong>Subtitles follow the video</strong>Language and forced tags intact, so Plex and Jellyfin keep pairing them.</li>
+      <li><strong>Network shares and NAS</strong>Preview changes on a mounted SMB share before applying them.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">One purchase, every device</p>
+      <h2>Mac, iPad and iPhone</h2>
+      <p>A universal app. Buy it once and it runs on all three. On iPhone and iPad, pick any folder in Files or iCloud Drive, including folders on a network share, and rename right there.</p>
+    </div>
+    <div class="phones"><img src="media/v14/iphone-01.jpg" width="560" height="1217" alt="Media Renamer Pro on iPhone renaming TV episodes with real titles" loading="lazy"><img src="media/v14/iphone-02.jpg" width="560" height="1217" alt="Experienced layout on iPhone with actions in a bottom bar" loading="lazy"><img src="media/v14/iphone-03.jpg" width="560" height="1217" alt="Your List on iPhone with add and remove buttons" loading="lazy"><img src="media/v14/iphone-04.jpg" width="560" height="1217" alt="Watched Folders on iPhone for Movies, TV Shows, Music and Audiobooks" loading="lazy"><img src="media/v14/iphone-05.jpg" width="560" height="1217" alt="TV naming templates and data source settings on iPhone" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="section" id="privacy">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Private by design</p>
+      <h2>Your files stay on your device</h2>
+      <p>Renaming happens on your device. Apple Vision is the default photo engine and runs on-device. Optional cloud engines (OpenAI, Gemini and Anthropic) only send photos when you add your own key and choose that engine. Online title lookups and location lookups need a connection, and Local-Only Mode blocks every network request. No account, tracking, ads or telemetry in the app. This website has optional analytics that stays off unless you allow it. See <a href="privacy.html">Website privacy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Guides</p>
+      <h2>Naming, done properly</h2>
+      <p>Things I have had to figure out, written down. Useful whatever renamer you use.</p>
+    </div>
+    <div class="grid"><a class="card" href="rename-new-files-only.html"><h3>How to rename only the new files in a folder</h3><p>Rename what just arrived and leave the rest alone. Inbox folders, what counts as done, NAS drives that go missing, and Watched Folders.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="naming-guide.html"><h3>How to name TV and movie files so Plex and Jellyfin match them</h3><p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="folder-and-file-naming.html"><h3>How to set up your folders and filenames so renaming just works</h3><p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="batch-rename-safety.html"><h3>Why batch renaming eats files, and the two-phase fix</h3><p>Chains and swaps are what destroy files in a batch rename. Why one-at-a-time fails, and the probe most tools skip.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="subtitle-naming.html"><h3>Why your subtitles do not show up in Plex or Jellyfin</h3><p>Base name matching, language codes, forced and SDH flags, the library setting everyone misses, and what renaming does to the .srt.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="smb-nas-renaming.html"><h3>What breaks when you rename files over SMB and NAS shares</h3><p>Atomic replace, free space, Finder tags and extended attributes, case sensitivity, and mid-batch failures.</p><span class="more">Read the guide &rarr;</span></a></div>
+    <p style="margin-top:22px"><a href="guides.html"><strong>See all 10 guides &rarr;</strong></a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container read faq">
+    <div class="section-head"><p class="kicker">Questions</p><h2>Quick answers</h2></div>
+    <details><summary>Is Media Renamer Pro free?</summary><p>It is a one-time purchase of US $4.99 on the App Store. No subscription, no ads, no account, and one purchase covers Mac, iPad and iPhone.</p></details><details><summary>Will it rename anything without asking?</summary><p>No. It builds a rename plan and shows every old and new name side by side. Nothing on disk changes until you press Rename, and Undo reverts the last saved rename session.</p></details><details><summary>Does it work with Plex, Jellyfin and Emby?</summary><p>Yes. The default TV and movie templates follow the naming those servers read, like <code>Show S01E02 Episode Title</code> and <code>Movie (Year)</code>, and you can change them. The <a href="naming-guide.html">naming guide</a> explains why.</p></details><details><summary>Can it rename files on a NAS?</summary><p>Yes. Mount the share in Finder (or pick it in Files on iPhone and iPad) and preview as normal. In 1.4 you can save it as a Watched Folder and load only the new files.</p></details><details><summary>Do I need API keys?</summary><p>No. TVmaze, OpenLibrary, MusicBrainz and RAWG need nothing. TMDb, OMDb and IGDB can use your own free key for better results.</p></details>
+    <p style="margin-top:18px">More on the <a href="support.html">support page</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="kicker">Requirements</p><h2>What you need</h2></div>
+    <ul class="checks">
+      <li><strong>macOS 14.0 or later</strong>On your Mac.</li>
+      <li><strong>iOS and iPadOS 17.0 or later</strong>iPhone and iPad.</li>
+      <li><strong>One universal purchase</strong>US $4.99 covers all three.</li>
+    </ul>
+    <div style="margin-top:44px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
       </div>
-      <div class="card">
-        <h4><a href="naming-guide.html">How to name TV and movie files so Plex and Jellyfin actually match them</a></h4>
-        <p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
       </div>
-      <div class="card">
-        <h4><a href="batch-rename-safety.html">Why batch renaming eats files, and the two-phase fix</a></h4>
-        <p>Chains and swaps are what destroy files in a batch rename. Why one-at-a-time fails, and the probe most tools skip.</p>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
       </div>
-      <div class="card">
-        <h4><a href="smb-nas-renaming.html">What breaks when you rename files over SMB and NAS shares</a></h4>
-        <p>Atomic replace, free space, Finder tags and extended attributes, case sensitivity, and mid-batch failures.</p>
-      </div>
-      <div class="card">
-        <h4><a href="move-plex-library.html">How to move a Plex library without losing watch history</a></h4>
-        <p>Watch history belongs to the item in the database, not the file. The safe sequence, and the one step that really does destroy your work.</p>
-      </div>
-      <div class="card">
-        <h4><a href="rom-naming.html">How to name ROMs without breaking your verification set</a></h4>
-        <p>No-Intro and Redump names are identities, not labels. Region and revision codes, the era gate, archives, and multi-disc cue and m3u files.</p>
-      </div>
-      <div class="card">
-        <h4><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></h4>
-        <p>Base name matching, language codes, forced and SDH flags, the library setting everyone misses, and what renaming the video does to the .srt beside it.</p>
-      </div>
-      <div class="card">
-        <h4><a href="rename-photos-by-date.html">How to rename iPhone photos by the date they were taken</a></h4>
-        <p>File dates lie and EXIF does not. Which date field to trust, time zones, Live Photos, HEIC, burst collisions, and a workflow that loses nothing.</p>
-      </div>
-      <div class="card">
-        <h4><a href="emby-naming.html">Emby file naming: how to get your library matching correctly</a></h4>
-        <p>Folder structure, provider ID pinning, multi-version movies, specials and extras, NFO sidecars, and the settings that decide matching.</p>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h3>Requirements</h3>
-    <ul class="plain">
-      <li><strong>macOS 14.0</strong> or later</li>
-      <li><strong>iOS and iPadOS 17.0</strong> or later</li>
-      <li>Universal purchase across all three</li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>
-      <a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a> &middot;
-      <a href="naming-guide.html">Naming guide</a> &middot;
-      <a href="support.html">Support</a> &middot;
-      <a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App Privacy</a> &middot;
-      <a href="privacy.html">Website Privacy</a> &middot; <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a>
-    </p>
-    <p>&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
-  </footer>
-
-</div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

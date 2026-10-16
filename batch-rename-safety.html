@@ -3,67 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
 <title>Why batch renaming eats files, and the two-phase fix</title>
 <meta name="description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
 <meta property="og:title" content="Why batch renaming eats files, and the two-phase fix">
 <meta property="og:description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
 <meta property="og:type" content="article">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:12px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
-  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
-  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
-  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
-  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
-  h3{font-size:1.05rem;margin:28px 0 8px}
-  p{margin:0 0 18px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
-    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
-  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
-  .bad{color:var(--bad)}
-  .good{color:var(--good)}
-  ul{margin:0 0 20px;padding-left:22px}
-  li{margin-bottom:9px}
-  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
-  .note p{margin:0}
-  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
-  .end a{font-weight:600}
-</style>
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="Why batch renaming eats files, and the two-phase fix">
 <meta name="twitter:description" content="Chains and swaps are what destroy files during a batch rename. Why one-at-a-time renaming fails, how two-phase renaming fixes it, and the case-sensitivity probe most tools skip.">
-
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,33 +46,85 @@
   "inLanguage": "en",
   "author": {
     "@type": "Person",
-    "name": "Buck Kettering"
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
   },
   "publisher": {
-    "@type": "Person",
-    "name": "Buck Kettering"
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
   },
   "isPartOf": {
     "@type": "WebSite",
     "name": "Media Renamer Pro",
     "url": "https://bkettering74.github.io/media-renamer-pro/"
-  }
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 934
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Why batch renaming eats files, and the two-phase fix",
+      "item": "https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-07">
+<meta property="article:modified_time" content="2026-09-07">
 </head>
 <body>
-<div class="wrap">
-
-  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
-<h1>Why batch renaming eats files, and the two-phase fix</h1>
-<p class="standfirst">Rename a set of files one at a time and you will eventually destroy one. The failure is predictable and so is the fix.</p>
-<p class="byline">Buck Kettering · September 2026</p>
-
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">Why batch renaming eats files, and the two-phase fix</li></ol></nav>
+      <h1>Why batch renaming eats files, and the two-phase fix</h1>
+      <p class="standfirst">Rename a set of files one at a time and you will eventually destroy one. The failure is predictable and so is the fix.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; September 7, 2026</span><span>&middot; 4 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#1-the-chain">1. The chain</a></li><li><a href="#2-the-swap">2. The swap</a></li><li><a href="#3-the-fix-is-two-phases">3. The fix is two phases</a></li><li><a href="#4-validate-against-the-final-state-not-the-current-one">4. Validate against the final state, not the current one</a></li><li><a href="#5-case-insensitive-filesystems-will-lie-to-you">5. Case-insensitive filesystems will lie to you</a></li><li><a href="#6-decide-what-happens-when-file-22-fails">6. Decide what happens when file 22 fails</a></li><li><a href="#7-undo-has-to-be-one-unit">7. Undo has to be one unit</a></li><li><a href="#what-it-costs">What it costs</a></li></ol></nav>
+    <div class="prose">
 <p>Every batch renamer looks fine on a folder of holiday photos. The failure only shows up when the new names and the old names overlap, and by then a file is already gone.</p>
 
 <p>This is the failure, why it happens, and the fix. It applies to any tool you use, including a five line shell loop.</p>
 
-<h2>1. The chain</h2>
+<h2 id="1-the-chain">1. The chain</h2>
 
 <p>You have three episodes. The numbering was off by one, so every file needs to shift down:</p>
 
@@ -118,7 +136,7 @@ Show - S01E04.mkv   ->   Show - S01E03.mkv</code></pre>
 
 <p>On most systems the rename call replaces the destination without asking. The tool reports three successes. You have two files.</p>
 
-<h2>2. The swap</h2>
+<h2 id="2-the-swap">2. The swap</h2>
 
 <p>Worse, and more common than people expect, because two files got mismatched at import:</p>
 
@@ -127,7 +145,7 @@ Episode B.mkv   ->   Episode A.mkv</code></pre>
 
 <p>There is no ordering that works. Whichever you move first destroys the other. A tool that only checks each rename against the current state of the disk cannot solve this, so most of them refuse the whole batch and tell you to sort it out yourself.</p>
 
-<h2>3. The fix is two phases</h2>
+<h2 id="3-the-fix-is-two-phases">3. The fix is two phases</h2>
 
 <p>Do not rename anything to its final name on the first pass. Move every file in the batch to a unique temporary name, then move each one from its temporary name to its destination.</p>
 
@@ -145,7 +163,7 @@ Phase 2
 
 <div class="note"><p><strong>Pick temporary names that cannot collide with real files.</strong> A hidden prefix plus a counter is enough. Do not use the destination name with a suffix, because two different sources can generate the same one.</p></div>
 
-<h2>4. Validate against the final state, not the current one</h2>
+<h2 id="4-validate-against-the-final-state-not-the-current-one">4. Validate against the final state, not the current one</h2>
 
 <p>The other half of the problem is the preview. Checking "does a file with this name already exist" tells you almost nothing, because it asks about the disk as it is now, not as it will be.</p>
 
@@ -157,7 +175,7 @@ Phase 2
 
 <p>A destination that is currently <strong>another batch member's source name</strong>. That is the chain. It is safe under two-phase, but you still want it visible.</p>
 
-<h2>5. Case-insensitive filesystems will lie to you</h2>
+<h2 id="5-case-insensitive-filesystems-will-lie-to-you">5. Case-insensitive filesystems will lie to you</h2>
 
 <p>APFS and NTFS are usually case-insensitive but case-preserving. Renaming <code>report.pdf</code> to <code>Report.pdf</code> is either a no-op, an error, or a real rename, depending on the volume.</p>
 
@@ -165,7 +183,7 @@ Phase 2
 
 <p>The reliable answer is to stop asking and test. Write a probe file with a mixed-case name, stat the lowercase version, delete the probe. One write and one stat per volume, cached for the session. It takes milliseconds and removes an entire class of bug.</p>
 
-<h2>6. Decide what happens when file 22 fails</h2>
+<h2 id="6-decide-what-happens-when-file-22-fails">6. Decide what happens when file 22 fails</h2>
 
 <p>Batches fail partway. A file is locked, a share drops, permissions differ on one subfolder. There are only three honest responses.</p>
 
@@ -177,27 +195,63 @@ Phase 2
 
 <p>The wrong answer, and the common one, is to skip the failure silently and keep going. The batch reports success, the count is short, and nobody notices until a file cannot be found weeks later.</p>
 
-<h2>7. Undo has to be one unit</h2>
+<h2 id="7-undo-has-to-be-one-unit">7. Undo has to be one unit</h2>
 
 <p>If a batch is one decision for the user, it should be one entry in the undo history. Undoing a hundred renames one hundred times is not an undo feature.</p>
 
 <p>That means recording the mapping, not just the new names. Store source and destination for every operation and reverse them in the opposite order. Under two-phase renaming the reverse is another two-phase pass, for exactly the same reason the forward direction was.</p>
 
-<h2>What it costs</h2>
+<h2 id="what-it-costs">What it costs</h2>
 
 <p>Two phases means twice as many rename calls. On a local disk that is imperceptible, because a rename is a metadata operation and never touches the file contents. Over SMB it is two round trips instead of one, which is still far cheaper than restoring one file from backup.</p>
 
 <p>The preview is where the real work happens, and it is worth doing every time. A rename you can read before it runs is the whole difference between a tool you trust with four thousand files and one you use on ten at a time.</p>
 
 <p>Related: <a href="smb-nas-renaming.html">what breaks when you rename over SMB and NAS shares</a> and <a href="naming-guide.html">how to name TV and movie files so Plex and Jellyfin actually match them</a>.</p>
-
-<div class="end">
-    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
-    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
-    <p>Related: <a href="rename-photos-by-date.html">renaming photos by date taken</a> &middot; <a href="subtitle-naming.html">subtitle naming</a></p>
-    <p><a href="privacy.html">Website privacy</a></p>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p><p>None of the above requires it. The naming rules are the naming rules whatever you use.</p></div>
   </div>
-
-</div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="rename-new-files-only.html"><h3>How to rename only the new files in a folder</h3><p>Rename what just arrived and leave the rest alone. Inbox folders, what counts as done, NAS drives that go missing, and Watched Folders.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="smb-nas-renaming.html"><h3>What breaks when you rename files over SMB and NAS shares</h3><p>Atomic replace, free space, Finder tags and extended attributes, case sensitivity, and mid-batch failures.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="folder-and-file-naming.html"><h3>How to set up your folders and filenames so renaming just works</h3><p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

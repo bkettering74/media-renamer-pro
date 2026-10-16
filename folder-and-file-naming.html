@@ -3,81 +3,124 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
 <title>How to set up your folders and filenames so renaming just works</title>
 <meta name="description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, the most common edge cases, template tricks to add text to every filename, and an FAQ.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
 <meta property="og:title" content="How to set up your folders and filenames so renaming just works">
 <meta property="og:description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.">
 <meta property="og:type" content="article">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:12px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
-  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
-  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
-  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
-  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
-  h3{font-size:1.05rem;margin:28px 0 8px}
-  p{margin:0 0 18px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
-    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
-  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
-  .bad{color:var(--bad)}
-  .good{color:var(--good)}
-  ul{margin:0 0 20px;padding-left:22px}
-  li{margin-bottom:9px}
-  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
-  .note p{margin:0}
-  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
-  .end a{font-weight:600}
-</style>
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="How to set up your folders and filenames so renaming just works">
 <meta name="twitter:description" content="Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.">
-
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"TechArticle","headline":"How to set up your folders and filenames so renaming just works","description":"Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.","url":"https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html"},"datePublished":"2026-09-28","dateModified":"2026-09-28","inLanguage":"en","author":{"@type":"Person","name":"Buck Kettering"},"publisher":{"@type":"Person","name":"Buck Kettering"},"isPartOf":{"@type":"WebSite","name":"Media Renamer Pro","url":"https://bkettering74.github.io/media-renamer-pro/"}}
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to set up your folders and filenames so renaming just works",
+  "description": "Best-practice folder and file names for TV, movies, music, audiobooks, ROMs and photos, files that start with S01E01, template tricks to add text to every filename, and an FAQ.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html"
+  },
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1827
+}
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to set up your folders and filenames so renaming just works",
+      "item": "https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-28">
+<meta property="article:modified_time" content="2026-09-28">
 </head>
 <body>
-<div class="wrap">
-
-  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
-
-  <h1>How to set up your folders and filenames so renaming just works</h1>
-  <p class="standfirst">The folder a file sits in tells the app almost as much as the filename does. Here is the layout that gets the best results for every kind of media, plus the template tricks most people never find.</p>
-  <p class="byline">Buck Kettering &middot; September 2026</p>
-
-  <p>Media Renamer Pro reads three things for every file: the filename, the metadata inside the file, and the names of the folders around it. When the filename is thin, the folders fill the gap. So a tidy folder layout is the single biggest thing you can do to get clean names on the first pass.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to set up your folders and filenames so renaming just works</li></ol></nav>
+      <h1>How to set up your folders and filenames so renaming just works</h1>
+      <p class="standfirst">The folder a file sits in tells the app almost as much as the filename does. Here is the layout that gets the best results for every kind of media, plus the template tricks most people never find.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; September 28, 2026</span><span>&middot; 8 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#the-one-rule-that-covers-everything">The one rule that covers everything</a></li><li><a href="#tv-shows">TV shows</a></li><li><a href="#movies">Movies</a></li><li><a href="#music">Music</a></li><li><a href="#audiobooks">Audiobooks</a></li><li><a href="#game-roms">Game ROMs</a></li><li><a href="#photos">Photos</a></li><li><a href="#template-tricks-most-people-miss">Template tricks most people miss</a></li><li><a href="#common-edge-cases-and-what-to-do">Common edge cases and what to do</a></li><li><a href="#general-habits-that-save-the-most-time">General habits that save the most time</a></li><li><a href="#faq">FAQ</a></li></ol></nav>
+    <div class="prose">
+<p>Media Renamer Pro reads three things for every file: the filename, the metadata inside the file, and the names of the folders around it. When the filename is thin, the folders fill the gap. So a tidy folder layout is the single biggest thing you can do to get clean names on the first pass.</p>
 
   <p>None of this is required. The app will try its best with whatever you give it, and you can edit any row in the preview before anything moves. This is just the layout that needs the fewest edits.</p>
 
@@ -278,13 +321,50 @@ Stephen King - Hearts in Atlantis (1999)/</code></pre>
 
   <h3 id="where-do-i-send-feedback-or-a-file-it-got-wrong">Where do I send feedback or a file it got wrong?</h3>
   <p>Email <a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a> with a screenshot of the preview and the folder layout. Those are exactly the cases I want to fix.</p>
-
-  <div class="end">
-    <p>I build <a href="./">Media Renamer Pro</a>, a Mac, iPad and iPhone app for batch renaming photos, movies, TV, music, audiobooks and ROMs, with a full preview before anything moves and undo for the whole batch.</p>
-    <p>Related: <a href="naming-guide.html">naming TV and movie files</a> &middot; <a href="emby-naming.html">Emby naming</a> &middot; <a href="rom-naming.html">ROM naming</a> &middot; <a href="support.html">Support</a></p>
-    <p><a href="privacy.html">Website privacy</a></p>
+    </div>
+    <div class="end-note"><p>I build <a href="./">Media Renamer Pro</a>, a Mac, iPad and iPhone app for batch renaming photos, movies, TV, music, audiobooks and ROMs, with a full preview before anything moves and undo for the whole batch.</p></div>
   </div>
-
-</div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="rename-new-files-only.html"><h3>How to rename only the new files in a folder</h3><p>Rename what just arrived and leave the rest alone. Inbox folders, what counts as done, NAS drives that go missing, and Watched Folders.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="naming-guide.html"><h3>How to name TV and movie files so Plex and Jellyfin match them</h3><p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="emby-naming.html"><h3>Emby file naming: getting your library to match</h3><p>Folder structure, provider ID pinning, multi-version movies, specials and extras, NFO sidecars, and the settings that decide matching.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

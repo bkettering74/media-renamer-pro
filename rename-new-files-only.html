@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to rename only the new files in a folder, not the whole thing</title>
+<meta name="description" content="Rename just the files that arrived since last time and leave the rest alone: inbox folders, what counts as done, NAS drives, and Watched Folders in 1.4.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
+<meta property="og:title" content="How to rename only the new files in a folder, not the whole thing">
+<meta property="og:description" content="Rename what just arrived, skip what is already done, and never rename the same file twice.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to rename only the new files in a folder, not the whole thing">
+<meta name="twitter:description" content="Rename what just arrived, skip what is already done, and never rename the same file twice.">
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to rename only the new files in a folder",
+  "description": "Rename just the files that arrived since last time and leave the rest alone: inbox folders, what counts as done, NAS drives, and Watched Folders in 1.4.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html"
+  },
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
+  "inLanguage": "en",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Batch renaming"
+    },
+    {
+      "@type": "Thing",
+      "name": "Plex"
+    },
+    {
+      "@type": "Thing",
+      "name": "Network attached storage"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media library management"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1400,
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Rename only new files with Watched Folders in Media Renamer Pro",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Add a watched folder",
+      "text": "Open Settings, Watched Folders, click Add Folder, pick the folder and give it a media type."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Keep New only on",
+      "text": "New only is on by default. It skips files the app already renamed and hides files that already match your naming pattern."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Load with the eye button",
+      "text": "Choose the media type, then click the eye button under the file list to load every enabled watched folder of that type."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Preview and rename",
+      "text": "Press Preview, check the plan, then press Rename. The renamed files are remembered as done."
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to rename only the new files in a folder",
+      "item": "https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-10-16">
+<meta property="article:modified_time" content="2026-10-16">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to rename only the new files in a folder</li></ol></nav>
+      <h1>How to rename only the new files in a folder</h1>
+      <p class="standfirst">You cleaned up the whole folder once. Now six new episodes have arrived and you only want to touch those six.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; October 16, 2026</span><span>&middot; 6 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#why-re-running-the-whole-folder-is-a-bad-habit">Why re-running the whole folder is a bad habit</a></li><li><a href="#option-1-an-inbox-folder">Option 1: an inbox folder</a></li><li><a href="#option-2-sort-by-date-added">Option 2: sort by date added</a></li><li><a href="#option-3-let-the-tool-remember-what-is-done">Option 3: let the tool remember what is done</a></li><li><a href="#the-nas-problem-folders-that-are-not-there">The NAS problem: folders that are not there</a></li><li><a href="#how-watched-folders-work-in-media-renamer-pro-1-4">How Watched Folders work in Media Renamer Pro 1.4</a></li><li><a href="#gotchas-worth-knowing">Gotchas worth knowing</a></li><li><a href="#adding-a-few-files-by-hand">Adding a few files by hand</a></li><li><a href="#quick-checklist">Quick checklist</a></li></ol></nav>
+    <div class="prose">
+<p>The first rename of a library is the big one. Hundreds of files, a long preview, a lot of checking. After that the job changes. New files trickle in a few at a time, and the rest of the folder is already the way you want it. Running the whole thing again every time is slow, it hits the online lookups for files that do not need them, and it gives a tool the chance to "fix" a name you corrected by hand.</p>
+
+<p>So the real question for a working library is not how to rename a folder. It is how to rename only what is new in it.</p>
+
+<h2 id="why-re-running-the-whole-folder-is-a-bad-habit">Why re-running the whole folder is a bad habit</h2>
+
+<p>It looks harmless, because a file that already has the right name should come out unchanged. In practice three things go wrong:</p>
+
+<ul>
+  <li><strong>Lookups drift.</strong> Online databases change. An episode title gets corrected, a movie gets a different year, a show gets a new canonical name. Re-run the lookup a month later and a file you were happy with gets a different name.</li>
+  <li><strong>Your hand fixes get undone.</strong> If you edited a name in the preview because the match was wrong, the next full run will match it wrong again.</li>
+  <li><strong>The preview gets too long to read.</strong> Six real changes buried in four hundred "unchanged" rows is how mistakes get through. A preview only protects you if you actually read it.</li>
+</ul>
+
+<h2 id="option-1-an-inbox-folder">Option 1: an inbox folder</h2>
+
+<p>The simplest pattern, and it works with any renamer. New files never land in the library directly. They land in an <code>Incoming</code> folder. You rename everything in <code>Incoming</code>, check it, then move the results into the library.</p>
+
+<pre><code class="good">Media/
+  Incoming/          &larr; downloads and rips land here
+  Movies/            &larr; only clean, renamed files
+  TV Shows/</code></pre>
+
+<p>Because <code>Incoming</code> only ever holds new files, "rename the whole folder" and "rename only the new files" become the same thing. The cost is one extra move every time, and if your media server watches the library folder, it will not see anything until you do that move.</p>
+
+<h2 id="option-2-sort-by-date-added">Option 2: sort by date added</h2>
+
+<p>If you would rather keep files where they land, Finder can show you what is new. In list view, add the <strong>Date Added</strong> column and sort by it. Select the files above the point where you last renamed, and hand only those to your renamer.</p>
+
+<p>It works, but it relies on you remembering where you stopped, and Date Added is per folder. On some network shares it is missing or wrong, so files can sort in the wrong place.</p>
+
+<h2 id="option-3-let-the-tool-remember-what-is-done">Option 3: let the tool remember what is done</h2>
+
+<p>The cleaner fix is for the renamer to keep a record. For that to be safe, "done" has to mean the right things:</p>
+
+<ul>
+  <li><strong>Files the tool renamed itself.</strong> Once a file has been through a confirmed rename, it is done. Its new path gets recorded.</li>
+  <li><strong>Files that already have the right name.</strong> A file you named by hand, or one that arrived correctly named, is also done. There is nothing to change, so it should not clutter the preview.</li>
+  <li><strong>Undo has to reverse it.</strong> If you undo a rename, those files go back to their old names, so they must count as new again. Otherwise they would be skipped forever with the wrong name.</li>
+  <li><strong>A template change has to reset it.</strong> If you change how you want files named, every "done" file is now wrong. The record needs a way to be cleared.</li>
+</ul>
+
+<p>Get any of those wrong and a "new only" feature quietly skips files that need work, which is worse than having no feature at all.</p>
+
+<h2 id="the-nas-problem-folders-that-are-not-there">The NAS problem: folders that are not there</h2>
+
+<p>Libraries usually live on an external drive or a NAS share. Those are not always mounted. A saved folder pointing at <code>/Volumes/Media/Movies</code> while the drive is unplugged should not fail silently, and it definitely should not quietly fall back to an empty folder and report "nothing new". You want to be told the folder is unavailable, so you know to mount it, rather than believing there was nothing to do.</p>
+
+<div class="note"><p><strong>Rule of thumb:</strong> "nothing new" and "could not look" must never look the same. If your tool cannot tell them apart, check the drive is mounted before you trust an empty result.</p></div>
+
+<h2 id="how-watched-folders-work-in-media-renamer-pro-1-4">How Watched Folders work in Media Renamer Pro 1.4</h2>
+
+<p>This is the workflow I built into Media Renamer Pro 1.4, after a customer mocked up how they wanted it to work. It follows the rules above.</p>
+
+<figure>
+  <img src="media/v14/f-watched.jpg" width="1200" height="750" alt="Watched Folders settings in Media Renamer Pro on Mac, with Movies, TV Shows, Music and Audiobooks folders and the New only switch" loading="lazy">
+  <figcaption>Settings &rarr; Watched Folders on Mac. Each folder has its own media type and an on or off switch.</figcaption>
+</figure>
+
+<h3>Set it up once</h3>
+<ol>
+  <li>Open <strong>Settings &rarr; Watched Folders</strong> and click <strong>Add Folder</strong>.</li>
+  <li>Pick the folder, for example your shared Movies folder, and give it a type: Movies, TV Shows, Music or Audiobooks.</li>
+  <li>Leave <strong>New only</strong> on. It is on by default.</li>
+</ol>
+
+<p>Watched folders are kept separately from your naming settings and saved straight away. Resetting your templates does not remove them.</p>
+
+<h3>Load what is new</h3>
+<ol>
+  <li>Choose the media type you are renaming, for example TV Shows.</li>
+  <li>Click the <strong>eye button</strong> under your file list. It loads every enabled watched folder of that type. It never switches your media type for you.</li>
+  <li>Press <strong>Preview</strong>. Files that already match your naming pattern are hidden, so the preview shows only what will actually change.</li>
+  <li>Check the plan and press <strong>Rename</strong>. Those files are now remembered as done.</li>
+</ol>
+
+<p>The small arrow next to the eye button lets you load just one folder, turn New only off for a run, or jump to the settings page.</p>
+
+<figure>
+  <img src="media/v14/iphone-04.jpg" width="560" height="1217" alt="Watched Folders on iPhone in Media Renamer Pro" loading="lazy" style="max-width:300px">
+  <figcaption>The same thing on iPhone and iPad, under Settings.</figcaption>
+</figure>
+
+<h3>What counts as done</h3>
+<ul>
+  <li>Every file the app renames is recorded by its new path. The settings page shows how many files are remembered as done.</li>
+  <li>Files whose name already matches your pattern are hidden from the preview and remembered too.</li>
+  <li><strong>Undo makes a file count as new again</strong>, so an undone rename shows up next time.</li>
+  <li>For Movies and TV, each file is checked on its own. For Music and Audiobooks, where a folder is one album or one book, a folder is skipped only when every file in it is done.</li>
+</ul>
+
+<h3>Drives that are not connected</h3>
+<p>If a watched folder is on a drive or NAS share that is not mounted, it shows as <strong>Unavailable</strong> in Settings and in the eye menu, and you get an error instead of an empty list. Mount the share in Finder and load again.</p>
+
+<h3>It does not run in the background</h3>
+<p>This is on purpose. Nothing watches your folders while the app is closed, and nothing is renamed until you preview and confirm. "Watched" means the app knows where to look when you ask it to, not that it acts on its own.</p>
+
+<h2 id="gotchas-worth-knowing">Gotchas worth knowing</h2>
+
+<ul>
+  <li><strong>Changed your naming template?</strong> Files remembered as done were done under the old template. Turn New only off for one run, or use <strong>Forget All</strong> in Settings &rarr; Watched Folders, so everything gets checked against the new pattern.</li>
+  <li><strong>Very large folders take a moment to scan.</strong> Loading a folder with thousands of files reads every name first, the same as a normal preview does.</li>
+  <li><strong>Files mode or Folders mode.</strong> In Files mode the eye button loads the files inside the watched folder. In Folders mode it loads the folders inside it, never the watched folder itself, so a Movies folder full of movie folders works the way you would expect.</li>
+</ul>
+
+<h2 id="adding-a-few-files-by-hand">Adding a few files by hand</h2>
+
+<p>Sometimes the new files are not in a watched folder at all. In 1.4 the <strong>+</strong> button under the file list adds more files or folders to the list you already have, instead of starting over. The same file is never added twice, even if it sits inside a folder you already added. The <strong>&minus;</strong> button only takes a row off the list. It never touches the file on disk.</p>
+
+<h2 id="quick-checklist">Quick checklist</h2>
+
+<ul>
+  <li>Keep new arrivals separate, either in an inbox folder or by letting your tool remember what is done</li>
+  <li>Make sure "done" includes files that already have the right name</li>
+  <li>After an undo, the undone files should be treated as new</li>
+  <li>After changing your naming template, clear the done list once</li>
+  <li>Mount the NAS or drive before trusting a "nothing new" result</li>
+  <li>Still read the preview. Six rows is quick to check</li>
+</ul>
+    </div>
+    <div class="end-note"><p>I build <a href="./">Media Renamer Pro</a>, the Mac, iPad and iPhone app described in the second half of this guide. The inbox folder and Date Added approaches work with any renamer.</p></div>
+  </div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="batch-rename-safety.html"><h3>Why batch renaming eats files, and the two-phase fix</h3><p>Chains and swaps are what destroy files in a batch rename. Why one-at-a-time fails, and the probe most tools skip.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="smb-nas-renaming.html"><h3>What breaks when you rename files over SMB and NAS shares</h3><p>Atomic replace, free space, Finder tags and extended attributes, case sensitivity, and mid-batch failures.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="folder-and-file-naming.html"><h3>How to set up your folders and filenames so renaming just works</h3><p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
+</body>
+</html>

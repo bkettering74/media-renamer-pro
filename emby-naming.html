@@ -3,67 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
 <title>Emby file naming: how to get your library matching correctly</title>
 <meta name="description" content="How to name movie, TV, anime, music video and extras files for Emby. Folder structure, multi-version movies, specials, NFO sidecars, and the settings that decide whether Emby reads your names at all.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/emby-naming.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
 <meta property="og:title" content="Emby file naming: how to get your library matching correctly">
 <meta property="og:description" content="Folder structure, multi-version movies, specials, extras, NFO sidecars, and the settings that decide matching.">
 <meta property="og:type" content="article">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:12px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
-  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
-  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
-  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
-  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
-  h3{font-size:1.05rem;margin:28px 0 8px}
-  p{margin:0 0 18px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
-    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
-  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
-  .bad{color:var(--bad)}
-  .good{color:var(--good)}
-  ul{margin:0 0 20px;padding-left:22px}
-  li{margin-bottom:9px}
-  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
-  .note p{margin:0}
-  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
-  .end a{font-weight:600}
-</style>
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/emby-naming.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="Emby file naming: how to get your library matching correctly">
 <meta name="twitter:description" content="Folder structure, multi-version movies, specials, extras, NFO sidecars, and the settings that decide matching.">
-
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,34 +37,106 @@
   "headline": "Emby file naming: how to get your library matching correctly",
   "description": "A practical guide to file and folder naming for an Emby media server, covering movies, TV, anime ordering, multi-version files, specials, extras and NFO metadata.",
   "url": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html" },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html"
+  },
   "datePublished": "2026-09-12",
   "dateModified": "2026-09-12",
   "inLanguage": "en",
-  "author": { "@type": "Person", "name": "Buck Kettering" },
-  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
   "about": [
-    { "@type": "Thing", "name": "Emby" },
-    { "@type": "Thing", "name": "Media server" },
-    { "@type": "Thing", "name": "Media file naming" }
+    {
+      "@type": "Thing",
+      "name": "Emby"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media server"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media file naming"
+    }
   ],
-  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1186
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Emby file naming: how to get your library matching correctly",
+      "item": "https://bkettering74.github.io/media-renamer-pro/emby-naming.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-12">
+<meta property="article:modified_time" content="2026-09-12">
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">Emby file naming: how to get your library matching correctly</li></ol></nav>
+      <h1>Emby file naming: how to get your library matching correctly</h1>
+      <p class="standfirst">Emby is stricter than Plex in some places and looser in others. These are the places it differs, and the ones where everyone gets caught.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; September 12, 2026</span><span>&middot; 5 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#folder-structure-first">Folder structure first</a></li><li><a href="#pinning-to-a-provider-id">Pinning to a provider ID</a></li><li><a href="#multiple-versions-of-the-same-movie">Multiple versions of the same movie</a></li><li><a href="#tv-specials-and-the-numbering-that-trips-people">TV: specials and the numbering that trips people</a></li><li><a href="#anime">Anime</a></li><li><a href="#extras">Extras</a></li><li><a href="#nfo-sidecars-and-when-to-reach-for-them">NFO sidecars, and when to reach for them</a></li><li><a href="#the-settings-that-decide-whether-any-of-this-works">The settings that decide whether any of this works</a></li><li><a href="#renaming-an-existing-emby-library">Renaming an existing Emby library</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+    <div class="prose">
+<p>Emby shares most of its naming conventions with Jellyfin, which forked from it, and overlaps heavily with Plex. If you already have a library that Plex reads correctly, Emby will read most of it. The differences are in a handful of specific places, and those are what this page is about.</p>
 
-  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
-
-  <h1>Emby file naming: how to get your library matching correctly</h1>
-  <p class="standfirst">Emby is stricter than Plex in some places and looser in others. These are the places it differs, and the ones where everyone gets caught.</p>
-  <p class="byline">Buck Kettering &middot; September 2026</p>
-
-
-  <p>Emby shares most of its naming conventions with Jellyfin, which forked from it, and overlaps heavily with Plex. If you already have a library that Plex reads correctly, Emby will read most of it. The differences are in a handful of specific places, and those are what this page is about.</p>
-
-  <h2>Folder structure first</h2>
+  <h2 id="folder-structure-first">Folder structure first</h2>
 
   <p>Emby matches at the folder level for movies and at the folder plus filename level for TV. Give it the structure it expects and most problems never happen:</p>
 
@@ -116,7 +154,7 @@ TV/
 
   <p>One folder per movie matters more in Emby than in Plex, because that folder is the unit Emby uses for extras, subtitles, artwork and multiple versions. A flat <code>Movies</code> folder with a hundred loose <code>.mkv</code> files will mostly work and will lock you out of half the features.</p>
 
-  <h2>Pinning to a provider ID</h2>
+  <h2 id="pinning-to-a-provider-id">Pinning to a provider ID</h2>
 
   <p>When Emby keeps matching the wrong thing, stop fighting the title and pin it:</p>
 
@@ -125,7 +163,7 @@ The Last of Us (2023) [tvdbid-392256]/</code></pre>
 
   <p>Emby reads <code>tmdbid</code>, <code>tvdbid</code> and <code>imdbid</code> in square brackets on the folder name. This is the single most useful trick in the whole system and almost nobody uses it. It is also the correct answer for anything with a generic name, a remake, or a foreign title that the scraper keeps resolving to the wrong entry.</p>
 
-  <h2>Multiple versions of the same movie</h2>
+  <h2 id="multiple-versions-of-the-same-movie">Multiple versions of the same movie</h2>
 
   <p>This is where Emby is genuinely nicer than the alternatives. Put the versions in the one movie folder and mark each with a dash and a label:</p>
 
@@ -136,7 +174,7 @@ The Last of Us (2023) [tvdbid-392256]/</code></pre>
 
   <p>Emby collapses those into one entry with a version picker rather than three separate movies. The rule is the base name, then space hyphen space, then whatever you want the version called. Get the separator wrong and you get three entries.</p>
 
-  <h2>TV: specials and the numbering that trips people</h2>
+  <h2 id="tv-specials-and-the-numbering-that-trips-people">TV: specials and the numbering that trips people</h2>
 
   <p>Specials go in <code>Season 00</code>, numbered as episodes of season zero:</p>
 
@@ -155,13 +193,13 @@ Show Name - S01E05 - part2.mkv</code></pre>
 
   <p>The distinction matters because the first one is two episodes in the database and the second is one episode with two files. Getting it backwards produces a library where watched state behaves strangely and nobody can work out why.</p>
 
-  <h2>Anime</h2>
+  <h2 id="anime">Anime</h2>
 
   <p>Everything on <a href="naming-guide.html">the general naming page</a> about absolute versus aired ordering applies to Emby unchanged. The short version: your files are probably numbered absolutely, TVDB thinks in aired seasons, and there is no arithmetic that converts one to the other.</p>
 
   <p>Emby's practical path is to rename to explicit <code>SxxExx</code> in your chosen provider's aired order and use a single metadata provider for that series. Mixing TVDB artwork with AniDB episode data is how you end up with correct-looking images over wrong titles.</p>
 
-  <h2>Extras</h2>
+  <h2 id="extras">Extras</h2>
 
   <p>Emby recognises extras by subfolder name inside the movie or show folder:</p>
 
@@ -176,7 +214,7 @@ Show Name - S01E05 - part2.mkv</code></pre>
 
   <p>The names are fixed and lowercase is fine. Files inside are named freely, because the folder is what assigns the type. A trailer can also sit beside the movie as <code>Dune Part Two (2024)-trailer.mkv</code>, with the hyphen suffix and no space.</p>
 
-  <h2>NFO sidecars, and when to reach for them</h2>
+  <h2 id="nfo-sidecars-and-when-to-reach-for-them">NFO sidecars, and when to reach for them</h2>
 
   <p>For anything with no online match, home video, a recorded talk, an old match, stop trying to make the scraper cooperate. Two clean answers:</p>
 
@@ -191,7 +229,7 @@ Show Name - S01E05 - part2.mkv</code></pre>
     <p><strong>Emby does not read titles out of the video container.</strong> Setting a title inside an MKV with MKVToolNix does nothing. Library metadata comes from the filename, the online providers, and NFO sidecars. That is the entire list.</p>
   </div>
 
-  <h2>The settings that decide whether any of this works</h2>
+  <h2 id="the-settings-that-decide-whether-any-of-this-works">The settings that decide whether any of this works</h2>
 
   <ul>
     <li><strong>Library type.</strong> A Movies library will not parse <code>SxxExx</code> and a TV library will not treat a loose file as a movie. Half of all "Emby is not matching" is a library pointed at the wrong content type.</li>
@@ -202,7 +240,7 @@ Show Name - S01E05 - part2.mkv</code></pre>
 
   <p>After a rename or a settings change, run a scan with "Refresh metadata" and "Replace existing metadata" rather than a plain scan. A plain scan looks for new files, and a renamed file often is not treated as new.</p>
 
-  <h2>Renaming an existing Emby library</h2>
+  <h2 id="renaming-an-existing-emby-library">Renaming an existing Emby library</h2>
 
   <p>Two things to protect.</p>
 
@@ -214,7 +252,7 @@ Show Name - S01E05 - part2.mkv</code></pre>
 
   <p>Sidecar subtitles are attached by base name and nothing else, so renaming the video orphans them. Rename them in the same pass, or use a tool that carries them. That whole topic, including language codes and the forced and SDH flags, is on <a href="subtitle-naming.html">the subtitle page</a>.</p>
 
-  <h2>Checklist</h2>
+  <h2 id="checklist">Checklist</h2>
 
   <ul>
     <li>One folder per movie, year in brackets on the folder</li>
@@ -225,14 +263,50 @@ Show Name - S01E05 - part2.mkv</code></pre>
     <li>Library type, downloaders and local metadata all set before blaming the filenames</li>
     <li>Full refresh scan after renaming, and check watch state on a few items</li>
   </ul>
-
-  <div class="end">
-    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
-    <p>None of the above requires it. The rules are the rules whatever you use.</p>
-    <p>Related: <a href="naming-guide.html">naming TV and movie files</a> &middot; <a href="subtitle-naming.html">subtitle naming</a> &middot; <a href="move-plex-library.html">moving a library</a></p>
-    <p><a href="privacy.html">Website privacy</a></p>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p><p>None of the above requires it. The rules are the rules whatever you use.</p></div>
   </div>
-
-</div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="naming-guide.html"><h3>How to name TV and movie files so Plex and Jellyfin match them</h3><p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="subtitle-naming.html"><h3>Why your subtitles do not show up in Plex or Jellyfin</h3><p>Base name matching, language codes, forced and SDH flags, the library setting everyone misses, and what renaming does to the .srt.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="move-plex-library.html"><h3>How to move a Plex library without losing watch history</h3><p>Watch history belongs to the item, not the file. The safe sequence, and the one step that really does destroy your work.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

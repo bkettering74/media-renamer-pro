@@ -3,67 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script defer src="analytics.js"></script>
 <title>How to name TV and movie files so Plex and Jellyfin actually match them</title>
 <meta name="description" content="A practical guide to naming TV, movie and anime files so Plex, Jellyfin and Emby match them correctly. Covers absolute vs aired episode ordering, NFO sidecars, subtitles, and why your library keeps guessing wrong.">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/naming-guide.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
 <meta property="og:title" content="How to name TV and movie files so Plex and Jellyfin actually match them">
 <meta property="og:description" content="Absolute vs aired ordering, NFO sidecars, subtitles, and the naming rules that stop your library guessing wrong.">
 <meta property="og:type" content="article">
-<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
-<style>
-  :root{
-    --bg:#fbfbfd; --panel:#fff; --ink:#16161a; --muted:#5f6169;
-    --line:#e4e4ea; --accent:#2b6cf6;
-    --code-bg:#f2f2f6; --bad:#b4262a; --good:#1f7a45;
-    --radius:12px;
-  }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-      --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-      --bad:#ff8a8f; --good:#5fd196;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e0e11; --panel:#17171c; --ink:#f2f2f5; --muted:#a2a4ad;
-    --line:#2a2a33; --accent:#5c93ff; --code-bg:#1e1e25;
-    --bad:#ff8a8f; --good:#5fd196;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  a{color:var(--accent)}
-  .top{padding:26px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
-  .top a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  h1{font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.2;letter-spacing:-.02em;margin:0 0 14px}
-  .standfirst{font-size:1.1rem;color:var(--muted);margin:0 0 12px}
-  .byline{color:var(--muted);font-size:.85rem;margin:0 0 40px}
-  h2{font-size:1.35rem;margin:44px 0 12px;letter-spacing:-.012em}
-  h3{font-size:1.05rem;margin:28px 0 8px}
-  p{margin:0 0 18px}
-  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);
-    padding:15px 17px;overflow-x:auto;margin:0 0 20px}
-  code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-  p code{background:var(--code-bg);padding:2px 5px;border-radius:5px;font-size:.88em}
-  .bad{color:var(--bad)}
-  .good{color:var(--good)}
-  ul{margin:0 0 20px;padding-left:22px}
-  li{margin-bottom:9px}
-  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:var(--radius);padding:16px 18px;margin:0 0 24px}
-  .note p{margin:0}
-  .end{border-top:1px solid var(--line);margin-top:52px;padding:28px 0 60px;color:var(--muted);font-size:.92rem}
-  .end a{font-weight:600}
-</style>
-
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/naming-guide.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
 <meta name="twitter:title" content="How to name TV and movie files so Plex and Jellyfin actually match them">
-<meta name="twitter:description" content="A practical guide to naming TV, movie and anime files so Plex, Jellyfin and Emby match them correctly.">
-
+<meta name="twitter:description" content="Absolute vs aired ordering, NFO sidecars, subtitles, and the naming rules that stop your library guessing wrong.">
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,35 +37,108 @@
   "headline": "How to name TV and movie files so Plex and Jellyfin actually match them",
   "description": "A practical guide to naming TV, movie and anime files so Plex, Jellyfin and Emby match them correctly. Covers absolute vs aired episode ordering, NFO sidecars, scene tags and subtitle language codes.",
   "url": "https://bkettering74.github.io/media-renamer-pro/naming-guide.html",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://bkettering74.github.io/media-renamer-pro/naming-guide.html" },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/naming-guide.html"
+  },
   "datePublished": "2026-09-06",
   "dateModified": "2026-09-07",
   "inLanguage": "en",
-  "author": { "@type": "Person", "name": "Buck Kettering" },
-  "publisher": { "@type": "Person", "name": "Buck Kettering" },
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
   "about": [
-    { "@type": "Thing", "name": "Plex" },
-    { "@type": "Thing", "name": "Jellyfin" },
-    { "@type": "Thing", "name": "Media file naming" }
+    {
+      "@type": "Thing",
+      "name": "Plex"
+    },
+    {
+      "@type": "Thing",
+      "name": "Jellyfin"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media file naming"
+    }
   ],
-  "isPartOf": { "@type": "WebSite", "name": "Media Renamer Pro", "url": "https://bkettering74.github.io/media-renamer-pro/" }
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1063
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to name TV and movie files so Plex and Jellyfin actually match them",
+      "item": "https://bkettering74.github.io/media-renamer-pro/naming-guide.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-09-06">
+<meta property="article:modified_time" content="2026-09-07">
 </head>
 <body>
-<div class="wrap">
-
-  <div class="top"><a href="./">&larr; Media Renamer Pro</a></div>
-
-  <h1>How to name TV and movie files so Plex and Jellyfin actually match them</h1>
-  <p class="standfirst">Most matching failures are not scraper bugs. They are naming problems, and there are only about six of them.</p>
-  <p class="byline">Buck Kettering &middot; September 2026</p>
-
-  <p>Every media server matches on the filename first and asks questions later. Plex, Jellyfin and Emby all parse the name, guess a title, guess a season and episode, then go looking for something online that fits the guess. If the guess is wrong the lookup is wrong, and no amount of refreshing fixes it.</p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to name TV and movie files so Plex and Jellyfin actually match them</li></ol></nav>
+      <h1>How to name TV and movie files so Plex and Jellyfin actually match them</h1>
+      <p class="standfirst">Most matching failures are not scraper bugs. They are naming problems, and there are only about six of them.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; September 6, 2026 &middot; Updated September 7, 2026</span><span>&middot; 5 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#1-give-every-show-a-folder-and-every-season-a-folder">1. Give every show a folder and every season a folder</a></li><li><a href="#2-use-sxxexx-and-put-the-year-on-the-show-folder">2. Use SxxExx, and put the year on the show folder</a></li><li><a href="#3-anime-absolute-ordering-is-the-whole-problem">3. Anime: absolute ordering is the whole problem</a></li><li><a href="#4-movies-strip-the-scene-tags">4. Movies: strip the scene tags</a></li><li><a href="#5-subtitles-need-the-language-code">5. Subtitles need the language code</a></li><li><a href="#6-when-the-scraper-is-simply-wrong-write-an-nfo">6. When the scraper is simply wrong, write an NFO</a></li><li><a href="#a-word-on-renaming-safely">A word on renaming safely</a></li></ol></nav>
+    <div class="prose">
+<p>Every media server matches on the filename first and asks questions later. Plex, Jellyfin and Emby all parse the name, guess a title, guess a season and episode, then go looking for something online that fits the guess. If the guess is wrong the lookup is wrong, and no amount of refreshing fixes it.</p>
 
   <p>Here is what actually breaks, in the order it usually bites.</p>
 
-  <h2>1. Give every show a folder and every season a folder</h2>
+  <h2 id="1-give-every-show-a-folder-and-every-season-a-folder">1. Give every show a folder and every season a folder</h2>
 
   <p>Flat folders full of episodes are where most libraries go wrong. The structure every server wants:</p>
 
@@ -114,7 +153,7 @@
 
   <p>Do not put show folders directly at the root of a drive. If you do, your library path has to be the whole volume, which means every scan also walks <code>$RECYCLE.BIN</code>, <code>System Volume Information</code> and anything else that ever lands there. Keep one parent folder per library.</p>
 
-  <h2>2. Use SxxExx, and put the year on the show folder</h2>
+  <h2 id="2-use-sxxexx-and-put-the-year-on-the-show-folder">2. Use SxxExx, and put the year on the show folder</h2>
 
   <p>The season and episode numbers must be explicit and machine readable:</p>
 
@@ -131,7 +170,7 @@ Shogun (2024)/</code></pre>
 
 <pre><code class="good">Shogun (2024) [tvdbid-390481]/</code></pre>
 
-  <h2>3. Anime: absolute ordering is the whole problem</h2>
+  <h2 id="3-anime-absolute-ordering-is-the-whole-problem">3. Anime: absolute ordering is the whole problem</h2>
 
   <p>This is the most common unsolvable-looking case, and it is worth understanding because it explains a whole class of failures.</p>
 
@@ -151,7 +190,7 @@ Shogun (2024)/</code></pre>
 
   <p>Pick one ordering and commit to it. If you want aired-order seasons, rename the files to explicit <code>SxxExx</code> that matches your provider's aired order and turn the other agents off for that series. If your files are genuinely absolute-numbered, flatten the show and use absolute ordering instead. What you cannot do is half of both.</p>
 
-  <h2>4. Movies: strip the scene tags</h2>
+  <h2 id="4-movies-strip-the-scene-tags">4. Movies: strip the scene tags</h2>
 
   <p>A release name is not a filename:</p>
 
@@ -162,7 +201,7 @@ Shogun (2024)/</code></pre>
 
   <p>Give each movie its own folder if you keep extras or subtitles alongside it.</p>
 
-  <h2>5. Subtitles need the language code</h2>
+  <h2 id="5-subtitles-need-the-language-code">5. Subtitles need the language code</h2>
 
   <p>Sidecar subtitles are not picked up just because the base name matches. They usually need the language:</p>
 
@@ -170,7 +209,7 @@ Shogun (2024)/</code></pre>
 
   <p>And check that your library has local media assets enabled. If that is off, the server never looks for sidecar files at all, which is why "the names match exactly and it still does not work" is such a common complaint.</p>
 
-  <h2>6. When the scraper is simply wrong, write an NFO</h2>
+  <h2 id="6-when-the-scraper-is-simply-wrong-write-an-nfo">6. When the scraper is simply wrong, write an NFO</h2>
 
   <p>Some things have no online match. Home video, an old wrestling match, a family recording, a talk someone gave. Fighting the scraper on those is a losing game.</p>
 
@@ -185,7 +224,7 @@ Shogun (2024)/</code></pre>
 
   <p>If you do write NFOs, keep them next to the video rather than anywhere central, so they travel with the file when you reorganize.</p>
 
-  <h2>A word on renaming safely</h2>
+  <h2 id="a-word-on-renaming-safely">A word on renaming safely</h2>
 
   <p>Whatever you use to do the renaming, two things will eventually bite you.</p>
 
@@ -196,14 +235,50 @@ Shogun (2024)/</code></pre>
   <h3>Network shares behave differently</h3>
 
   <p>SMB shares and most NAS boxes are case-insensitive but case-preserving. <code>Report.pdf</code> to <code>report.pdf</code> either silently does nothing or throws an error depending on the box. Same-name detection that is perfectly correct on APFS quietly stops being correct over the network. If your library lives on a NAS, test your renaming tool there before you trust it with a thousand files.</p>
-
-  <div class="end">
-    <p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p>
-    <p>None of the above requires it. The naming rules are the naming rules whatever you use.</p>
-    <p>Related: <a href="subtitle-naming.html">subtitle naming in depth</a> &middot; <a href="emby-naming.html">Emby naming</a> &middot; <a href="rename-photos-by-date.html">renaming photos by date taken</a></p>
-    <p><a href="privacy.html">Website privacy</a></p>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app that does the renaming described here, with a full preview before anything moves and undo for the last saved rename session.</p><p>None of the above requires it. The naming rules are the naming rules whatever you use.</p></div>
   </div>
-
-</div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="emby-naming.html"><h3>Emby file naming: getting your library to match</h3><p>Folder structure, provider ID pinning, multi-version movies, specials and extras, NFO sidecars, and the settings that decide matching.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="subtitle-naming.html"><h3>Why your subtitles do not show up in Plex or Jellyfin</h3><p>Base name matching, language codes, forced and SDH flags, the library setting everyone misses, and what renaming does to the .srt.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="move-plex-library.html"><h3>How to move a Plex library without losing watch history</h3><p>Watch history belongs to the item, not the file. The safe sequence, and the one step that really does destroy your work.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
 </body>
 </html>

@@ -2,74 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bkettering74.github.io/media-renamer-pro/</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-16</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/guides.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/support.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/rename-new-files-only.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bkettering74.github.io/media-renamer-pro/naming-guide.html</loc>
     <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/smb-nas-renaming.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/move-plex-library.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/rom-naming.html</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/subtitle-naming.html</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bkettering74.github.io/media-renamer-pro/emby-naming.html</loc>
     <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/subtitle-naming.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/move-plex-library.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/batch-rename-safety.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/smb-nas-renaming.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/rename-photos-by-date.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/rom-naming.html</loc>
+    <lastmod>2026-09-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bkettering74.github.io/media-renamer-pro/privacy.html</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-10-16</lastmod>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/support.html</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://bkettering74.github.io/media-renamer-pro/folder-and-file-naming.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>
