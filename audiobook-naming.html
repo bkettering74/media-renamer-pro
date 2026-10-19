@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</title>
+<meta name="description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
+<meta property="og:title" content="How to name audiobook files so Audiobookshelf, Plex and Emby sort them right">
+<meta property="og:description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
+<meta name="twitter:title" content="How to name audiobook files so Audiobookshelf, Plex and Emby sort them right">
+<meta name="twitter:description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to name audiobook files so Audiobookshelf, Plex and Emby sort them right",
+  "description": "Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html"
+  },
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 1100
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to name audiobook files so Audiobookshelf, Plex and Emby sort them right",
+      "item": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-10-19">
+<meta property="article:modified_time" content="2026-10-19">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</li></ol></nav>
+      <h1>How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</h1>
+      <p class="standfirst">Parts that play in the wrong order, titles and authors swapped, covers that vanish. Most of it comes down to a few naming rules the server and the player both depend on.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; October 19, 2026</span><span>&middot; 5 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#1-parts-need-a-number-that-sorts-as-text">1. Parts need a number that sorts as text</a></li><li><a href="#2-watch-the-double-space">2. Watch the double space</a></li><li><a href="#3-author-and-title-in-the-right-order">3. Author and title in the right order</a></li><li><a href="#4-pick-one-template-and-keep-it">4. Pick one template and keep it</a></li><li><a href="#5-keep-covers-and-extras-with-the-book">5. Keep covers and extras with the book</a></li><li><a href="#6-folders-author-series-title">6. Folders: Author, Series, Title</a></li><li><a href="#7-nas-and-smb-shares">7. NAS and SMB shares</a></li><li><a href="#doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</a></li></ol></nav>
+    <div class="prose">
+<p>Audiobooks arrive from ripped CDs, store downloads, and tools like Libation or OpenAudible, and the names are all over the place. A server can only match what it can read, so a clean name plus good tags is what makes the cover, the series and the author page come out right.</p>
+
+<p>These are the rules that cause most of the mess.</p>
+
+<h2 id="1-parts-need-a-number-that-sorts-as-text">1. Parts need a number that sorts as text</h2>
+
+<p>Some players and file managers compare filenames character by character. With that kind of sort, <code>Part 10</code> lands before <code>Part 2</code>. A zero-padded number (<code>01</code>, <code>02</code>, <code>10</code>) sorts correctly everywhere.</p>
+
+<p>So put the part number first, as a track field, instead of leaving it as text at the end:</p>
+
+<pre><code class="bad">Crown of Midnight Part 1.mp3
+Crown of Midnight Part 2.mp3</code></pre>
+
+<pre><code class="good">01 - Sarah J. Maas - Crown of Midnight (2013).mp3
+02 - Sarah J. Maas - Crown of Midnight (2013).mp3</code></pre>
+
+<p>The order is stated exactly once, and no guess about sort order can contradict it.</p>
+
+<h2 id="2-watch-the-double-space">2. Watch the double space</h2>
+
+<p>A double space before "Part 2" can make that file sort before "Part 1", because a space compares lower than a letter. It is invisible in a file list and it breaks the order of a whole book. Collapse repeated spaces before you trust any sort.</p>
+
+<h2 id="3-author-and-title-in-the-right-order">3. Author and title in the right order</h2>
+
+<p>Plenty of downloads are named <code>Title - Author</code>. Flipping them blindly is risky, because a title can look like a person's name and an author can look like a title. Only flip when the file's tags or a lookup show which side is the author. If nothing proves it, leave the name alone and fix it by hand. A wrong rename is worse than no rename.</p>
+
+<h2 id="4-pick-one-template-and-keep-it">4. Pick one template and keep it</h2>
+
+<p>A template that works for most libraries:</p>
+
+<pre><code>{track} - {author} - {title} ({year})</code></pre>
+
+<p>If your template has no track field, a multi-part book gives every part the same name, so each part needs a <code>- Part N</code> suffix instead. Pick one style per library. Mixed styles are what make a collection sort strangely.</p>
+
+<h2 id="5-keep-covers-and-extras-with-the-book">5. Keep covers and extras with the book</h2>
+
+<p>A <code>cover.jpg</code>, a <code>.cue</code>, an <code>.nfo</code> or a PDF should follow the book it belongs to. They should not be looked up as if they were books themselves. Remember that <code>cover.jpg</code> is folder-scoped, so it only works when the book has a folder of its own.</p>
+
+<h2 id="6-folders-author-series-title">6. Folders: Author, Series, Title</h2>
+
+<p>Audiobookshelf reads the folder structure as Author, then Series (optional), then Title, then the files. It parses the folder name too. A year goes first or right after the series number, a series sequence is picked up when it follows Vol or Book, and a narrator goes in curly braces:</p>
+
+<pre><code>Sarah J. Maas/Throne of Glass/Vol 2 - 2013 - Crown of Midnight {Elizabeth Evans}/</code></pre>
+
+<p>Plex and Emby are less picky, but they all benefit from one book per folder and consistent names inside it.</p>
+
+<div class="note"><p><strong>If you only take one thing from this page:</strong> make the part order explicit and zero-padded, and never let a tool guess who the author is.</p></div>
+
+<h2 id="7-nas-and-smb-shares">7. NAS and SMB shares</h2>
+
+<p>Audiobook collections often live on a NAS. Renaming over SMB behaves differently from a local disk, so preview first and keep the share mounted until the batch finishes. The details are in <a href="smb-nas-renaming.html">what breaks when you rename files over SMB and NAS shares</a>.</p>
+
+<h2 id="doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</h2>
+
+<ul>
+  <li><strong>Pick the Audiobooks media type.</strong> The app reads the file's tags and looks up Google Books and Open Library to fill author, title and year.</li>
+  <li><strong>Part N and Disc N become a track number</strong>, zero-padded, so order is stated once.</li>
+  <li><strong>Title - Author is flipped only when the tags prove it.</strong></li>
+  <li><strong>You set the template</strong> in Settings, then Audiobooks.</li>
+  <li><strong>Every rename shows in a preview first.</strong> Rows are editable, and the last saved rename session can be undone.</li>
+  <li><strong>Files on a NAS or SMB share work</strong>, and it runs on Mac, iPad and iPhone.</li>
+</ul>
+
+<p>Related: <a href="folder-and-file-naming.html">how to set up your folders and filenames so renaming just works</a> and <a href="batch-rename-safety.html">why batch renaming eats files, and the two-phase fix</a>.</p>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app for the renaming described here, one $4.99 purchase with no subscription. It was built with AI assistance (Claude and Codex).</p><p>None of the above requires it. The naming rules are the naming rules whatever you use. Questions are welcome in the <a href="https://discord.gg/Hw9pgpC9T">Discord</a>.</p></div>
+  </div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="folder-and-file-naming.html"><h3>How to set up your folders and filenames so renaming just works</h3><p>The layout that gets clean names on the first pass for every media type, files that start with S01E01, template tricks, and an FAQ.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="smb-nas-renaming.html"><h3>What breaks when you rename files over SMB and NAS shares</h3><p>Atomic replace, free space, Finder tags and extended attributes, case sensitivity, and mid-batch failures.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="rom-naming.html"><h3>How to name ROMs without breaking your verification set</h3><p>No-Intro and Redump names are identities, not labels. Region and revision codes, the era gate, archives, and multi-disc cue and m3u files.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 1.4</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
+</body>
+</html>
