@@ -7,7 +7,7 @@
   </url>
   <url>
     <loc>https://bkettering74.github.io/media-renamer-pro/guides.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -79,5 +79,40 @@
     <loc>https://bkettering74.github.io/media-renamer-pro/release-notes.html</loc>
     <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/edit-tags-and-cover-art.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/find-cover-art-online.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/fix-a-wrong-match.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/clean-and-fill-tags.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/confidence-percentage-explained.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/repair-tags-when-you-keep-the-filename.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bkettering74.github.io/media-renamer-pro/workflows-in-2-0.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>
