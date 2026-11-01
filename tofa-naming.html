@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tofa file naming: how to get your library to match</title>
+<meta name="description" content="How tofa expects movie, TV, edition and subtitle files to be named, based on its own docs: folders, S01E01 markers, multi-episode files, specials, editions, subtitles, and what to do with unknown titles.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/tofa-naming.html">
+<meta name="theme-color" content="#0b0a1f">
+<meta name="apple-itunes-app" content="app-id=6761764615">
+<meta name="author" content="Buck Kettering">
+<meta property="og:site_name" content="Media Renamer Pro">
+<meta property="og:title" content="tofa file naming: how to get your library to match">
+<meta property="og:description" content="Folders, S01E01 markers, editions, subtitles and unknown titles, from tofa's own naming docs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/tofa-naming.html">
+<meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@MediaRenamerPro">
+<meta name="twitter:creator" content="@MediaRenamerPro">
+<meta name="twitter:title" content="tofa file naming: how to get your library to match">
+<meta name="twitter:description" content="Folders, S01E01 markers, editions, subtitles and unknown titles, from tofa's own naming docs.">
+<meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
+<link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
+<link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
+<link rel="preconnect" href="https://is1-ssl.mzstatic.com">
+<link rel="stylesheet" href="style.css?v=14">
+<script defer src="analytics.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "tofa file naming: how to get your library to match",
+  "description": "A practical guide to file and folder naming for the tofa media server, covering movies, TV, multi-episode files, specials, editions, subtitles and unknown titles.",
+  "url": "https://bkettering74.github.io/media-renamer-pro/tofa-naming.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bkettering74.github.io/media-renamer-pro/tofa-naming.html"
+  },
+  "datePublished": "2026-11-01",
+  "dateModified": "2026-11-01",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Buck Kettering",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"
+    }
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "tofa"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media server"
+    },
+    {
+      "@type": "Thing",
+      "name": "Media file naming"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Media Renamer Pro",
+    "url": "https://bkettering74.github.io/media-renamer-pro/"
+  },
+  "image": "https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg",
+  "wordCount": 640
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bkettering74.github.io/media-renamer-pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://bkettering74.github.io/media-renamer-pro/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "tofa file naming: how to get your library to match",
+      "item": "https://bkettering74.github.io/media-renamer-pro/tofa-naming.html"
+    }
+  ]
+}
+</script>
+<meta property="article:published_time" content="2026-11-01">
+<meta property="article:modified_time" content="2026-11-01">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="guides.html" aria-current="page">Guides</a>
+      <a href="support.html">Support</a>
+      <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<article class="container">
+  <div class="read">
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">tofa file naming: how to get your library to match</li></ol></nav>
+      <h1>tofa file naming: how to get your library to match</h1>
+      <p class="standfirst">tofa reads your folders where they sit and never renames anything, so the names you already have decide whether a title matches. Here is what its own docs say it expects.</p>
+      <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; November 1, 2026</span><span>&middot; 3 min read</span></p>
+    </header>
+    <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#movies">Movies</a></li><li><a href="#tv-shows">TV shows</a></li><li><a href="#multi-episode-files-and-specials">Multi-episode files and specials</a></li><li><a href="#editions-4k-and-1080p">Editions, 4K and 1080p</a></li><li><a href="#subtitles">Subtitles</a></li><li><a href="#what-tofa-skips">What tofa skips</a></li><li><a href="#when-a-title-will-not-match">When a title will not match</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+<div class="prose">
+<p>tofa is a self-hosted media server that is currently in beta. It reads your folders in place and does not rename or move anything, so the names you already have decide whether a title matches. This guide follows tofa's own naming documentation as I read it on November 1, 2026. Because it is a beta, check <a href="https://docs.tofa.tv/name-your-media.html">docs.tofa.tv</a> for the current rules.</p>
+
+  <h2 id="movies">Movies</h2>
+
+  <p>Use one folder per movie, named with the title and year. Loose files in the library root also work. The year is optional, but it is what tells remakes apart, so include it.</p>
+
+<pre><code>Movies/
+  Harbor Lights (1995)/
+    Harbor Lights (1995).mkv</code></pre>
+
+  <p>Quality tags such as <code>2160p</code> or <code>HDR</code> are ignored for matching. A movie split across files stacks into one title when the parts are numbered <code>cd1</code> and <code>cd2</code>, <code>part1</code> and <code>part2</code>, or <code>disc1</code> and <code>disc2</code>. Disc folders such as <code>VIDEO_TS</code> and <code>BDMV</code> are supported, and the folder that holds them supplies the title and year.</p>
+
+  <h2 id="tv-shows">TV shows</h2>
+
+  <p>Use a folder for the show, a folder for each season, and put the season and episode marker in the file name.</p>
+
+<pre><code>Shows/
+  Northbound (2022)/
+    Season 01/
+      Northbound S01E01.mkv</code></pre>
+
+  <p>Season folders can be <code>Season 01</code>, <code>Season 1</code> or <code>S01</code>. <code>S01E02</code> is the most reliable episode marker. tofa also recognizes <code>1x02</code>, <code>EP02</code>, air dates for daily shows, and plain numbers for absolute-numbered shows. If two shows share a name, put the year in the show folder, like <code>Night Watch (1990)</code> and <code>Night Watch (2014)</code>.</p>
+
+  <p>Episode order is set per show as Aired (the default), Absolute or DVD. Changing it does not affect watch progress.</p>
+
+  <h2 id="multi-episode-files-and-specials">Multi-episode files and specials</h2>
+
+  <p>A file that holds two episodes takes a range in the name, such as <code>S01E01-E02</code>. Specials go in a <code>Specials</code> or <code>Season 00</code> folder, or get <code>S00E01</code> style numbers.</p>
+
+  <h2 id="editions-4k-and-1080p">Editions, 4K and 1080p</h2>
+
+  <p>Editions use a tag in curly braces, such as <code>{edition-Colour}</code> or <code>{edition-Black and White}</code>. On an episode file name the tag creates an edition picker inside one show. On a show folder it creates separate listings with separate watched state.</p>
+
+  <p>For 4K and 1080p copies, give both files the same title and year and let only the quality tag differ. Copies in the same library merge on their own. Across libraries you need to turn on Cross-library version merge under Admin, then Libraries.</p>
+
+<pre><code>Movies/
+  Harbor Lights (1995)/
+    Harbor Lights (1995) 2160p.mkv
+    Harbor Lights (1995) 1080p.mkv</code></pre>
+
+  <h2 id="subtitles">Subtitles</h2>
+
+  <p>Embedded text and image-based tracks work. External SRT, ASS/SSA and VTT files should be named after the video, with an optional language code and flags, or placed in a <code>Subs</code> folder. Use two or three letter language codes. The flags <code>forced</code>, <code>sdh</code> and <code>cc</code> mark forced and hearing-impaired tracks.</p>
+
+<pre><code>Harbor Lights (1995).en.forced.srt
+Harbor Lights (1995).is.sdh.srt
+Subs/german.srt</code></pre>
+
+  <h2 id="what-tofa-skips">What tofa skips</h2>
+
+  <ul>
+    <li>A show file with no recognizable episode marker. (A movie without a year still scans.)</li>
+    <li>Trailers, samples and extras: names like <code>trailer.*</code> or <code>sample.*</code>, and anything in folders named <code>Extras</code> or <code>Trailers</code>.</li>
+    <li>Any folder holding a <code>.tofaignore</code> or <code>.nomedia</code> file, along with everything beneath it.</li>
+    <li>Unfinished downloads.</li>
+  </ul>
+
+  <h2 id="when-a-title-will-not-match">When a title will not match</h2>
+
+  <p>Titles tofa cannot identify show up under Admin, then Hygiene, on the Unknown titles tab. Its own docs say that renaming the file is often the real fix.</p>
+
+  <p>If tofa matched the wrong title instead, use Fix match on the movie or show page in the web interface, signed in as the admin on the main profile. That corrects the match without renaming files, so your names on disk stay as they are.</p>
+
+  <h2 id="checklist">Checklist</h2>
+
+  <ul>
+    <li>One folder per movie, with the year</li>
+    <li>Show folder, season folder, and <code>S01E01</code> in every episode file name</li>
+    <li>The year on the show folder when two shows share a name</li>
+    <li>Ranges like <code>S01E01-E02</code> for two-in-one files, specials in <code>Season 00</code></li>
+    <li>Same title and year on 4K and 1080p copies, only the quality tag different</li>
+    <li>Subtitles named after the video, with language and flag codes</li>
+    <li>Anything left over in the Unknown titles tab: rename the file first</li>
+  </ul>
+    </div>
+    <div class="end-note"><p>I write media tooling. <a href="./">Media Renamer Pro</a> is my Mac, iPad and iPhone app. Its movie and TV templates produce names in the formats above, <code>Movie Name (Year)</code> and <code>Show Name - S01E01</code>, with a full preview before anything moves and undo for the last saved rename session.</p><p>None of this requires it, and tofa does not need any particular tool. The rules are the rules whatever you use. I am not affiliated with tofa.</p></div>
+  
+  </div>
+</article>
+<section class="related"><div class="container"><h2>Keep reading</h2><div class="grid"><a class="card" href="naming-guide.html"><h3>How to name TV and movie files so Plex and Jellyfin match them</h3><p>Folder structure, SxxExx, absolute vs aired anime ordering, subtitles, NFO sidecars, and renaming safely over a NAS.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="subtitle-naming.html"><h3>Why your subtitles do not show up in Plex or Jellyfin</h3><p>Base name matching, language codes, forced and SDH flags, the library setting everyone misses, and what renaming does to the .srt.</p><span class="more">Read the guide &rarr;</span></a><a class="card" href="move-plex-library.html"><h3>How to move a Plex library without losing watch history</h3><p>Watch history belongs to the item, not the file. The safe sequence, and the one step that really does destroy your work.</p><span class="more">Read the guide &rarr;</span></a></div></div></section>
+<div class="container" style="padding-top:36px"><div class="cta-band">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/256x256bb.jpg" width="76" height="76" alt="Media Renamer Pro app icon" loading="lazy">
+  <div><h2>Rename it all, see it first</h2><p>Media Renamer Pro for Mac, iPad and iPhone. $4.99 once. No subscription, no account.</p></div>
+  <a class="btn" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get it on the App Store</a>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <p class="brand"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="30" height="30" alt="" loading="lazy">Media Renamer Pro</p>
+        <p>Batch rename movies, TV, photos, music, audiobooks and game ROMs on Mac, iPad and iPhone. Preview every change. $4.99 once.</p>
+        <p><a href="mailto:mediarenamerpro@gmail.com">mediarenamerpro@gmail.com</a></p>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
+          <li><a href="./#whats-new">What's new in 2.0</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="support.html">Support and FAQ</a></li>
+          <li><a href="workflows-in-2-0.html">2.0 how-to guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="rename-new-files-only.html">Rename only the new files in a folder</a></li><li><a href="folder-and-file-naming.html">Set up your folders and filenames so renaming just works</a></li><li><a href="naming-guide.html">Name TV and movie files so Plex and Jellyfin match them</a></li><li><a href="emby-naming.html">Emby file naming: getting your library to match</a></li><li><a href="subtitle-naming.html">Why your subtitles do not show up in Plex or Jellyfin</a></li><li><a href="move-plex-library.html">Move a Plex library without losing watch history</a></li><li><a href="guides.html">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="https://x.com/MediaRenamerPro">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/MediaRenamerPro">Facebook</a></li>
+          <li><a href="https://gist.github.com/bkettering74/0de44a464fd437071bfd5934816bed4a">App privacy policy</a></li>
+          <li><a href="privacy.html">Website privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Buck Kettering. Media Renamer Pro is not affiliated with Apple, Plex, Jellyfin, Emby, tofa, TVmaze, TMDb, OMDb, IGDB, RAWG, Google Books or OpenLibrary.</p>
+  </div>
+</footer>
+</body>
+</html>
