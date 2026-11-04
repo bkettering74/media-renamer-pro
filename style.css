@@ -74,10 +74,24 @@ a:hover{text-decoration-thickness:2px}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .hero .fine{color:var(--night-muted);font-size:.9rem;margin:14px 0 0}
 .hero-shot{border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1)}
-.demo{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;margin:0 0 26px;overflow-x:auto}
-.demo code{font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;display:block;white-space:nowrap}
+.demo{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;margin:0 0 26px;display:flex;flex-direction:column;gap:12px}
+.demo-row{display:flex;flex-direction:column;gap:3px;overflow-x:auto}
+.demo-row + .demo-row{border-top:1px solid rgba(255,255,255,.08);padding-top:10px}
+.demo-type{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8f83ff;margin-bottom:2px}
+.demo-flow{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.demo code{font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;display:inline-block;white-space:nowrap}
 .demo .before{color:#ff9a9f}.demo .after{color:#7ee2a8}
-.demo .arrow{color:var(--night-muted);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin:4px 0}
+.demo .arrow{color:var(--night-muted);font-size:.75rem}
+
+.quote-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}
+.quote-card p{font-size:1.02rem;line-height:1.55;color:var(--ink);margin:0 0 14px;font-style:italic}
+.quote-author{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
+.quote-badge{background:var(--code-bg);padding:3px 8px;border-radius:6px;font-weight:600;font-size:.78rem;color:var(--accent)}
+
+.badges{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:0 0 20px}
+.badges a{display:inline-flex;align-items:center;line-height:0;transition:opacity .15s}
+.badges a:hover{opacity:.85}
+.badges img{height:36px;width:auto;max-width:100%;object-fit:contain;border-radius:6px}
 
 /* Sections */
 .section{padding:76px 0}
