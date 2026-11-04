@@ -220,9 +220,15 @@
     <li><strong>Then run it on the real folder,</strong> with undo available for the batch.</li>
   </ol>
 
+  <h2 id="beyond-timestamps">Beyond timestamps: human names and Spotlight search</h2>
+
+  <p>A folder full of dates like <code>2024-08-12 14-33-08.heic</code> sorts neatly, but it does not tell you what happened. Nobody remembers what they were doing at 14:33. When you need that picture two years later on an external backup or NAS, you search for words like "Tokyo", "Beach", or "Dog".</p>
+
+  <p>Media Renamer Pro uses on-device Apple Vision to analyze scenes and generate human-readable descriptions alongside the capture date (e.g. <code>2024-08-12 Tokyo Vacation.heic</code>). Because the description is part of the actual filename, your photos become instantly searchable using Cmd + Space in macOS Spotlight and Finder, without needing to open a proprietary photo library.</p>
+
   <h2 id="doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</h2>
 
-  <p>This is the case the app was built for. It reads <code>DateTimeOriginal</code> out of the image with ImageIO, so HEIC, JPEG and raw all work the same way, and it builds the name from a template you set once. The preview is the whole batch before anything moves, collisions are computed against the final state rather than file by file, and the last saved session can be undone.</p>
+  <p>This is the case the app was built for. It reads <code>DateTimeOriginal</code> out of the image with ImageIO, so HEIC, JPEG and raw all work the same way, and it builds the name from a template you set once. It can add on-device Apple Vision scene analysis for human names, compute collisions against the final state rather than file by file, and undo the last saved session.</p>
 
   <p>It runs on the Mac and on the iPhone and iPad, which matters more than it sounds: renaming the photos on the phone before they ever reach the Mac means the Mac side is already clean.</p>
 
