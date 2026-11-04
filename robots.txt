@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://bkettering74.github.io/media-renamer-pro/sitemap-pages.xml
+Sitemap: https://bkettering74.github.io/media-renamer-pro/sitemap.xml
