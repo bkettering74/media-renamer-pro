@@ -138,7 +138,7 @@
       "name": "Will it rename anything without asking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It builds a rename plan and shows every old and new name side by side. Nothing on disk changes until you press Rename, and Undo reverts the last batch, and Undo a Past Batch reverts earlier ones."
+        "text": "No. It builds a rename plan and shows every old and new name side by side. Nothing on disk changes until you press Rename. Undo puts the last batch back, and Undo a Past Batch reaches any earlier one."
       }
     },
     {
@@ -162,7 +162,23 @@
       "name": "Do I need API keys?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. TVmaze, OpenLibrary, MusicBrainz and RAWG need nothing. TMDb, OMDb and IGDB can use your own free key for better results."
+        "text": "No. TVmaze, Apple Music, MusicBrainz, OpenLibrary and RAWG need nothing, and Apple Intelligence photo names are free with no key. TMDb, OMDb and IGDB can use your own free key for better results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I undo a batch from last week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click the arrow next to Undo (touch and hold on iPhone and iPad), choose Undo a Past Batch and pick it from the list. Files that were moved, deleted or renamed again since are skipped, never overwritten. It works for any batch whose log is still in the export folder, and the app keeps the last 100."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do Apple Intelligence photo names need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "macOS 27 or iOS 27 on a device that supports Apple Intelligence. It runs on Apple's Private Cloud Compute for free, with a daily limit. On older systems, or past the limit, the app uses Apple Vision on your device instead."
       }
     }
   ]
@@ -176,6 +192,7 @@
     <a class="logo" href="./" aria-label="Media Renamer Pro home"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="32" height="32" alt=""><span>Media Renamer Pro</span></a>
     <nav class="nav" aria-label="Main">
       <a class="nav-hide-sm" href="./#whats-new">What's new</a>
+      <a href="features.html">Features</a>
       <a href="guides.html">Guides</a>
       <a href="support.html">Support</a>
       <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">Get the app</a>
@@ -186,7 +203,7 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <p class="eyebrow">Version 2.0: edit tags, fix matches</p>
+      <p class="eyebrow">New in 2.1.3: undo any past batch</p>
       <h1>Turn messy media folders into <span class="grad">clean, organized libraries.</span></h1>
       <p class="lede">Raw camera exports, disc rips, and downloads leave your drives full of cryptic filenames that break media servers and photo albums. Media Renamer Pro reads the metadata already embedded inside your files, looks up missing titles from trusted databases, and shows you the complete side-by-side rename plan before touching disk.</p>
       <div class="demo" aria-label="Example renames across media types">
@@ -217,26 +234,26 @@
       </div>
       <div class="cta">
         <a class="store-badge" style="display:inline-block;line-height:0" href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-mac-app-store/black/en-us" alt="Download Media Renamer Pro on the Mac App Store" width="180" height="54" style="height:54px;width:auto;display:block"></a>
-        <a class="btn btn-ghost" href="#whats-new">What's new in 2.0</a>
+        <a class="btn btn-ghost" href="features.html">See every feature</a>
       </div>
       <p class="fine">US $4.99 once. Mac, iPad and iPhone. No subscription, no ads, no account.</p>
     </div>
     <div>
-      <img class="hero-shot" src="media/v20/hero-1600.jpg" srcset="media/v20/hero-800.jpg 800w, media/v20/hero-1600.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" width="1600" height="1070" alt="Media Renamer Pro 2.0 on Mac previewing batch renames with confidence scores, tags and online matches" fetchpriority="high">
+      <img class="hero-shot" src="media/v213/undo-menu-1600.jpg" srcset="media/v213/undo-menu-800.jpg 800w, media/v213/undo-menu-1600.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" width="1600" height="917" alt="Media Renamer Pro on Mac previewing ten movie renames at 98% confidence, with the Undo menu open showing Undo Last Batch and Undo a Past Batch" fetchpriority="high">
     </div>
   </div>
 </section>
 
-<section class="section" id="whats-new">  <div class="container">    <div class="section-head">      <p class="kicker">New in 2.1.3</p>      <h2>Undo any past batch, plus smarter photos and TV</h2>      <p>Everything from 2.1, 2.1.1 and 2.1.3. Preview first and Undo still apply to everything below.</p>    </div>    <div class="grid"><div class="card"><div class="icon" aria-hidden="true">↩️</div><h3>Undo any past batch</h3><p>Undo is no longer just for the last batch. Click the arrow next to Undo (touch and hold on iPhone and iPad), choose Undo a Past Batch, and put any earlier batch back. Files that moved since are skipped, never overwritten.</p></div><div class="card"><div class="icon" aria-hidden="true">🛟</div><h3>Interrupted renames fix themselves</h3><p>If the app quits, the Mac sleeps or a drive disconnects mid-batch, your files are put back on their own the next time it opens. Nothing is left with a strange temporary name.</p></div><div class="card"><div class="icon" aria-hidden="true">✨</div><h3>Apple Intelligence photo names</h3><p>Photos are described on Apple's Private Cloud Compute. Free, no account, no API key. Save the description into the file so Spotlight can find it.</p></div><div class="card"><div class="icon" aria-hidden="true">📺</div><h3>Smarter TV episode matching</h3><p>Episode numbers from the Season folder, split episodes in the right order, two episodes in one file, and show names in their official styling.</p></div><div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Better music and audiobook lookups</h3><p>Apple Music first for album, year and cover. One lookup per audiobook, so every chapter gets the same title and cover.</p></div><div class="card"><div class="icon" aria-hidden="true">🔒</div><h3>Tighter privacy</h3><p>API keys live only in your Keychain. Local-Only Mode blocks every internet connection, and Delete All Face Data clears face recognition in one tap.</p></div></div>    <p class="small" style="margin-top:22px">Full history on the <a href="release-notes.html">release notes page</a>. Want the walkthrough for watched folders? Read <a href="rename-new-files-only.html">how to rename only the new files in a folder</a>.</p>    <p class="small" style="margin-top:12px">Tag tools from 2.0: <a href="edit-tags-and-cover-art.html">edit tags and cover art</a>, <a href="fix-a-wrong-match.html">fix a wrong match</a>, <a href="clean-and-fill-tags.html">clean and fill tags</a> and <a href="workflows-in-2-0.html">five workflows for 2.0</a>. Changing tags changes the file itself, and Undo puts it back exactly.</p>  </div></section>
+<section class="section" id="whats-new">  <div class="container">    <div class="section-head">      <p class="kicker">New in 2.1.3</p>      <h2>Undo any past batch, plus smarter photos and TV</h2>      <p>Everything from 2.1, 2.1.1 and 2.1.3. Preview first and Undo still apply to everything below.</p>    </div>    <div class="grid"><div class="card"><div class="icon" aria-hidden="true">↩️</div><h3>Undo any past batch</h3><p>Undo is no longer just for the last batch. Click the arrow next to Undo (touch and hold on iPhone and iPad), choose Undo a Past Batch, and put any earlier batch back. Files that moved since are skipped, never overwritten.</p></div><div class="card"><div class="icon" aria-hidden="true">🛟</div><h3>Interrupted renames fix themselves</h3><p>If the app quits, the Mac sleeps or a drive disconnects mid-batch, your files are put back on their own the next time it opens. Nothing is left with a strange temporary name.</p></div><div class="card"><div class="icon" aria-hidden="true">✨</div><h3>Apple Intelligence photo names</h3><p>Photos are described on Apple's Private Cloud Compute. Free, no account, no API key. Save the description into the file so Spotlight can find it.</p></div><div class="card"><div class="icon" aria-hidden="true">📺</div><h3>Smarter TV episode matching</h3><p>Episode numbers from the Season folder, split episodes in the right order, two episodes in one file, and show names in their official styling.</p></div><div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Better music and audiobook lookups</h3><p>Apple Music first for album, year and cover. One lookup per audiobook, so every chapter gets the same title and cover.</p></div><div class="card"><div class="icon" aria-hidden="true">🔒</div><h3>Tighter privacy</h3><p>API keys live only in your Keychain. Local-Only Mode blocks every internet connection, and Delete All Face Data clears face recognition in one tap.</p></div></div>    <div class="grid-2" style="margin-top:26px"><div class="feature"><img src="media/v213/past-batches-sheet-1200.jpg" srcset="media/v213/past-batches-sheet-700.jpg 700w, media/v213/past-batches-sheet-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 560px" width="1200" height="1090" alt="The Undo a Past Batch list on Mac with six applied batches of movies, music and TV shows" loading="lazy" style="aspect-ratio:auto;object-fit:contain"><div class="body"><p class="tag">Mac</p><h3>Every batch, one list</h3><p>Pick any batch and put it back. Previews and older logs are one switch away.</p></div></div><div class="feature"><img src="media/v213/past-batches-iphone-600.jpg" width="535" height="1020" alt="Undo a Past Batch on iPhone showing an applied batch of 12 movie renames" loading="lazy" style="aspect-ratio:auto;object-fit:contain;max-height:560px"><div class="body"><p class="tag">iPhone and iPad</p><h3>Touch and hold Undo</h3><p>The same list on iPhone and iPad. If the folder is somewhere new, it asks for it once.</p></div></div></div>    <p class="small" style="margin-top:22px">Full history on the <a href="release-notes.html">release notes page</a>. Every feature in one place on the <a href="features.html">features page</a>. Want the walkthrough for watched folders? Read <a href="rename-new-files-only.html">how to rename only the new files in a folder</a>.</p>    <p class="small" style="margin-top:12px">Tag tools from 2.0: <a href="edit-tags-and-cover-art.html">edit tags and cover art</a>, <a href="fix-a-wrong-match.html">fix a wrong match</a>, <a href="clean-and-fill-tags.html">clean and fill tags</a> and <a href="workflows-in-2-0.html">five workflows for 2.0</a>. Changing tags changes the file itself, and Undo puts it back exactly.</p>  </div></section>
 
 <section class="section" id="features">
   <div class="container">
     <div class="section-head">
       <p class="kicker">Six kinds of media</p>
       <h2>One renamer for everything on your drives</h2>
-      <p>Most renamers stop at TV and movies. This one covers the rest of what is actually on your drives, each with its own naming template and data source.</p>
+      <p>Most renamers stop at TV and movies. This one covers the rest of what is actually on your drives, each with its own naming template and data source. <a href="features.html">See the full feature list.</a></p>
     </div>
-    <div class="grid"><div class="card"><div class="icon" aria-hidden="true">📺</div><h3>TV shows</h3><p>Real episode titles from TVmaze, TMDb and OMDb, in the SxxExx format Plex, Jellyfin and Emby expect.</p></div><div class="card"><div class="icon" aria-hidden="true">🎬</div><h3>Movies</h3><p>The correct title and year, with the scene tags stripped out. Folders mode renames whole movie folders.</p></div><div class="card"><div class="icon" aria-hidden="true">📷</div><h3>Photos and video</h3><p>Date taken, camera, city, and on-device Apple Vision scene analysis. Turn cryptic numbers into human names that are instantly searchable in Spotlight and Finder.</p></div><div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Music</h3><p>Artist, album and track number from the tags already inside the file.</p></div><div class="card"><div class="icon" aria-hidden="true">🎧</div><h3>Audiobooks</h3><p>Author and title from Google Books and OpenLibrary, with a chapters mode for multipart books.</p></div><div class="card"><div class="icon" aria-hidden="true">🕹️</div><h3>Retro game ROMs</h3><p>Clean titles and region tags from IGDB and RAWG, with a platform-aware era check. <a href="rom-naming.html">Read the ROM naming guide.</a></p></div></div>
+    <div class="grid"><div class="card"><div class="icon" aria-hidden="true">📺</div><h3>TV shows</h3><p>Real episode titles from TVmaze, TMDb and OMDb, in the SxxExx format Plex, Jellyfin and Emby expect.</p></div><div class="card"><div class="icon" aria-hidden="true">🎬</div><h3>Movies</h3><p>The correct title and year, with the scene tags stripped out. Folders mode renames whole movie folders and never touches your library folders.</p></div><div class="card"><div class="icon" aria-hidden="true">📷</div><h3>Photos and video</h3><p>Date taken, camera, city, and a scene description from Apple Intelligence, free on Apple's Private Cloud Compute. Turn cryptic numbers into human names that are instantly searchable in Spotlight and Finder.</p></div><div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Music</h3><p>Artist, title, album and track from the tags already inside the file, with Apple Music filling in album, year and cover art.</p></div><div class="card"><div class="icon" aria-hidden="true">🎧</div><h3>Audiobooks</h3><p>Author and title from Google Books and OpenLibrary, with a chapters mode for multipart books.</p></div><div class="card"><div class="icon" aria-hidden="true">🕹️</div><h3>Retro game ROMs</h3><p>Clean titles and region tags from IGDB and RAWG, with a platform-aware era check. <a href="rom-naming.html">Read the ROM naming guide.</a></p></div></div>
   </div>
 </section>
 
@@ -267,7 +284,7 @@
     <ol class="steps">
       <li><strong>Add files or a folder.</strong> Pick the media type, then add files with + or drop them in. On Mac, if Grant Access appears, select the folder itself and click Grant Access.</li>
       <li><strong>Preview.</strong> Check the old and new names, the source of each match and its confidence. Any new name can be edited.</li>
-      <li><strong>Rename.</strong> Keep the app open and the drive connected until the batch finishes. Undo reverts the last saved session.</li>
+      <li><strong>Rename.</strong> Keep the app open and the drive connected until the batch finishes. Undo puts the last batch back, and Undo a Past Batch reaches any earlier one.</li>
     </ol>
   </div>
 </section>
@@ -280,7 +297,7 @@
     </div>
     <ul class="checks">
       <li><strong>Preview first</strong>Every single change is visible before it happens.</li>
-      <li><strong>Undo the last session</strong>Revert the renames recorded in its saved undo log.</li>
+      <li><strong>Undo any batch</strong>The last one with one click, or any earlier one from the Undo a Past Batch list.</li><li><strong>Recovers from interruptions</strong>A quit, a sleeping Mac or a dropped drive mid-batch? Files go back on their own next launch.</li>
       <li><strong>Never overwrites</strong>Two files that resolve to the same name get a suffix, not a collision.</li>
       <li><strong>Only what is new</strong>Watched Folders with New only skip the files you already renamed.</li>
       <li><strong>Presets per media type</strong>Click-to-add naming tokens. No regex, no scripting.</li>
@@ -307,7 +324,7 @@
     <div class="section-head">
       <p class="kicker">Private by design</p>
       <h2>Your files stay on your device</h2>
-      <p>Renaming happens on your device. Apple Vision is the default photo engine and runs on-device. Optional cloud engines (OpenAI, Gemini and Anthropic) only send photos when you add your own key and choose that engine. Online title lookups and location lookups need a connection, and Local-Only Mode blocks every network request. No account, tracking, ads or telemetry in the app. This website has optional analytics that stays off unless you allow it. See <a href="privacy.html">Website privacy</a>.</p>
+      <p>Renaming happens on your device. Photo descriptions come from Apple Intelligence, on your device or on Apple's Private Cloud Compute, which Apple built so your photos are never stored or shared. Prefer nothing leaves at all? Pick Apple Vision, or turn on Local-Only Mode and the app makes no internet connections of any kind. Optional cloud engines (Anthropic, Google, OpenAI and xAI) only send photos when you add your own key and choose that engine, and those keys live only in your Keychain. Delete All Face Data clears face recognition in one tap. No account, tracking, ads or telemetry in the app. This website has optional analytics that stays off unless you allow it. See <a href="privacy.html">Website privacy</a>.</p>
     </div>
   </div>
 </section>
@@ -351,7 +368,7 @@
 <section class="section">
   <div class="container read faq">
     <div class="section-head"><p class="kicker">Questions</p><h2>Quick answers</h2></div>
-    <details><summary>Is Media Renamer Pro free?</summary><p>It is a one-time purchase of US $4.99 on the App Store. No subscription, no ads, no account, and one purchase covers Mac, iPad and iPhone.</p></details><details><summary>Will it rename anything without asking?</summary><p>No. It builds a rename plan and shows every old and new name side by side. Nothing on disk changes until you press Rename, and Undo reverts the last batch, and Undo a Past Batch reverts earlier ones.</p></details><details><summary>Does it work with Plex, Jellyfin and Emby?</summary><p>Yes. The default TV and movie templates follow the naming those servers read, like <code>Show S01E02 Episode Title</code> and <code>Movie (Year)</code>, and you can change them. The <a href="naming-guide.html">naming guide</a> explains why.</p></details><details><summary>Can it rename files on a NAS?</summary><p>Yes. Mount the share in Finder (or pick it in Files on iPhone and iPad) and preview as normal. You can save it as a Watched Folder and load only the new files automatically.</p></details><details><summary>Do I need API keys?</summary><p>No. TVmaze, OpenLibrary, MusicBrainz and RAWG need nothing. TMDb, OMDb and IGDB can use your own free key for better results.</p></details>
+    <details><summary>Is Media Renamer Pro free?</summary><p>It is a one-time purchase of US $4.99 on the App Store. No subscription, no ads, no account, and one purchase covers Mac, iPad and iPhone.</p></details><details><summary>Will it rename anything without asking?</summary><p>No. It builds a rename plan and shows every old and new name side by side. Nothing on disk changes until you press Rename. Undo puts the last batch back, and Undo a Past Batch reaches any earlier one.</p></details><details><summary>Does it work with Plex, Jellyfin and Emby?</summary><p>Yes. The default TV and movie templates follow the naming those servers read, like <code>Show S01E02 Episode Title</code> and <code>Movie (Year)</code>, and you can change them. The <a href="naming-guide.html">naming guide</a> explains why.</p></details><details><summary>Can it rename files on a NAS?</summary><p>Yes. Mount the share in Finder (or pick it in Files on iPhone and iPad) and preview as normal. You can save it as a Watched Folder and load only the new files automatically.</p></details><details><summary>Do I need API keys?</summary><p>No. TVmaze, Apple Music, MusicBrainz, OpenLibrary and RAWG need nothing, and Apple Intelligence photo names are free with no key. TMDb, OMDb and IGDB can use your own free key for better results.</p></details><details><summary>Can I undo a batch from last week?</summary><p>Yes. Click the arrow next to Undo (touch and hold on iPhone and iPad), choose Undo a Past Batch and pick it from the list. Files that were moved, deleted or renamed again since are skipped, never overwritten. It works for any batch whose log is still in the export folder, and the app keeps the last 100.</p></details><details><summary>What do Apple Intelligence photo names need?</summary><p>macOS 27 or iOS 27 on a device that supports Apple Intelligence. It runs on Apple's Private Cloud Compute for free, with a daily limit. On older systems, or past the limit, the app uses Apple Vision on your device instead.</p></details>
     <p style="margin-top:18px">More on the <a href="support.html">support page</a>, or chat with other users on the <a href="https://discord.gg/Hw9pgpC9T">Discord</a>.</p>
   </div>
 </section>
@@ -361,7 +378,7 @@
     <div class="section-head"><p class="kicker">Requirements</p><h2>What you need</h2></div>
     <ul class="checks">
       <li><strong>macOS 14.0 or later</strong>On your Mac.</li>
-      <li><strong>iOS and iPadOS 17.0 or later</strong>iPhone and iPad.</li>
+      <li><strong>iOS and iPadOS 17.0 or later</strong>iPhone and iPad.</li><li><strong>Apple Intelligence photo names</strong>macOS or iOS 27 on a supported device. Everything else works without it.</li>
       <li><strong>One universal purchase</strong>US $4.99 covers all three.</li>
     </ul>
     <div style="margin-top:44px"><div class="cta-band">
@@ -384,10 +401,10 @@
         <h2>App</h2>
         <ul>
           <li><a href="https://apps.apple.com/app/apple-store/id6761764615?pt=128751966&amp;ct=website&amp;mt=8">App Store</a></li>
-          <li><a href="./#whats-new">What's new in 2.0</a></li>
-          <li><a href="./#features">Features</a></li>
+          <li><a href="./#whats-new">What's new in 2.1.3</a></li>
+          <li><a href="features.html">All features</a></li><li><a href="release-notes.html">Release notes</a></li>
           <li><a href="support.html">Support and FAQ</a></li>
-          <li><a href="workflows-in-2-0.html">2.0 how-to guides</a></li>
+          <li><a href="workflows-in-2-0.html">Tag editor how-to guides</a></li>
           <li><a href="https://discord.gg/Hw9pgpC9T">Discord community</a></li>
         </ul>
       </div>
