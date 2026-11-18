@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Media Renamer Pro Release Notes: 2.0, 1.4 and earlier</title>
-<meta name="description" content="Every Media Renamer Pro update: 2.0 tag editor and match fixer, 1.4 watched folders and add and remove, with what changed in plain words.">
+<title>Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier</title>
+<meta name="description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/release-notes.html">
 <meta name="theme-color" content="#0b0a1f">
 <meta name="apple-itunes-app" content="app-id=6761764615">
 <meta name="author" content="Buck Kettering">
 <meta property="og:site_name" content="Media Renamer Pro">
-<meta property="og:title" content="Media Renamer Pro Release Notes: 2.0, 1.4 and earlier">
-<meta property="og:description" content="Every Media Renamer Pro update: 2.0 tag editor and match fixer, 1.4 watched folders and add and remove, with what changed in plain words.">
+<meta property="og:title" content="Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier">
+<meta property="og:description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/release-notes.html">
 <meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
@@ -22,8 +22,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
 <meta name="twitter:creator" content="@MediaRenamerPro">
-<meta name="twitter:title" content="Media Renamer Pro Release Notes: 2.0, 1.4 and earlier">
-<meta name="twitter:description" content="Every Media Renamer Pro update: 2.0 tag editor and match fixer, 1.4 watched folders and add and remove, with what changed in plain words.">
+<meta name="twitter:title" content="Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier">
+<meta name="twitter:description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
 <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
 <link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
@@ -54,6 +54,48 @@
     <p class="standfirst">What changed in each version, in plain words.</p>
   </header>
   <div class="prose">
+    <h2 id="v2-1-1">Version 2.1.1: smarter TV episode matching</h2>
+    <h3>TV shows</h3>
+    <ul>
+      <li>Episode numbers now come from the Season folder when a file has none, like "Episode 4", "Chapter 04", "Happy Days - 3-15" or "Teen Titans Go! 308".</li>
+      <li>Split episodes (S01E05a, S01E05b) are matched by title to their real episode numbers, so Emby, Plex and Jellyfin list them in the right order.</li>
+      <li>Two episodes in one file, like "Chapter 19 and 20", become S02E19-E20.</li>
+      <li>A release tag repeated on every file in a folder no longer ends up as the episode title.</li>
+      <li>Show names keep their official styling (VisionQuest, MobLand) without the all-caps some listings use.</li>
+      <li>Collection folders no longer pick up a guessed year from another show with the same name.</li>
+    </ul>
+    <h3>Fixes</h3>
+    <ul><li>Run logs now list the app version and key settings, so support can help faster.</li></ul>
+    <h2 id="v2-1">Version 2.1: Apple Intelligence photo names</h2>
+    <p>Free Apple Intelligence photo names, smarter music and audiobook lookups, and a fresh coat of paint. The <a href="rename-photos-by-date.html">photo naming guide</a> has the details.</p>
+    <h3>Photos</h3>
+    <ul>
+      <li>Apple Intelligence (Private Cloud) describes your photos on Apple's Private Cloud Compute. Free, no account, no API key. It is the new default where your device supports it.</li>
+      <li>Save a photo's description right into the file so it stays searchable.</li>
+      <li>Shorter, cleaner names, six words max.</li>
+      <li>Old scans are read at full detail, so handwritten captions come through.</li>
+      <li>Pick any image model from Anthropic, Google, OpenAI or xAI.</li>
+      <li>Local-Only Mode keeps photos on your device and uses the on-device model.</li>
+    </ul>
+    <h3>Music</h3>
+    <ul>
+      <li>Apple Music lookup first for album, year and cover art.</li>
+      <li>Better matches for duets, featured artists, compilations and band names. Tribute and karaoke acts are skipped.</li>
+      <li>Tags fill in even on MP3s that had no tags at all.</li>
+    </ul>
+    <h3>Audiobooks</h3>
+    <ul>
+      <li>One lookup per book, so every chapter gets the same title and cover.</li>
+      <li>Numbers inside titles stay put, like 2001: A Space Odyssey and Revolt in 2100.</li>
+    </ul>
+    <h3>Everywhere</h3>
+    <ul>
+      <li>Pick an app color in Settings. 11 to choose from.</li>
+      <li>Edit tags opens in its own window you can move and resize (Mac).</li>
+      <li>Folders mode never renames your library folders like Movies, TV Shows and Audio Books.</li>
+      <li>A Stop button on Clean, Fill and Lookup.</li>
+      <li>Dozens of naming fixes from real-world libraries.</li>
+    </ul>
     <h2 id="v2-0">Version 2.0: edit tags, fix matches</h2>
     <p>How-to guides for everything below: <a href="edit-tags-and-cover-art.html">edit tags and cover art</a>, <a href="find-cover-art-online.html">find cover art online</a>, <a href="fix-a-wrong-match.html">fix a wrong match</a>, <a href="clean-and-fill-tags.html">clean and fill tags</a>, <a href="confidence-percentage-explained.html">the confidence percentage</a> and <a href="workflows-in-2-0.html">five workflows</a>.</p>
     <h3>Edit tags</h3>
