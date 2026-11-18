@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</title>
-<meta name="description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<title>Audiobookshelf naming convention: how to name audiobook files</title>
+<meta name="description" content="The Audiobookshelf naming convention in one line: Author/Series/Vol 2 - 2013 - Title {Narrator}/. Plus zero-padded part numbers, author and title order, and what Plex and Emby need.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html">
 <meta name="theme-color" content="#0b0a1f">
 <meta name="apple-itunes-app" content="app-id=6761764615">
 <meta name="author" content="Buck Kettering">
 <meta property="og:site_name" content="Media Renamer Pro">
-<meta property="og:title" content="How to name audiobook files so Audiobookshelf, Plex and Emby sort them right">
-<meta property="og:description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<meta property="og:title" content="Audiobookshelf naming convention: how to name audiobook files">
+<meta property="og:description" content="The Audiobookshelf naming convention in one line: Author/Series/Vol 2 - 2013 - Title {Narrator}/. Plus zero-padded part numbers, author and title order, and what Plex and Emby need.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html">
 <meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
@@ -22,8 +22,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
 <meta name="twitter:creator" content="@MediaRenamerPro">
-<meta name="twitter:title" content="How to name audiobook files so Audiobookshelf, Plex and Emby sort them right">
-<meta name="twitter:description" content="Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.">
+<meta name="twitter:title" content="Audiobookshelf naming convention: how to name audiobook files">
+<meta name="twitter:description" content="The Audiobookshelf naming convention in one line: Author/Series/Vol 2 - 2013 - Title {Narrator}/. Plus zero-padded part numbers, author and title order, and what Plex and Emby need.">
 <meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
 <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
 <link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
@@ -34,15 +34,15 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "How to name audiobook files so Audiobookshelf, Plex and Emby sort them right",
-  "description": "Why audiobook parts play out of order, why Title - Author needs care, zero-padded part numbers, the Audiobookshelf folder layout, and a naming template that works on a NAS.",
+  "headline": "Audiobookshelf naming convention: how to name audiobook files",
+  "description": "The Audiobookshelf naming convention in one line: Author/Series/Vol 2 - 2013 - Title {Narrator}/. Plus zero-padded part numbers, author and title order, and what Plex and Emby need.",
   "url": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html"
   },
   "datePublished": "2026-10-19",
-  "dateModified": "2026-10-19",
+  "dateModified": "2026-11-18",
   "inLanguage": "en",
   "author": {
     "@type": "Person",
@@ -87,7 +87,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "How to name audiobook files so Audiobookshelf, Plex and Emby sort them right",
+      "name": "Audiobookshelf naming convention: how to name audiobook files",
       "item": "https://bkettering74.github.io/media-renamer-pro/audiobook-naming.html"
     }
   ]
@@ -95,6 +95,38 @@
 </script>
 <meta property="article:published_time" content="2026-10-19">
 <meta property="article:modified_time" content="2026-10-19">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Audiobookshelf naming convention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Audiobookshelf reads the folder structure as Author, then Series (optional), then the book title, then the files. A year goes first or right after the series number, a series sequence is picked up after Vol or Book, and a narrator goes in curly braces: Author/Series/Vol 2 - 2013 - Title {Narrator}/."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should audiobook parts be numbered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Put a zero-padded part number first, like 01 - Author - Title.mp3 and 02 - Author - Title.mp3. Some players sort names character by character, so Part 10 lands before Part 2 unless the number is padded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Plex and Emby use the same audiobook naming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are less picky than Audiobookshelf, but all of them work best with one book per folder, consistent names inside it and zero-padded part numbers."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -114,13 +146,14 @@
 <article class="container">
   <div class="read">
     <header class="article-head">
-      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</li></ol></nav>
-      <h1>How to name audiobook files so Audiobookshelf, Plex and Emby sort them right</h1>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="./guides.html">Guides</a></li><li aria-current="page">Audiobookshelf naming convention: how to name audiobook files</li></ol></nav>
+      <h1>Audiobookshelf naming convention: how to name audiobook files so they sort right</h1>
       <p class="standfirst">Parts that play in the wrong order, titles and authors swapped, covers that vanish. Most of it comes down to a few naming rules the server and the player both depend on.</p>
       <p class="meta"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/64x64bb.jpg" width="28" height="28" alt="" loading="lazy"><span>By Buck Kettering</span><span>&middot; October 19, 2026</span><span>&middot; 5 min read</span></p>
     </header>
     <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#1-parts-need-a-number-that-sorts-as-text">1. Parts need a number that sorts as text</a></li><li><a href="#2-watch-the-double-space">2. Watch the double space</a></li><li><a href="#3-author-and-title-in-the-right-order">3. Author and title in the right order</a></li><li><a href="#4-pick-one-template-and-keep-it">4. Pick one template and keep it</a></li><li><a href="#5-keep-covers-and-extras-with-the-book">5. Keep covers and extras with the book</a></li><li><a href="#6-folders-author-series-title">6. Folders: Author, Series, Title</a></li><li><a href="#7-nas-and-smb-shares">7. NAS and SMB shares</a></li><li><a href="#doing-it-with-media-renamer-pro">Doing it with Media Renamer Pro</a></li></ol></nav>
     <div class="prose">
+<div class="note"><p><strong>Short answer.</strong> Audiobookshelf reads folders as Author, then Series (optional), then the book: <code>Author/Series/Vol 2 - 2013 - Title {Narrator}/</code>. Inside the book folder, number the parts with zero padding: <code>01 - Author - Title.mp3</code>, <code>02 - Author - Title.mp3</code>. The rules behind each piece, and what changes for Plex and Emby, are below.</p></div>
 <p>Audiobooks arrive from ripped CDs, store downloads, and tools like Libation or OpenAudible, and the names are all over the place. A server can only match what it can read, so a clean name plus good tags is what makes the cover, the series and the author page come out right.</p>
 
 <p>These are the rules that cause most of the mess.</p>
