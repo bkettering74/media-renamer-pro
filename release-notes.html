@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier</title>
-<meta name="description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
+<title>Media Renamer Pro Release Notes: 2.1.3, 2.1, 2.0 and earlier</title>
+<meta name="description" content="Every Media Renamer Pro update: 2.1.3 undo any past batch, 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://bkettering74.github.io/media-renamer-pro/release-notes.html">
 <meta name="theme-color" content="#0b0a1f">
 <meta name="apple-itunes-app" content="app-id=6761764615">
 <meta name="author" content="Buck Kettering">
 <meta property="og:site_name" content="Media Renamer Pro">
-<meta property="og:title" content="Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier">
-<meta property="og:description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
+<meta property="og:title" content="Media Renamer Pro Release Notes: 2.1.3, 2.1, 2.0 and earlier">
+<meta property="og:description" content="Every Media Renamer Pro update: 2.1.3 undo any past batch, 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bkettering74.github.io/media-renamer-pro/release-notes.html">
 <meta property="og:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
@@ -22,8 +22,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@MediaRenamerPro">
 <meta name="twitter:creator" content="@MediaRenamerPro">
-<meta name="twitter:title" content="Media Renamer Pro Release Notes: 2.1.1, 2.1, 2.0 and earlier">
-<meta name="twitter:description" content="Every Media Renamer Pro update: 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
+<meta name="twitter:title" content="Media Renamer Pro Release Notes: 2.1.3, 2.1, 2.0 and earlier">
+<meta name="twitter:description" content="Every Media Renamer Pro update: 2.1.3 undo any past batch, 2.1.1 TV episode matching, 2.1 Apple Intelligence photo names, 2.0 tag editor and match fixer, in plain words.">
 <meta name="twitter:image" content="https://bkettering74.github.io/media-renamer-pro/media/v14/og-image.jpg">
 <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg">
 <link rel="apple-touch-icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/13/b0/ea13b0ed-9324-8f76-720c-9cf1814bc34e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/180x180bb.jpg">
@@ -54,6 +54,31 @@
     <p class="standfirst">What changed in each version, in plain words.</p>
   </header>
   <div class="prose">
+    <h2 id="v2-1-3">Version 2.1.3: undo any past batch</h2>
+    <p>Undo any past batch, plus safer renames, tighter privacy and a few iPhone fixes.</p>
+    <h3>New</h3>
+    <ul>
+      <li>Undo a Past Batch: put back any earlier batch, not just the last one. Click the arrow next to Undo (touch and hold on iPhone and iPad), choose Undo a Past Batch, and pick it from the list. Previews and older logs are one switch away.</li>
+      <li>If the files are in a folder the app can no longer reach, it asks for that folder once, then puts the whole batch back.</li>
+    </ul>
+    <h3>Safety</h3>
+    <ul>
+      <li>If a rename gets interrupted (the app quits, the Mac sleeps, or a drive disconnects), your files are put back on their own next time. Nothing is left with a strange temporary name.</li>
+      <li>Undo will never replace a file that has since taken an old name.</li>
+      <li>Names longer than the file system allows are skipped with a clear reason instead of failing partway.</li>
+    </ul>
+    <h3>Privacy</h3>
+    <ul>
+      <li>API keys for photo naming now live only in your Keychain, and are kept out of run logs.</li>
+      <li>Local-Only Mode now blocks every internet connection, including lookups you start by hand. A local Ollama server still works.</li>
+      <li>New "Delete All Face Data" button in Settings, under Photos and Face Recognition. Saved presets no longer keep a copy of your faces.</li>
+    </ul>
+    <h3>Fixes</h3>
+    <ul>
+      <li>iPhone: the watched folders button now shows in portrait, next to Settings.</li>
+      <li>Invisible characters from online sources are removed from new names.</li>
+      <li>Fixed short pauses while reading photo details.</li>
+    </ul>
     <h2 id="v2-1-1">Version 2.1.1: smarter TV episode matching</h2>
     <h3>TV shows</h3>
     <ul>
